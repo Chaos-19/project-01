@@ -1,5 +1,17 @@
-const App = ()=>
-  { return <h1 className="text-6xl text-red-900">OG</h1>}
-  
+import Navbar from "./components/Navbar";
+import Header from "./sections/Header";
 
-export default  App;
+interface Props {
+    // Define your props here
+}
+
+const App = () => {
+    return (
+        <div>
+            <Navbar />
+            <Header />
+        </div>
+    );
+};
+
+export default App;
