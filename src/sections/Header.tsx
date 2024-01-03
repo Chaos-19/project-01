@@ -6,48 +6,64 @@ import {
     ButtonNext,
     CarouselProvider,
     DotGroup,
+    Dot,
     ImageWithZoom,
     Slide,
     Slider
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 
-import { image1, image2, image3, image4 } from "../assets/index";
+import { headerSlide } from "../constants";
 
 interface Props {
     // Define your props here
 }
+type slideItemProps = {
+    index: number;
+    bgImage: string;
+    title: string;
+};
+
+const SlideItem = (props: slideItemProps) => {
+    const { index, bgImage, title } = props;
+    return (
+        <Slide index={0}>
+            <ImageWithZoom src={bgImage}>{title} </ImageWithZoom>
+        </Slide>
+    );
+};
 
 const Header = () => {
     return (
         <CarouselProvider
             visibleSlides={1}
-            totalSlides={6}
+            totalSlides={headerSlide.length}
             step={1}
             naturalSlideWidth={400}
-            naturalSlideHeight={500}
+            naturalSlideHeight={800}
             hasMasterSpinner
             lockOnWindowScroll
+            infinite
         >
             <Slider>
-                <Slide index={0}>
-                    <ImageWithZoom src={image1} />
-                </Slide>
-                <Slide index={1}>
-                    <ImageWithZoom src={image2} />
-                </Slide>
-                <Slide index={2}>
-                    <ImageWithZoom src={image3} />
-                </Slide>
-                <Slide index={3}>
-                    <ImageWithZoom src={image4} />
-                </Slide>
+                {headerSlide.map((slide, index) => {
+                    return (
+                        <SlideItem
+                            index={index}
+                            title={slide.title}
+                            bgImage={slide.bgImage}
+                        />
+                    );
+                })}
             </Slider>
             <ButtonFirst>First</ButtonFirst>
             <ButtonBack>Back</ButtonBack>
             <ButtonNext>Next</ButtonNext>
             <ButtonLast>Last</ButtonLast>
-            <DotGroup />
+            <Dot
+                slide={0}
+                className="bg-red-600 p-2 rounded-full  top-2 z-50"
+            />
         </CarouselProvider>
     );
 };
