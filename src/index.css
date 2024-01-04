@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* position pagination to left  */
 .swiper-pagination-horizontal.swiper-pagination-bullets, 
 .swiper-horizontal>.swiper-pagination-bullets { 
   right: auto;

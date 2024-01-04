@@ -67,12 +67,11 @@ const Slider = (props: Props) => {
     console.log(navHeight);
 
     return (
-        <div className="">
+        <div className="relative border border-2 border-green-900">
             <Swiper
                 style={{
                     "--swiper-navigation-color": "#ce1414",
-                    "--swiper-pagination-color": "#ce1414",
-                    "--swiper-pagination-left": "40%"
+                    "--swiper-pagination-color": "#ce1414"
                 }}
                 loop={true}
                 pagination={{
@@ -80,8 +79,22 @@ const Slider = (props: Props) => {
                 }}
                 navigation={true}
                 modules={[Pagination, Navigation]}
-                className={`mySwiper h-[calc(100dvh_-_60px)]`}
+                className={`mySwiper h-[calc(100dvh_-_60px)] w-full`}
             >
+                {headerSlide.map((slide, index) => {
+                    return (
+                        <SwiperSlide className="w-full h-full">
+                            <SlideItem
+                                bgImage={slide.bgImage}
+                                title={slide.title}
+                                body={slide.body}
+                                btn={slide.btn}
+                            />
+                        </SwiperSlide>
+                    );
+                })}
+            </Swiper>
+            <Swiper className="absolute bottom-10 m-auto left-0 right-0 border border-2 border-yellow-600 m-0 h-14 w-9/12">
                 {headerSlide.map((slide, index) => {
                     return (
                         <SwiperSlide className="w-full h-full">
