@@ -94,7 +94,11 @@ const Slider = (props: Props) => {
                     );
                 })}
             </Swiper>
-            <Swiper className="absolute bottom-10 m-auto left-0 right-0 border border-2 border-yellow-600 m-0 h-14 w-9/12">
+            {/*icons Slider */}
+            <Swiper
+                slidesPerView={2}
+                className="absolute bottom-10 m-auto left-0 right-0 border border-2 border-yellow-600 m-0 h-14 w-9/12"
+            >
                 {headerSlide.map((slide, index) => {
                     return (
                         <SwiperSlide className="w-full h-full">
@@ -108,6 +112,7 @@ const Slider = (props: Props) => {
                     );
                 })}
             </Swiper>
+            {/* icon slider  end*/}
         </div>
     );
 };
