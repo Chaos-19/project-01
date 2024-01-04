@@ -36,19 +36,19 @@ export const headerSlide: Object[] = [
         title: "modern furniture theme",
         body: `modern  & powerfull template .
         clean design & responsive layout .google font integration `,
-        btnText: "but the template",
+        btn: { text: "but the template", color: "yellow" },
         bgImage: image1
     },
     {
         title: "very animate.css friend",
         body: "combine with animate.css. Or just use your own!!. banch of typography effect ",
-        btnText: "but the template",
+        btn: { text: "but the template", color: "" },
         bgImage: image2
     },
     {
         title: "mobile ready!",
         body: "unlimited choices. unbiteable price free shipping. furniture catagory icon fonts",
-        btnText: "get inspired",
+        btn: { text: "get inspired", color: "" },
         bgImage: image3
     }
 ];
