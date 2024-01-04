@@ -47,7 +47,7 @@ const SlideItem = (props: SlideItemProps) => {
                     {body}
                 </motion.p>
                 <motion.button
-                    variants={fadeIn("up", "tween", 0.75, 1)}
+                    variants={fadeIn("up", "spring", 0.85, 1.5)}
                     className={`${`bg-${btn?.color}-400`} p-2 px-4 border border-2`}
                 >
                     {btn.text}
@@ -68,6 +68,7 @@ const Slider = (props: Props) => {
 
     return (
         <div className="relative border border-2 border-green-900">
+            {/*Main Slide */}
             <Swiper
                 style={{
                     "--swiper-navigation-color": "#ce1414",
