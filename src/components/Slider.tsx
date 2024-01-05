@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import { staggerContainer, fadeIn } from "../utils/motion";
-import { headerSlide } from "../constants";
+import { headerSlide, iconSlider } from "../constants";
 
 interface SlideItemProps {
     bgImage: string;
@@ -21,7 +21,7 @@ interface SlideItemProps {
 
 const SlideItem = (props: SlideItemProps) => {
     const { bgImage, title, body, btn } = props;
-    console.log(btn);
+
     return (
         <div
             className="h-full w-full flex items-center bg-no-repeat bg-cover bg-center"
@@ -32,7 +32,7 @@ const SlideItem = (props: SlideItemProps) => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: false, amount: 0.25 }}
-                className="space-y-5 px-3 pl-4 text-white"
+                className="space-y-5 px-3 pl-4 text-white md:ml-14"
             >
                 <motion.h2
                     variants={fadeIn("down", "tween", 0.5, 1)}
@@ -64,7 +64,18 @@ interface Props {
 const Slider = (props: Props) => {
     const { navHeight } = props;
 
-    console.log(navHeight);
+    const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = (): void => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    console.log(windowWidth);
 
     return (
         <div className="relative border border-2 border-green-900">
@@ -97,18 +108,22 @@ const Slider = (props: Props) => {
             </Swiper>
             {/*icons Slider */}
             <Swiper
-                slidesPerView={2}
-                className="absolute bottom-10 m-auto left-0 right-0 border border-2 border-yellow-600 m-0 h-14 w-9/12"
+                slidesPerView={windowWidth > 768 ? 5 : 3}
+                className="absolute bottom-10 m-auto left-0 right-0 m-0 h-auto w-9/12"
             >
-                {headerSlide.map((slide, index) => {
+                {iconSlider.map((slide, index) => {
                     return (
                         <SwiperSlide className="w-full h-full">
-                            <SlideItem
-                                bgImage={slide.bgImage}
-                                title={slide.title}
-                                body={slide.body}
-                                btn={slide.btn}
-                            />
+                            <a href="">
+                                <figure className="flex flex-col justify-center items-center">
+                                    <img
+                                        src={slide.icon}
+                                        alt={`${slide.title} icon`}
+                                        className="w-14 h-14 bg-cover"
+                                    />
+                                    <figcaption>{slide.title}</figcaption>
+                                </figure>
+                            </a>
                         </SwiperSlide>
                     );
                 })}

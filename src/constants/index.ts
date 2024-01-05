@@ -1,4 +1,21 @@
-import { image1, image2, image3, image4 } from "../assets/index";
+import {
+    image1,
+    image2,
+    image3,
+    image4zsofa,
+    sofa,
+    armchair,
+    chair,
+    bookshelf,
+    bed,
+    bunkBad,
+    kitchen,
+    nightStand,
+    table,
+    wardrobe,
+    shoecabinet,
+    couch
+} from "../assets/index";
 
 export const navLinks: {}[] = [
     {
@@ -50,5 +67,56 @@ export const headerSlide: Object[] = [
         body: "unlimited choices. unbiteable price free shipping. furniture catagory icon fonts",
         btn: { text: "get inspired", color: "" },
         bgImage: image3
+    }
+];
+
+export const iconSlider: Object[] = [
+    {
+        icon: sofa,
+        title: "Sofa"
+    },
+    {
+        icon: armchair,
+        title: "armchair"
+    },
+    {
+        icon: chair,
+        title: "chair"
+    },
+    {
+        icon: bookshelf,
+        title: "bookshelf"
+    },
+    {
+        icon: bed,
+        title: "bedRoom"
+    },
+    {
+        icon: bunkBad,
+        title: "bunkBad"
+    },
+    {
+        icon: table,
+        title: "table"
+    },
+    {
+        icon: nightStand,
+        title: "night Stand"
+    },
+    {
+        icon: kitchen,
+        title: "kitchen"
+    },
+    {
+        icon: wardrobe,
+        title: "wardrobe"
+    },
+    {
+        icon: shoecabinet,
+        title: "shoe cabinet"
+    },
+    {
+        icon: couch,
+        title: "couch"
     }
 ];
