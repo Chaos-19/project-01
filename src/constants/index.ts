@@ -14,7 +14,13 @@ import {
     table,
     wardrobe,
     shoecabinet,
-    couch
+    couch,
+    greenCorner,
+    laura,
+    nude,
+    aurora,
+    diningSet,
+    setsChair
 } from "../assets/index";
 
 export const navLinks: {}[] = [
@@ -118,5 +124,55 @@ export const iconSlider: Object[] = [
     {
         icon: couch,
         title: "couch"
+    }
+];
+
+export const productList: {}[] = [
+    {
+        name: "green Corner",
+        price: {
+            original: 1499,
+            discount: 1099
+        },
+        image: greenCorner
+    },
+    {
+        name: "Laura",
+        price: {
+            original: 3999,
+            discount: 3499
+        },
+        image: laura
+    },
+    {
+        name: "Nude",
+        price: {
+            original: 2999
+        },
+        image: nude,
+        tage: { isNew: true }
+    },
+    {
+        name: "Aurora",
+        price: {
+            original: 299
+        },
+        image: aurora
+    },
+    {
+        name: "dining sets",
+        price: {
+            original: 1999,
+            discount: 1499,
+            discountPersent: -50
+        },
+        image: diningSet
+    },
+    {
+        name: "Seat chair",
+        price: {
+            original: 895
+        },
+        image: setsChair
     }
 ];

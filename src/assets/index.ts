@@ -24,6 +24,13 @@ import table from "./Tisch.svg";
 import wardrobe from "./WARDROBE.svg";
 import shoecabinet from "./shoecabinet.png";
 
+import greenCorner from "./04_product-1.png";
+import laura from "./01_product-2.png";
+import nude from "./06_product-3.png";
+import aurora from "./02_product-4.png";
+import diningSet from "./03_product-5.png";
+import setsChair from "./05_product-6.png";
+
 export {
     logo,
     Menu,
@@ -45,5 +52,11 @@ export {
     table,
     wardrobe,
     shoecabinet,
-    couch
+    couch,
+    greenCorner,
+    laura,
+    nude,
+    aurora,
+    dinigSet,
+    setsChair
 };
