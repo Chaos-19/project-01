@@ -57,6 +57,6 @@ export {
     laura,
     nude,
     aurora,
-    dinigSet,
+    diningSet,
     setsChair
 };

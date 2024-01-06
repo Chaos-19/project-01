@@ -150,7 +150,9 @@ export const productList: {}[] = [
             original: 2999
         },
         image: nude,
-        tage: { isNew: true }
+        tage: {
+            isNew: true
+        }
     },
     {
         name: "Aurora",
@@ -164,7 +166,7 @@ export const productList: {}[] = [
         price: {
             original: 1999,
             discount: 1499,
-            discountPersent: -50
+            discountPercent: -50
         },
         image: diningSet
     },

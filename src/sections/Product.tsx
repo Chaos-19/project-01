@@ -9,21 +9,25 @@ interface Props {
 const Product = () => {
     return (
         <div className="bg-[rgb(238,238,238)] text-black pt-8 w-full">
-            <div className="mx-auto flex flex-col justify-center items-center">
-                <h2 className="text-xl uppercase font-medium">
-                    popular products
-                </h2>
-                <p className="text-md">Check out our latest collections</p>
-            </div>
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                {productList.map((product, index) => {
-                    return (
-                        <ProductCard
-                            name={product.name}
-                            price={product.price}
-                        />
-                    );
-                })}
+            <div className="mx-auto md:w-[760px] lg:w-[1020px] my-10 md:px-8 px-1">
+                <div className="mx-auto flex flex-col justify-center items-center">
+                    <h2 className="text-xl uppercase font-medium">
+                        popular products
+                    </h2>
+                    <p className="text-md">Check out our latest collections</p>
+                </div>
+                <div className="w-full grid grid-cols-2 lg:grid-cols-3 mt-5 gap-0.5 md:gap-7">
+                    {productList.map((product, index) => {
+                        return (
+                            <ProductCard
+                                name={product.name}
+                                price={product.price}
+                                image={product.image}
+                                tage={product.tage}
+                            />
+                        );
+                    })}
+                </div>
             </div>
         </div>
     );
