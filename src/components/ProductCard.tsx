@@ -19,10 +19,10 @@ const ProductCard = (props: Props) => {
     console.log(tage);
 
     return (
-        <div className="relative flex flex-col bg-white shadow-xl  rounded">
+        <div className="group relative flex flex-col bg-white shadow-xl  rounded">
             <div className="inset-x-0 h-fit absolute pt-2.5 md:pt-0 md:bottom-2.5 left-2.5">
                 {price?.discountPercent && (
-                    <span className="text-xs px-1 py-0.5 bg-sky-500 rounded">
+                    <span className="text-xs px-1 py-0.5 bg-sky-500 text-white rounded">
                         {price?.discountPercent}%
                     </span>
                 )}
@@ -51,6 +51,12 @@ const ProductCard = (props: Props) => {
                         ${price?.original}
                     </span>
                 </div>
+            </div>
+
+            {/*Hover effect*/}
+            <div className="hidden group-hover:block absolute right-0 p-3 bg-yellow-500 inset-y-0">
+                <div className=""></div>
+                <div className="absolute inset-x-0 bottom-0 bg-red-700 py-5"></div>
             </div>
         </div>
     );

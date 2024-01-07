@@ -178,3 +178,6 @@ export const productList: {}[] = [
         image: setsChair
     }
 ];
+
+export const features: {}[] = [{
+  prevText: "", icon: "", bgImage: "" }];
