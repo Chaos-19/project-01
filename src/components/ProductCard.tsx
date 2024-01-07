@@ -13,8 +13,6 @@ interface Props {
     };
 }
 
-
-
 const ProductCard = (props: Props) => {
     const { name, price, image, tage } = props;
 
@@ -39,7 +37,7 @@ const ProductCard = (props: Props) => {
                 alt={`${name} image`}
                 className="order-2 bg-cover"
             />
-            <div className="float-left p-2.5 md:pb-0 order-3 md:order-1">
+            <div className="p-2.5 pt-0 md:pt-1.5 order-3 md:inset-x-0 h-fit md:absolute md:top-2.5">
                 <h3 className="text-md font-mono uppercase text-gray-600 font-black">
                     {name}
                 </h3>
