@@ -30,7 +30,7 @@ const Features = () => {
                                 </div>
                             </div>
                             {/*Hover effect*/}
-                            <div className="hidden absolute inset-x-0 bottom-0 group-hover:block  bg-yellow-100 transition-all">
+                            <div className="h-0 absolute inset-x-0 bottom-0 group-hover:h-auto  bg-yellow-100 transition-all duration-150 ease-in">
                                 <div className="flex flex-col justify-center px-3 py-2">
                                     <h3 className="text-xl font-medium capitalize">
                                         {feture.prevText.split(".")[0]}
