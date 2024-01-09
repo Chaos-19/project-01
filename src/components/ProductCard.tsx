@@ -1,4 +1,8 @@
-import React from "react";
+import { useState } from "react";
+
+import ProductCardModal from "./ProductCardModal";
+
+import { ShoppingCart, Eye, Heart } from "../assets/index";
 
 interface Props {
     name: string;
@@ -16,7 +20,11 @@ interface Props {
 const ProductCard = (props: Props) => {
     const { name, price, image, tage } = props;
 
-    console.log(tage);
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+    const handleModal = (): void => {
+        setIsModalOpen(!isModalOpen);
+    };
 
     return (
         <div className="group relative flex flex-col bg-white shadow-xl  rounded">
@@ -51,12 +59,25 @@ const ProductCard = (props: Props) => {
                         ${price?.original}
                     </span>
                 </div>
+                <ProductCardModal
+                    handleModal={handleModal}
+                    isModalOpen={isModalOpen}
+                />
             </div>
 
             {/*Hover effect*/}
-            <div className="hidden group-hover:block absolute right-0 p-3 bg-yellow-500 inset-y-0">
-                <div className=""></div>
-                <div className="absolute inset-x-0 bottom-0 bg-red-700 py-5"></div>
+            <div className="hidden group-hover:block absolute right-0 w-20 inset-y-0">
+                <div className="flex flex-col items-center gap-3 md:gap-5 pt-6 md:pt-20 h-full">
+                    <Heart color="red" />
+                    <Eye onClick={handleModal} />
+                </div>
+                <div className="absolute inset-x-0 bottom-0 h-24">
+                    <div className="w-full h-full relative">
+                        <div className="triangle-bottom h-full absolute inset-x-0 bottom-0 bg-yellow-500">
+                            <ShoppingCart className="absolute bottom-4 right-4" />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

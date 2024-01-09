@@ -3,9 +3,16 @@
 @tailwind utilities;
 
 /* position pagination to left  */
-.swiper-pagination-horizontal.swiper-pagination-bullets, 
-.swiper-horizontal>.swiper-pagination-bullets { 
+ .mySwiper > .swiper-pagination-horizontal.swiper-pagination-bullets, 
+.mySwiper > .swiper-horizontal>.swiper-pagination-bullets { 
   right: auto;
   left: 40%; 
   
+}
+
+.triangle-up{
+  clip-path: polygon(0% 0%, 100% 0%, 0% 100%); 
+}
+.triangle-bottom{
+  clip-path: polygon(100% 0,0% 100%,100% 100%);
 }

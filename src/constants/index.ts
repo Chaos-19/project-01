@@ -2,7 +2,7 @@ import {
     image1,
     image2,
     image3,
-    image4zsofa,
+    image4,
     sofa,
     armchair,
     chair,
@@ -179,5 +179,31 @@ export const productList: {}[] = [
     }
 ];
 
-export const features: {}[] = [{
-  prevText: "", icon: "", bgImage: "" }];
+export const features: {}[] = [
+    {
+        title: "bedroom",
+        icon: bed,
+        prevText: "modern furnishing projects. new furnishing idea",
+        bgImage: image1
+    },
+    {
+        title: "living room",
+        icon: "",
+        prevText:
+            "furnishing and complements . discover the design table collection",
+        bgImage: image2
+    },
+    {
+        title: "office",
+        icon: "",
+        prevText:
+            "which is the best for your home.wardrobes vs walk-in closets",
+        bgImage: image3
+    },
+    {
+        title: "bathroom",
+        icon: "",
+        prevText: "keeping things minimal .creatin your very own bathroom",
+        bgImage: image4
+    }
+];

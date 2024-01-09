@@ -3,7 +3,10 @@ import {
     AlignJustify as Menu,
     X as Close,
     ChevronRight,
-    ChevronDown
+    ChevronDown,
+    ShoppingCart,
+    Eye,
+    Heart
 } from "lucide-react";
 
 import image1 from "./gallery-1.jpg";
@@ -58,5 +61,7 @@ export {
     nude,
     aurora,
     diningSet,
-    setsChair
+    setsChair,ShoppingCart,
+    Eye,
+    Heart
 };
