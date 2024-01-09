@@ -188,21 +188,21 @@ export const features: {}[] = [
     },
     {
         title: "living room",
-        icon: "",
+        icon: sofa,
         prevText:
             "furnishing and complements . discover the design table collection",
         bgImage: image2
     },
     {
         title: "office",
-        icon: "",
+        icon: armchair,
         prevText:
             "which is the best for your home.wardrobes vs walk-in closets",
         bgImage: image3
     },
     {
         title: "bathroom",
-        icon: "",
+        icon: kitchen,
         prevText: "keeping things minimal .creatin your very own bathroom",
         bgImage: image4
     }
