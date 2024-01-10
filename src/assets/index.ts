@@ -65,5 +65,6 @@ export {
     setsChair,
     ShoppingCart,
     Eye,
-    Heart,Plus
+    Heart,
+    Plus
 };
