@@ -6,7 +6,8 @@ import {
     ChevronDown,
     ShoppingCart,
     Eye,
-    Heart
+    Heart,
+    Plus
 } from "lucide-react";
 
 import image1 from "./gallery-1.jpg";
@@ -61,7 +62,8 @@ export {
     nude,
     aurora,
     diningSet,
-    setsChair,ShoppingCart,
+    setsChair,
+    ShoppingCart,
     Eye,
-    Heart
+    Heart,Plus
 };
