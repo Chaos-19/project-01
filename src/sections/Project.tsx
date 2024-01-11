@@ -27,7 +27,7 @@ const ProjectCard = (props: {
                         {body}
                     </p>
                 </div>
-                <button className="absolute opacity-0 group-hover:opacity-100 -bottom-8 md:group-hover:-bottom-2 transition-all bg-yellow-500 text-white">
+                <button className="absolute opacity-0 group-hover:opacity-100 m-auto right-0 left-0 -bottom-8 md:group-hover:-bottom-2 transition-all bg-yellow-500 text-white p-2 px-2.5">
                     Read more
                 </button>
             </div>
@@ -38,7 +38,7 @@ const ProjectCard = (props: {
 const Project = () => {
     return (
         <div className="w-full h-full">
-            <div className="w-full h-full bg-gray-200">
+            <div className="w-full h-full bg-gray-200 py-8">
                 <div className="flex items-center justify-center">
                     <div className="flex flex-col p-3.5 mt-2 mb-2">
                         <h2 className="text-xl font-medium uppercase text-gray-700">
@@ -60,6 +60,11 @@ const Project = () => {
                             />
                         );
                     })}
+                </div>
+                <div className="flex items-center justify-center mt-5">
+                    <button className="px-2 py-1.5 bg-yellow-400/80 rounded capitalize text-md text-white">
+                        view all post
+                    </button>
                 </div>
             </div>
         </div>
