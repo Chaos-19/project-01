@@ -23,7 +23,10 @@ import {
     setsChair,
     design1,
     design2,
-    design3
+    design3,
+    blog1,
+    blog2,
+    blog3
 } from "../assets/index";
 
 export const navLinks: {}[] = [
@@ -229,5 +232,23 @@ export const projectsIdea: {}[] = [
         title: "Have a look at our new projects!",
         body: "You’ve finally reached this point in your life- you’ve bought your first home, moved into your very own apartment, moved out of the dorm room or you’re finally downsizing after all of your kids have left the nest.",
         date: "25 mart 2017"
+    }
+];
+
+export const blogPost: {}[] = [
+    {
+        title: "The 3 Tricks that Quickly Became Rules",
+        img: blog1,
+        date: "mar 8 2017"
+    },
+    {
+        title: "Decorating When You're Starting Out or Starting Over",
+        img: blog2,
+        date: "mar 8 2017"
+    },
+    {
+        title: "What does your favorite dining chair say about you?",
+        img: blog3,
+        date: "mar 8 2017"
     }
 ];

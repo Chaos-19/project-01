@@ -39,6 +39,10 @@ import design1 from "./project-1.jpg";
 import design2 from "./project-2.jpg";
 import design3 from "./project-3.jpg";
 
+import blog1 from "./blog-1.jpg";
+import blog2 from "./blog-2.jpg";
+import blog3 from "./blog-8.jpg";
+
 export {
     logo,
     Menu,
@@ -70,5 +74,11 @@ export {
     ShoppingCart,
     Eye,
     Heart,
-    Plus,design1,design2,design3
+    Plus,
+    design1,
+    design2,
+    design3,
+    blog1,
+    blog2,
+    blog3
 };
