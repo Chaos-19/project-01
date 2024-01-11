@@ -9,8 +9,10 @@ import {
     Heart,
     Plus,
     Instagram,
-    MapPin,Phone
+    MapPin,
+    Phone
 } from "lucide-react";
+import { FaTelegramPlane, FaFacebook } from "react-icons/fa";
 
 import image1 from "./gallery-1.jpg";
 import image2 from "./gallery-2.jpg";
@@ -98,5 +100,5 @@ export {
     fImage5,
     fImage6,
     MapPin,
-    Phone
+    Phone,FaTelegramPlane, FaFacebook
 };

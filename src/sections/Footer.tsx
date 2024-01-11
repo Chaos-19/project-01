@@ -8,7 +8,9 @@ import {
     fImage5,
     fImage6,
     MapPin,
-    Phone
+    Phone,
+    FaTelegramPlane,
+    FaFacebook
 } from "../assets/index";
 import { links } from "../constants";
 
@@ -124,9 +126,12 @@ const Footer = (/*props: Props*/) => {
                     </div>
                 </div>
                 <Links />
-                <div className="flex justify-end items-center">
-                <div></div>
-                
+                <div className="flex justify-end items-center px-10">
+                    <div className="flex items-center gap-2">
+                        <FaFacebook className="w-8 h-8 text-white" />
+                        <FaTelegramPlane className="w-8 h-8 text-white" />
+                        <Instagram className="w-8 h-8 text-white" />
+                    </div>
                 </div>
             </div>
         </div>
