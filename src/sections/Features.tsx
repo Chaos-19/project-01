@@ -31,6 +31,7 @@ const FeatureCard = (props: CardProps) => {
                     <p className="text-md text-white font-medium">{title}</p>
                 </div>
             </div>
+
             {/*Hover Effect*/}
             <div className="bg-yellow-500/50 absolute inset-x-0 -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <div className="flex flex-col justify-center px-3 py-2">
@@ -68,7 +69,7 @@ const Features = () => {
                     onMouseLeave={() => setMouseHover(false)}
                 >
                     {mouseHover ? (
-                        <p className="text-sm md:text-md text-white font-medium capitalize py-1">
+                        <p className="text-sm md:text-md text-white font-medium capitalize py-2 md:px-2">
                             show more
                         </p>
                     ) : (

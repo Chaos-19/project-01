@@ -35,6 +35,10 @@ import aurora from "./02_product-4.png";
 import diningSet from "./03_product-5.png";
 import setsChair from "./05_product-6.png";
 
+import design1 from "./project-1.jpg";
+import design2 from "./project-2.jpg";
+import design3 from "./project-3.jpg";
+
 export {
     logo,
     Menu,
@@ -66,5 +70,5 @@ export {
     ShoppingCart,
     Eye,
     Heart,
-    Plus
+    Plus,design1,design2,design3
 };

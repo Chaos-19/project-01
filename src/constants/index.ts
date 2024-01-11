@@ -20,7 +20,10 @@ import {
     nude,
     aurora,
     diningSet,
-    setsChair
+    setsChair,
+    design1,
+    design2,
+    design3
 } from "../assets/index";
 
 export const navLinks: {}[] = [
@@ -205,5 +208,26 @@ export const features: {}[] = [
         icon: kitchen,
         prevText: "keeping things minimal .creatin your very own bathroom",
         bgImage: image4
+    }
+];
+
+export const projectsIdea: {}[] = [
+    {
+        img: design1,
+        title: "Creating the Perfect Gallery Wall",
+        body: "You’ve finally reached this point in your life- you’ve bought your first home, moved into your very own apartment, moved out of the dorm room or you’re finally downsizing after all of your kids have left the nest.",
+        date: "25 mart 2017"
+    },
+    {
+        img: design2,
+        title: "Making the Most Out of Your Kids Old Bedroom",
+        body: "You’ve finally reached this point in your life- you’ve bought your first home, moved into your very own apartment, moved out of the dorm room or you’re finally downsizing after all of your kids have left the nest.",
+        date: "25 mart 2017"
+    },
+    {
+        img: design3,
+        title: "Have a look at our new projects!",
+        body: "You’ve finally reached this point in your life- you’ve bought your first home, moved into your very own apartment, moved out of the dorm room or you’re finally downsizing after all of your kids have left the nest.",
+        date: "25 mart 2017"
     }
 ];
