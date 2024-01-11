@@ -1,6 +1,14 @@
 import Navbar from "./components/Navbar";
 
-import { Header, Product, Features, Project, OurStory,Blog } from "./sections";
+import {
+    Header,
+    Product,
+    Features,
+    Project,
+    OurStory,
+    Blog,
+    Footer
+} from "./sections";
 
 interface Props {
     // Define your props here
@@ -16,6 +24,7 @@ const App = () => {
             <Project />
             <OurStory />
             <Blog />
+            <Footer />
         </div>
     );
 };

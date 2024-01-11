@@ -7,7 +7,8 @@ import {
     ShoppingCart,
     Eye,
     Heart,
-    Plus
+    Plus,
+    Instagram
 } from "lucide-react";
 
 import image1 from "./gallery-1.jpg";
@@ -80,5 +81,5 @@ export {
     design3,
     blog1,
     blog2,
-    blog3
+    blog3,Instagram
 };
