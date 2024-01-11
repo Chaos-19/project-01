@@ -126,7 +126,7 @@ const Footer = (/*props: Props*/) => {
                     </div>
                 </div>
                 <Links />
-                <div className="flex justify-end items-center px-10">
+                <div className="flex justify-center md:justify-end items-center px-10">
                     <div className="flex items-center gap-2">
                         <FaFacebook className="w-8 h-8 text-white" />
                         <FaTelegramPlane className="w-8 h-8 text-white" />

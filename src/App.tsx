@@ -1,31 +1,21 @@
-import Navbar from "./components/Navbar";
-
-import {
-    Header,
-    Product,
-    Features,
-    Project,
-    OurStory,
-    Blog,
-    Footer
-} from "./sections";
-
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+import { RootLayout, Main } from "./pages";
 interface Props {
     // Define your props here
 }
 
 const App = () => {
     return (
-        <div>
-            <Navbar />
-            <Header />
-            <Product />
-            <Features />
-            <Project />
-            <OurStory />
-            <Blog />
-            <Footer />
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route element={<RootLayout />}>
+                    <Route
+                        index
+                        element={<Main />}
+                    />
+                </Route>
+            </Routes>
+        </BrowserRouter>
     );
 };
 
