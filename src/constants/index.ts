@@ -252,3 +252,18 @@ export const blogPost: {}[] = [
         date: "mar 8 2017"
     }
 ];
+
+export const links: {}[] = [
+    {
+        title: "BROWSE BY",
+        links: ["brand", "product", "catagory"]
+    },
+    {
+        title: "Resource",
+        links: ["Design", "Project", "sales"]
+    },
+    {
+        title: "our company",
+        links: ["About", "news", "contact"]
+    }
+];

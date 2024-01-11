@@ -8,7 +8,8 @@ import {
     Eye,
     Heart,
     Plus,
-    Instagram
+    Instagram,
+    MapPin,Phone
 } from "lucide-react";
 
 import image1 from "./gallery-1.jpg";
@@ -43,6 +44,13 @@ import design3 from "./project-3.jpg";
 import blog1 from "./blog-1.jpg";
 import blog2 from "./blog-2.jpg";
 import blog3 from "./blog-8.jpg";
+
+import fImage1 from "./square-1.jpg";
+import fImage2 from "./square-2.jpg";
+import fImage3 from "./square-3.jpg";
+import fImage4 from "./square-4.jpg";
+import fImage5 from "./square-5.jpg";
+import fImage6 from "./square-6.jpg";
 
 export {
     logo,
@@ -81,5 +89,14 @@ export {
     design3,
     blog1,
     blog2,
-    blog3,Instagram
+    blog3,
+    Instagram,
+    fImage1,
+    fImage2,
+    fImage3,
+    fImage4,
+    fImage5,
+    fImage6,
+    MapPin,
+    Phone
 };
