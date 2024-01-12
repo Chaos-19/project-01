@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
+import  SectionWrapper  from "../hoc/SectionWrapper";
 import { Footer } from "../sections/index";
 import { Navbar } from "../components/index";
 
@@ -10,7 +11,7 @@ interface Props {
 
 const RootLayout = () => {
     return (
-        <>
+        <SectionWrapper>
             <Navbar />
             <main>
                 <div>
@@ -18,7 +19,7 @@ const RootLayout = () => {
                 </div>
                 <Footer />
             </main>
-        </>
+        </SectionWrapper>
     );
 };
 

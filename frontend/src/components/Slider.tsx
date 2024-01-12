@@ -18,7 +18,7 @@ const Slider = (props: Props) => {
     const { navHeight } = props;
 
     return (
-        <div className="relative border border-2 border-green-900">
+        <div className="relative">
             {/*Main Slide */}
             <Swiper
                 style={{

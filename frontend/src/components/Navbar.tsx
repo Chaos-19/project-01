@@ -33,7 +33,7 @@ const Navbar = () => {
 
     return (
         <nav>
-            <motion.div className="relative w-screen">
+            <motion.div className="relative w-full">
                 <div className="flex items-center justify-between py-2 px-3 lg:px-4 bg-black">
                     <a href="/">
                         <img
