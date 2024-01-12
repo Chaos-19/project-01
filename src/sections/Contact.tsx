@@ -24,7 +24,7 @@ interface Props {
 }
 const Icons = () => {
     return (
-        <div className="flex flex-col md:flex-row justify-center md:justify-around gap-2.5 my-14 bg-white py-10">
+        <div className="flex flex-col md:flex-row justify-center md:justify-around gap-2.5 mt-14 bg-white py-10">
             {contacts.map((value, index) => {
                 if (index !== 1)
                     return (
@@ -67,7 +67,56 @@ const Contact = () => {
         <div className="w-full bg-gray-200">
             <div className="py-10 px-6">
                 <Icons />
-                <div className=""></div>
+                <div className="bg-gray-700 text-white py-8">
+                    <div className="w-full flex flex-col justify-center items-center gap-8">
+                        <h2 className="text-xl font-semibold ">
+                            Send an email
+                        </h2>
+                        <p className="text-xs text-center px-3">
+                            Thanks for your interest in Mobel Theme. We believe
+                            in creativity as one of the major forces of
+                            progress. Please use this form if you have any
+                            questions about our products and we'll get back with
+                            you very soon.
+                        </p>
+                        <button className="mb-20 py-2 px-2.5 rounded border">
+                            contact us via form
+                        </button>
+                    </div>
+                    <div className="w-full mx-auto max-w-screen-md">
+                        <form className="w-full flex flex-col justify-center items-center gap-3 px-8 text-gray-500">
+                            <input
+                                type="text"
+                                placeholder="You name"
+                                className="py-3 px-2  capitalizetext-sm rounded placeholder-gray-500 w-full"
+                            />
+                            <input
+                                type="email"
+                                placeholder="Email"
+                                className="py-3 px-2 text-sm capitalize text-sm rounded placeholder-gray-500 w-full"
+                            />
+                            <input
+                                type="text"
+                                placeholder="Subject"
+                                className="py-3 px-2 capitalize  rounded placeholder-gray-500 w-full"
+                            />
+                            <textarea
+                                name=""
+                                id=""
+                                cols="30"
+                                rows="10"
+                                placeholder="message...."
+                                className="py-3 px-2 capitalize  rounded placeholder-gray-500 w-full"
+                            ></textarea>
+                            <button
+                                type="submit"
+                                className="my-10 text-white py-2 px-2.5 rounded border max-w-30"
+                            >
+                                send
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     );

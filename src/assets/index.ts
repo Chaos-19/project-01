@@ -11,7 +11,8 @@ import {
     Instagram,
     MapPin,
     Phone,
-    AlarmClock
+    AlarmClock,
+    Home
 } from "lucide-react";
 import { FaTelegramPlane, FaFacebook } from "react-icons/fa";
 
@@ -107,5 +108,5 @@ export {
     FaTelegramPlane,
     FaFacebook,
     phoneold,
-    AlarmClock
+    AlarmClock,Home
 };
