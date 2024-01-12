@@ -28,20 +28,20 @@ interface Order {
 export const apiSlice = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3500" }),
     endpoints: builder => ({
-        getProductInfo: query<Product[], number>({
+        getProductInfo: builder.query<Product[], number>({
             query: no => ({
                 url: "/product",
                 method: "GET"
             })
         }),
-        addOrder: mutation<{}, Order>({
+        addOrder: builder.mutation<{}, Order>({
             query: orderInfo => ({
                 url: "/placeOrder",
                 method: "POST",
                 body: { ...orderInfo }
             })
         }),
-        sendMessage: mutation<
+        sendMessage: builder.mutation<
             {},
             {
                 name: string;
