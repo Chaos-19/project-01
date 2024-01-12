@@ -19,7 +19,7 @@ const Order = () => {
                         <input
                             type="text"
                             name="name"
-                            reqired
+                            required
                             placeholder="Your name"
                             className="py-3 px-2  capitalizetext-sm rounded placeholder-gray-500 w-full"
                         />
@@ -48,6 +48,7 @@ const Order = () => {
                         <input
                             type="number"
                             name="phone"
+                            required
                             placeholder="phone number"
                             className="py-3 px-2  capitalizetext-sm rounded placeholder-gray-500 w-full"
                         />
@@ -62,6 +63,7 @@ const Order = () => {
                         <input
                             type="text"
                             name="k/ketema"
+                            required
                             placeholder="kifle ketema"
                             className="py-3 px-2  capitalizetext-sm rounded placeholder-gray-500 w-full"
                         />
@@ -76,6 +78,7 @@ const Order = () => {
                         <input
                             type="text"
                             name="location"
+                            required
                             placeholder="Location Name"
                             className="py-3 px-2  capitalizetext-sm rounded placeholder-gray-500 w-full"
                         />
@@ -89,8 +92,9 @@ const Order = () => {
                         </label>
                         <input
                             type="text"
-                            name="k/ketema"
+                            name="city"
                             placeholder="city"
+                            required
                             className="py-3 px-2  capitalizetext-sm rounded placeholder-gray-500 w-full"
                         />
                     </div>
