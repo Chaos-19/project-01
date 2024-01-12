@@ -5,5 +5,6 @@ import Project from "./Project";
 import OurStory from "./OurStory";
 import Blog from "./Blog";
 import Footer from "./Footer";
+import Contact from "./Contact";
 
-export { Hero, Product, Features, Project, OurStory, Blog, Footer };
+export { Hero, Product, Features, Project, OurStory, Blog, Footer ,Contact};

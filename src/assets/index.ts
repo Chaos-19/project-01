@@ -10,7 +10,8 @@ import {
     Plus,
     Instagram,
     MapPin,
-    Phone
+    Phone,
+    AlarmClock
 } from "lucide-react";
 import { FaTelegramPlane, FaFacebook } from "react-icons/fa";
 
@@ -53,6 +54,8 @@ import fImage3 from "./square-3.jpg";
 import fImage4 from "./square-4.jpg";
 import fImage5 from "./square-5.jpg";
 import fImage6 from "./square-6.jpg";
+
+import phoneold from "./publicdomainq-oldphone.svg";
 
 export {
     logo,
@@ -100,5 +103,9 @@ export {
     fImage5,
     fImage6,
     MapPin,
-    Phone,FaTelegramPlane, FaFacebook
+    Phone,
+    FaTelegramPlane,
+    FaFacebook,
+    phoneold,
+    AlarmClock
 };
