@@ -30,7 +30,7 @@ export const apiSlice = createApi({
     endpoints: builder => ({
         getProductInfo: builder.query<Product[], number>({
             query: no => ({
-                url: "/product",
+                url: "/product/get",
                 method: "GET"
             })
         }),

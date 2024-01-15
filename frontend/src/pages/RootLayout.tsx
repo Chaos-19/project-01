@@ -1,7 +1,7 @@
-import React from "react";
+import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 
-import  SectionWrapper  from "../hoc/SectionWrapper";
+import SectionWrapper from "../hoc/SectionWrapper";
 import { Footer } from "../sections/index";
 import { Navbar } from "../components/index";
 
@@ -11,15 +11,17 @@ interface Props {
 
 const RootLayout = () => {
     return (
-        <SectionWrapper>
-            <Navbar />
-            <main>
-                <div>
-                    <Outlet />
-                </div>
-                <Footer />
-            </main>
-        </SectionWrapper>
+
+            <SectionWrapper>
+                <Navbar />
+                <main>
+                    <div>
+                        <Outlet />
+                    </div>
+                    <Footer />
+                </main>
+            </SectionWrapper>
+      
     );
 };
 

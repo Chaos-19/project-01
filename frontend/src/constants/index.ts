@@ -267,3 +267,20 @@ export const links: {}[] = [
         links: ["About", "news", "contact"]
     }
 ];
+export const contacts: {}[] = [
+    {
+        Icon: MapPin,
+        title: "Where are we?",
+        text: "200 12th Ave, New York. NY 10001, USA"
+    },
+    {
+        Icon: phoneold,
+        title: "Call us",
+        text: "902066660.954839444"
+    },
+    {
+        Icon: AlarmClock,
+        title: "Working hours",
+        text: "Monday to saturday From 8am-1pm"
+    }
+];

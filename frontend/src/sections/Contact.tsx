@@ -1,24 +1,7 @@
-import React from "react";
-
+import { useState, useEffect, useRef } from "react";
+import { contacts } from "../constants";
 import { MapPin, phoneold, AlarmClock } from "../assets/index";
 
-const contacts: {}[] = [
-    {
-        Icon: MapPin,
-        title: "Where are we?",
-        text: "200 12th Ave, New York. NY 10001, USA"
-    },
-    {
-        Icon: phoneold,
-        title: "Call us",
-        text: "902066660.954839444"
-    },
-    {
-        Icon: AlarmClock,
-        title: "Working hours",
-        text: "Monday to saturday From 8am-1pm"
-    }
-];
 interface Props {
     // Define your props here
 }
@@ -63,6 +46,12 @@ const Icons = () => {
 };
 
 const Contact = () => {
+    const [name, setName] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+    const [subject, setSubject] = useState<string>("");
+    const [message, setMessage] = useState<string>("");
+
+    const handleSubmitt = () => {};
     return (
         <div className="w-full bg-gray-200">
             <div className="py-10 px-6">
@@ -86,17 +75,24 @@ const Contact = () => {
                     <div className="w-full mx-auto max-w-screen-md">
                         <form className="w-full flex flex-col justify-center items-center gap-3 px-8 text-gray-500">
                             <input
+                          
                                 type="text"
                                 placeholder="You name"
+                                value={name}
+                                onChange={() => setName(e.target.value)}
                                 className="py-3 px-2  capitalizetext-sm rounded placeholder-gray-500 w-full"
                             />
                             <input
                                 type="email"
                                 placeholder="Email"
+                                value={email}
+                                onChange={() => setEmail(e.target.value)}
                                 className="py-3 px-2 text-sm capitalize text-sm rounded placeholder-gray-500 w-full"
                             />
                             <input
                                 type="text"
+                                value={subject}
+                                onChange={() => setSubject(e.target.value)}
                                 placeholder="Subject"
                                 className="py-3 px-2 capitalize  rounded placeholder-gray-500 w-full"
                             />
@@ -105,6 +101,8 @@ const Contact = () => {
                                 id=""
                                 cols="30"
                                 rows="10"
+                                value={message}
+                                onChange={() => setMessage(e.target.value)}
                                 placeholder="message...."
                                 className="py-3 px-2 capitalize  rounded placeholder-gray-500 w-full"
                             ></textarea>
