@@ -26,7 +26,10 @@ import {
     design3,
     blog1,
     blog2,
-    blog3
+    blog3,
+    MapPin,
+    phoneold,
+    AlarmClock
 } from "../assets/index";
 
 export const navLinks: {}[] = [

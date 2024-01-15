@@ -26,7 +26,7 @@ const Product = () => {
             </p>
         );
     } else if (isError) {
-        content = <p>{error}</p>;
+        content = <p>{JSON.stringify(error)}</p>;
     } else if (isSuccess) {
         content = productList.products.map((product, index) => {
             return (
@@ -40,7 +40,7 @@ const Product = () => {
         });
     }
     return (
-        <div className="relative bg-[rgb(238,238,238)] text-black pt-8 w-full">
+        <div className="relative bg-[rgb(238,238,238)] text-black pt-8 w-full border-b">
             <div className="mx-auto md:w-[760px] lg:w-[1020px] my-5 md:px-8 px-0.5 pt-5 pb-7">
                 <div className="mx-auto flex flex-col justify-center items-center">
                     <h2 className="text-xl uppercase font-medium">

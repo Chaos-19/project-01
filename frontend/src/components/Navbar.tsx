@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 
 import { staggerContainer, navMenu, navVariants } from "../utils/motion";
 import { logo, Menu, Close, ChevronRight, ChevronDown } from "../assets/index";
-import { navLinks } from "../constants";
 
 interface Props {
     // Define your props here
@@ -26,9 +25,10 @@ const ListItem = (props: listItemProps) => {
     );
 };
 
-const Navbar = () => {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+const Navbar = (props: { navLinks: {}[] }) => {
+    const { navLinks } = props;
 
+    const [isOpen, setIsOpen] = useState<boolean>(false);
     const openMenu = (): void => setIsOpen(!isOpen);
 
     return (

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { contacts } from "../constants";
-import { MapPin, phoneold, AlarmClock } from "../assets/index";
+import {} from "../assets/index";
 
 interface Props {
     // Define your props here
@@ -75,7 +75,6 @@ const Contact = () => {
                     <div className="w-full mx-auto max-w-screen-md">
                         <form className="w-full flex flex-col justify-center items-center gap-3 px-8 text-gray-500">
                             <input
-                          
                                 type="text"
                                 placeholder="You name"
                                 value={name}
