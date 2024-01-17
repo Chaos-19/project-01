@@ -26,12 +26,7 @@ const AddProductForm = (/*props: Props*/) => {
         }
         try {
             console.log(formData?.values);
-            await addProduct({
-                name,
-                price,
-                discount,
-                file: file.file
-            }).unwrap();
+            await addProduct(formData).unwrap();
         } catch (e) {
             console.log(e);
         }

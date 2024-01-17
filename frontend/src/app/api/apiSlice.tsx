@@ -34,19 +34,11 @@ export const apiSlice = createApi({
                 method: "GET"
             })
         }),
-        addProduct: builder.mutation<
-            {},
-            {
-                name: string;
-                file: any;
-                price: number;
-                discount: number;
-            }
-        >({
+        addProduct: builder.mutation<{}, any>({
             query: productInfo => ({
                 url: "/product/addProduct",
                 method: "POST",
-                body: { ...productInfo }
+                body: productInfo
             })
         }),
         addOrder: builder.mutation<{}, Order>({
