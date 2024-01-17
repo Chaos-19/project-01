@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server",
-    "start": "node server",
+    "dev": "nodemon NODE_OPTIONS=no-network-family-autoselection server",
+    "start": "NODE_OPTIONS=no-network-family-autoselection node server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "chaos",
