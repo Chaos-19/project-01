@@ -1,18 +1,34 @@
-const Product = require("../models/productModel");
+const cloudinary = require("cloudinary");
 
+const Product = require("../models/productModel");
 const productList = require("../test");
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 const getProducts = (req, res) => {
     console.log("reached here...");
     console.log(productList);
-    setTimeout(function () {
-        res.json({ products: productList });
-    }, 10000);
+
+    res.json({ products: productList });
 };
-const addProducts = (req, res) => {
-    const { name } = req.body;
+
+const addProducts = async (req, res) => {
+    //  const { name, file, price, discount } = req.body;
+
+    console.log(req.body);
+    /*try {
+        const result = await cloudinary.v2.uploader.upload(file.path);
+        const imageUrl = result.secure_url;
+        console.log(imageUrl);
+    } catch (e) {
+        console.log(e);
+    }*/
 };
 const updateProducts = (req, res) => {};
 const deleteProducts = (req, res) => {};
 
-module.exports = { getProducts };
+module.exports = { getProducts, addProducts };
