@@ -49,20 +49,7 @@ const Product = () => {
                     <p className="text-md">Check out our latest collections</p>
                 </div>
                 <div className="w-full grid grid-cols-2 lg:grid-cols-3 mt-10 gap-1 md:gap-7">
-                    {
-                        content /*isSuccess &&
-                        productList.map((product, index) => {
-                            return (
-                                <ProductCard
-                                    key={product.name}
-                                    name={product.name}
-                                    price={product.price}
-                                    image={product.image}
-                                    tage={product.tage}
-                                />
-                            );
-                        })*/
-                    }
+                    {content}
                 </div>
                 <div className="mt-14 flex items-center justify-center">
                     <button className="capitalize bg-yellow-500 text-white px-2.5 py-1.5 rounded">

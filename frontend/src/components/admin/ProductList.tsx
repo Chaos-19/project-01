@@ -4,9 +4,29 @@ interface Props {
     // Define your props here
 }
 
+const ProductItem = () => {
+    return (
+        <tbody className="overflow-x-scroll">
+            {Array(10).map((value, index) => {
+                return (
+                    <tr>
+                        {Array(5).map((value, index) => {
+                            return (
+                                <td className="border border-slate-400 p-2 whitespace-nowrap">
+                                    simple row data take sum
+                                </td>
+                            );
+                        })}
+                    </tr>
+                );
+            })}
+        </tbody>
+    );
+};
+
 const ProductList = (/*props: Props*/) => {
     return (
-        <div className="py-8">
+        <div className="py-8 overflow-x-scroll">
             <div>
                 <table className="border-collapse border border-slate-400 w-full overflow-x-scroll">
                     <thead>
@@ -28,26 +48,6 @@ const ProductList = (/*props: Props*/) => {
                             </th>
                         </tr>
                     </thead>
-                    <tbody className="overflow-x-scroll">
-                        {Array(10)
-                            .fill(0)
-                            .map((value, index) => {
-                                return (
-                                    <tr>
-                                        {Array(5)
-                                            .fill(0)
-                                            .map((value, index) => {
-                                                return (
-                                                    <td className="border border-slate-400 p-2 whitespace-nowrap">
-                                                        simple row data take sum
-                                                        more sapce
-                                                    </td>
-                                                );
-                                            })}
-                                    </tr>
-                                );
-                            })}
-                    </tbody>
                 </table>
             </div>
         </div>

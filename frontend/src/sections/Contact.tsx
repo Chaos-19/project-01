@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { contacts } from "../constants";
-import {} from "../assets/index";
 
 interface Props {
     // Define your props here
@@ -78,20 +77,20 @@ const Contact = () => {
                                 type="text"
                                 placeholder="You name"
                                 value={name}
-                                onChange={() => setName(e.target.value)}
+                                onChange={e => setName(e.target.value)}
                                 className="py-3 px-2  capitalizetext-sm rounded placeholder-gray-500 w-full"
                             />
                             <input
                                 type="email"
                                 placeholder="Email"
                                 value={email}
-                                onChange={() => setEmail(e.target.value)}
+                                onChange={e => setEmail(e.target.value)}
                                 className="py-3 px-2 text-sm capitalize text-sm rounded placeholder-gray-500 w-full"
                             />
                             <input
                                 type="text"
                                 value={subject}
-                                onChange={() => setSubject(e.target.value)}
+                                onChange={e => setSubject(e.target.value)}
                                 placeholder="Subject"
                                 className="py-3 px-2 capitalize  rounded placeholder-gray-500 w-full"
                             />
@@ -101,7 +100,7 @@ const Contact = () => {
                                 cols="30"
                                 rows="10"
                                 value={message}
-                                onChange={() => setMessage(e.target.value)}
+                                onChange={e => setMessage(e.target.value)}
                                 placeholder="message...."
                                 className="py-3 px-2 capitalize  rounded placeholder-gray-500 w-full"
                             ></textarea>

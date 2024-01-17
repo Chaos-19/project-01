@@ -34,6 +34,21 @@ export const apiSlice = createApi({
                 method: "GET"
             })
         }),
+        addProduct: builder.mutation<
+            {},
+            {
+                name: string;
+                file: any;
+                price: number;
+                discount: number;
+            }
+        >({
+            query: productInfo => ({
+                url: "/product/addProduct",
+                method: "POST",
+                body: { ...productInfo }
+            })
+        }),
         addOrder: builder.mutation<{}, Order>({
             query: orderInfo => ({
                 url: "/placeOrder",
@@ -62,5 +77,6 @@ export const apiSlice = createApi({
 export const {
     useGetProductInfoQuery,
     useAddOrderMutation,
+    useAddProductMutation,
     useSendMessageMutation
 } = apiSlice;

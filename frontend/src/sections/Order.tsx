@@ -1,10 +1,19 @@
-import React from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface Props {
     // Define your props here
 }
 
 const Order = () => {
+    const [name, setName] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+    const [phone, setPhone] = useState<string>("");
+    const [kifleKetem, setKifleKetem] = useState<string>("");
+    const [location, setLocation] = useState<string>("");
+    const [city, setCity] = useState<string>("");
+
+const handleSubmit = ()=>{}
+
     return (
         <div className="w-full px-3 md:px-0">
             <div className="w-full mx-auto max-w-screen-md bg-gray-700 my-20 py-8 rounded shadow">
@@ -19,9 +28,11 @@ const Order = () => {
                         <input
                             type="text"
                             name="name"
+                            value={name}
+                            onChange={e => setName(e.target.value)}
                             required
                             placeholder="Your name"
-                            className="py-3 px-2  capitalizetext-sm rounded placeholder-gray-500 w-full"
+                            className="py-3 px-2  capitalize text-sm rounded placeholder-gray-500 w-full"
                         />
                     </div>
                     <div className="flex flex-col gap-1 w-full">
@@ -34,6 +45,8 @@ const Order = () => {
                         <input
                             type="text"
                             name="email"
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
                             placeholder="email adderss"
                             className="py-3 px-2  capitalizetext-sm rounded placeholder-gray-500 w-full"
                         />
@@ -48,6 +61,8 @@ const Order = () => {
                         <input
                             type="number"
                             name="phone"
+                            value={phone}
+                            onChange={e => setPhone(e.target.value)}
                             required
                             placeholder="phone number"
                             className="py-3 px-2  capitalizetext-sm rounded placeholder-gray-500 w-full"
@@ -63,6 +78,8 @@ const Order = () => {
                         <input
                             type="text"
                             name="k/ketema"
+                            value={kifleKetem}
+                            onChange={e => setKifleKetem(e.target.value)}
                             required
                             placeholder="kifle ketema"
                             className="py-3 px-2  capitalizetext-sm rounded placeholder-gray-500 w-full"
@@ -78,6 +95,8 @@ const Order = () => {
                         <input
                             type="text"
                             name="location"
+                            value={location}
+                            onChange={e => setLocation(e.target.value)}
                             required
                             placeholder="Location Name"
                             className="py-3 px-2  capitalizetext-sm rounded placeholder-gray-500 w-full"
@@ -94,6 +113,8 @@ const Order = () => {
                             type="text"
                             name="city"
                             placeholder="city"
+                            value={city}
+                            onChange={e => setCity(e.target.value)}
                             required
                             className="py-3 px-2  capitalizetext-sm rounded placeholder-gray-500 w-full"
                         />
