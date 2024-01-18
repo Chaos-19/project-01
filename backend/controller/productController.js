@@ -24,22 +24,29 @@ const addProducts = async (req, res) => {
     console.log(file);
 
     try {
-        // Upload to Cloudinary
+        //Upload to Cloudinary
         const result = await cloudinary.v2.uploader.upload(file.path);
+
         const imageUrl = result.secure_url;
         // Save product information to database (replace with your database logic):
-        const newProduct = await Product({
+        const newProduct = await Product.create({
             name,
             price: {
                 original: price,
                 discount: discount || 0
             },
             imgUrl: imageUrl
-        }).exec();
+        });
+
+        console.log(newProduct);
 
         res.send({ message: "Product added successfully!" });
     } catch (e) {
         console.log(e);
+        res.status(500).json({
+            status: "error",
+            massage: "internal server Error"
+        });
     }
 };
 const updateProducts = async (req, res) => {
