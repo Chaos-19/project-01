@@ -1,7 +1,6 @@
 const cloudinary = require("cloudinary");
 
 const Product = require("../models/productModel");
-const productList = require("../test");
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_NAME,
@@ -9,10 +8,9 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-const getProducts = (req, res) => {
-    console.log("reached here...");
+const getProducts = async (req, res) => {
+    const productList = await Product.find();
     console.log(productList);
-
     res.json({ products: productList });
 };
 
@@ -20,22 +18,24 @@ const addProducts = async (req, res) => {
     const { name, price, discount } = req.body;
     const file = req?.file;
 
-    console.log(req.body);
-    console.log(file);
-
     try {
         //Upload to Cloudinary
         const result = await cloudinary.v2.uploader.upload(file.path);
 
         const imageUrl = result.secure_url;
-        // Save product information to database (replace with your database logic):
+        const imageId = result.public_id;
+        console.log(result);
+
         const newProduct = await Product.create({
             name,
             price: {
                 original: price,
                 discount: discount || 0
             },
-            imgUrl: imageUrl
+            image: {
+                imgUrl: imageUrl,
+                imgId: result.public_id
+            }
         });
 
         console.log(newProduct);

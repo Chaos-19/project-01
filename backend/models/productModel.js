@@ -17,9 +17,15 @@ const ProductModel = Schema(
                 required: false
             }
         },
-        imgUrl: {
-            type: String,
-            required: true
+        image: {
+            imgUrl: {
+                type: String,
+                required: true
+            },
+            imgId: {
+                type: String,
+                required: true
+            }
         },
         tages: {
             isNew: {
