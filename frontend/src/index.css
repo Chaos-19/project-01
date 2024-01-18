@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components{
+.data{
+  @apply border border-slate-400 p-2 whitespace-nowrap
+  }
+}
 /* position pagination to left  */
  .mySwiper > .swiper-pagination-horizontal.swiper-pagination-bullets, 
 .mySwiper > .swiper-horizontal>.swiper-pagination-bullets { 

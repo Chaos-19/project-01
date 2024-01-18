@@ -41,6 +41,12 @@ export const apiSlice = createApi({
                 body: productInfo
             })
         }),
+        deleteProduct: builder.mutation<{}, string>({
+            query: id => ({
+                url: `/product/delete/${id}`,
+                method: "DELETE"
+            })
+        }),
         addOrder: builder.mutation<{}, Order>({
             query: orderInfo => ({
                 url: "/placeOrder",
@@ -69,6 +75,7 @@ export const apiSlice = createApi({
 export const {
     useGetProductInfoQuery,
     useAddOrderMutation,
+    useDeleteProductMutation,
     useAddProductMutation,
     useSendMessageMutation
 } = apiSlice;
