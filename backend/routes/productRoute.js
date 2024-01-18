@@ -6,6 +6,7 @@ const upload = multer({ dest: "uploads/" }); // Temporary storage for uploaded f
 const productController = require("../controller/productController");
 
 route.get("/get", productController.getProducts);
-route.post("/addProduct",upload.single('file'), productController.addProducts);
+route.post("/addProduct", upload.single("file"), productController.addProducts);
+route.delete("/delete/:id", productController.deleteProducts);
 
 module.exports = route;
