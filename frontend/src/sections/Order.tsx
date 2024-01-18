@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
+import { useAddOrderMutation } from "../app/api/apiSlice";
 interface Props {
     // Define your props here
 }
@@ -12,12 +13,36 @@ const Order = () => {
     const [location, setLocation] = useState<string>("");
     const [city, setCity] = useState<string>("");
 
-const handleSubmit = ()=>{}
+    const [addOrder, { isLoading }] = useAddOrderMutation();
+
+    const handleSubmit = async (e: React.SyntheticEvent) => {
+        e.preventDefault();
+        if (name & phone & kifleKetem & location & city) {
+            try {
+                await addOrder({
+                    productId: "",
+                    userInfo: {
+                        userName: name,
+                        email,
+                        phone,
+                        kifleKetem,
+                        location,
+                        city
+                    }
+                }).unwrap();
+            } catch (err) {
+                console.log(err);
+            }
+        }
+    };
 
     return (
         <div className="w-full px-3 md:px-0">
             <div className="w-full mx-auto max-w-screen-md bg-gray-700 my-20 py-8 rounded shadow">
-                <form className="w-full flex flex-col justify-center  gap-3 px-3  text-gray-500">
+                <form
+                    onSumbit={handleSubmit}
+                    className="w-full flex flex-col justify-center  gap-3 px-3  text-gray-500"
+                >
                     <div className="flex flex-col gap-1 w-full">
                         <label
                             htmFor="name"
@@ -119,7 +144,6 @@ const handleSubmit = ()=>{}
                             className="py-3 px-2  capitalizetext-sm rounded placeholder-gray-500 w-full"
                         />
                     </div>
-
                     <button
                         type="submit"
                         className="my-10 text-white py-2 px-2.5 rounded border max-w-30"

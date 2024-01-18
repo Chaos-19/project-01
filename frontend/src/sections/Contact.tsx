@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { contacts } from "../constants";
+import { useSendMessageMutation } from "../app/api/apiSlice";
 
 interface Props {
     // Define your props here
@@ -50,7 +51,25 @@ const Contact = () => {
     const [subject, setSubject] = useState<string>("");
     const [message, setMessage] = useState<string>("");
 
-    const handleSubmitt = () => {};
+    const [sendMessage, { isLoading }] = useSendMessageMutation();
+
+    const handleSubmitt = async (e: React.SyntheticEvent) => {
+        e.preventDefault();
+
+        if (name & subject & message) {
+            try {
+                await sendMessage({
+                    name,
+                    email,
+                    subject,
+                    message
+                }).unwrap();
+                
+            } catch (err) {
+                console.log(err);
+            }
+        }
+    };
     return (
         <div className="w-full bg-gray-200">
             <div className="py-10 px-6">

@@ -40,11 +40,14 @@ const ProductList = (/*props: Props*/) => {
                             <th className="border border-slate-400 p-2">
                                 Price
                             </th>
-                            <th className="border border-slate-400 p-2">
+                            <th className="border border-slate-400 p-2 whitespace-nowrap">
                                 Discount percent
                             </th>
                             <th className="border border-slate-400 p-2">
                                 tages
+                            </th>
+                            <th className="border border-slate-400 p-2">
+                                edit
                             </th>
                         </tr>
                     </thead>

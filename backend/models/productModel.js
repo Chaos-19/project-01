@@ -17,7 +17,7 @@ const ProductModel = Schema(
                 required: false
             }
         },
-        image: {
+        imgUrl: {
             type: String,
             required: true
         },

@@ -26,14 +26,35 @@ const addProducts = async (req, res) => {
     try {
         // Upload to Cloudinary
         const result = await cloudinary.v2.uploader.upload(file.path);
-        const imageUrl = result.secure_url; // Save product information to database (replace with your database logic):
-        console.log(imageUrl);
+        const imageUrl = result.secure_url;
+        // Save product information to database (replace with your database logic):
+        const newProduct = await Product({
+            name,
+            price: {
+                original: price,
+                discount: discount || 0
+            },
+            imgUrl: imageUrl
+        }).exec();
+
         res.send({ message: "Product added successfully!" });
     } catch (e) {
         console.log(e);
     }
 };
-const updateProducts = (req, res) => {};
+const updateProducts = async (req, res) => {
+    const { id } = req.body;
+
+    const existProdcut = await Product.findOne({ _id: id });
+
+    if (!existProdcut)
+        res.status(404).json({
+            status: "error",
+            message: "product doesn't exist"
+        });
+
+    const update = await findOneAndUpdate({ _id: id }, {});
+};
 const deleteProducts = (req, res) => {};
 
 module.exports = { getProducts, addProducts };
