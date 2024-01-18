@@ -17,6 +17,7 @@ const App = () => {
         <BrowserRouter>
             <Routes>
                 <Route element={<RootLayout />}>
+                    {/*public Route*/}
                     <Route
                         index
                         element={<Main />}
@@ -26,10 +27,12 @@ const App = () => {
                             path="/contact"
                             element={<Contact />}
                         />
+
                         <Route
-                            path="/order"
+                            path="/product/order:productId"
                             element={<Order />}
                         />
+                        {/*private route*/}
                         <Route
                             path="/product/list"
                             element={<ProductList />}

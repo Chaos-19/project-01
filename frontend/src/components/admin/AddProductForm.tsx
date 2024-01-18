@@ -21,9 +21,11 @@ const AddProductForm = (/*props: Props*/) => {
         formData.append("price", price);
         formData.append("discount", discount);
 
+        /*
         for (const pair of formData.entries()) {
             console.log(`${pair[0]}, ${pair[1]}`);
         }
+        */
         try {
             console.log(formData?.values);
             await addProduct(formData).unwrap();
@@ -130,7 +132,7 @@ const AddProductForm = (/*props: Props*/) => {
                         type="submit"
                         className="my-10 text-white py-2 px-2.5 rounded border max-w-30 capitalize"
                     >
-                        add Product
+                        {isLoading ? "adding..." : "add Product"}
                     </button>
                 </form>
             </div>
