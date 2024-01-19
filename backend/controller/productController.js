@@ -10,13 +10,27 @@ cloudinary.config({
 
 const getProducts = async (req, res) => {
     const productList = await Product.find();
-    console.log(productList);
     res.json({ products: productList });
+};
+const getProductById = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const product = await Product.findOne({ _id: id });
+        res.status(200).json({ product: product });
+    } catch (e) {
+        console.log(e);
+        res.status(500).json({
+            status: "error",
+            massage: "internal server Error"
+        });
+    }
 };
 
 const addProducts = async (req, res) => {
     const { name, price, discount } = req.body;
     const file = req?.file;
+    console.log(req.body);
+    console.log(Number(price));
 
     try {
         //Upload to Cloudinary
@@ -29,12 +43,12 @@ const addProducts = async (req, res) => {
         const newProduct = await Product.create({
             name,
             price: {
-                original: price,
-                discount: discount || 0
+                original: Number(price),
+                discount: Number(discount) || 0
             },
             image: {
                 imgUrl: imageUrl,
-                imgId: result.public_id
+                imgId: imageId
             }
         });
 
@@ -67,9 +81,9 @@ const deleteProducts = async (req, res) => {
 
     try {
         const existProduct = await Product.findOneAndDelete({ _id: pId });
-        
+
         console.log(existProduct);
-        
+
         if (!existProduct)
             res.status(400).json({
                 status: "error",
@@ -86,4 +100,4 @@ const deleteProducts = async (req, res) => {
     }
 };
 
-module.exports = { getProducts, addProducts, deleteProducts };
+module.exports = { getProducts, addProducts, deleteProducts,getProductById };
