@@ -36,6 +36,13 @@ export const apiSlice = createApi({
             }),
             providesTags: ["products"]
         }),
+        getProductById: builder.query<Product[], string>({
+            query: id => ({
+                url: `/product/get/${id}`,
+                method: "GET"
+            }),
+            providesTags: ["products"]
+        }),
         addProduct: builder.mutation<{}, any>({
             query: productInfo => ({
                 url: "/product/addProduct",
@@ -78,8 +85,10 @@ export const apiSlice = createApi({
 
 export const {
     useGetProductInfoQuery,
+    useGetProductByIdQuery,
     useAddOrderMutation,
     useDeleteProductMutation,
     useAddProductMutation,
+
     useSendMessageMutation
 } = apiSlice;

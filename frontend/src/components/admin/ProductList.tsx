@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Pencil, Trash2 } from "lucide-react";
 
 import {
@@ -22,7 +23,7 @@ const ProductItem = (props: Props) => {
 
     const handleDelete = id => {
         try {
-            deleteProduct(id)
+            deleteProduct(id);
         } catch (err) {
             console.log(err);
         }
@@ -42,9 +43,11 @@ const ProductItem = (props: Props) => {
             <td className="data">{discount}%</td>
             <td className="data">{tage ?? "empty"}</td>
             <td className="data space-x-2 text-center">
-                <button className="border py-1 md:py-2 px-3 rounded group hover:bg-yellow-400">
-                    <Pencil className="w-4 h-4 md:w-5 md:h-5 group-hover:text-white group-hover:scale-125" />
-                </button>
+                <Link to={`/product/edite/${id}`}>
+                    <button className="border py-1 md:py-2 px-3 rounded group hover:bg-yellow-400">
+                        <Pencil className="w-4 h-4 md:w-5 md:h-5 group-hover:text-white group-hover:scale-125" />
+                    </button>
+                </Link>
                 <button
                     onClick={() => handleDelete(id)}
                     className="border py-1 md:py-2 px-3 rounded hover group hover:bg-red-500"

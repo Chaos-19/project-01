@@ -5,7 +5,8 @@ import { Contact, Order } from "./sections/index";
 import {
     AddProductForm,
     Notification,
-    ProductList
+    ProductList,
+    EditeProduct
 } from "./components/admin/index";
 
 interface Props {
@@ -40,6 +41,10 @@ const App = () => {
                         <Route
                             path="/product/add"
                             element={<AddProductForm />}
+                        />
+                        <Route
+                            path="/product/edite/:id"
+                            element={<EditeProduct />}
                         />
                     </Route>
                 </Route>
