@@ -20,9 +20,9 @@ const ProductItem = (props: Props) => {
     const { id, name, imgUrl, price, discount = 0, tage } = props;
     const [deleteProduct, { isLoading }] = useDeleteProductMutation();
 
-    const handleDelete = async id => {
+    const handleDelete = id => {
         try {
-            await deleteProduct(id).unwrap();
+            deleteProduct(id)
         } catch (err) {
             console.log(err);
         }

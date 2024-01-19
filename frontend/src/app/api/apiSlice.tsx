@@ -27,25 +27,29 @@ interface Order {
 
 export const apiSlice = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3500" }),
+    tagTypes: ["products"],
     endpoints: builder => ({
         getProductInfo: builder.query<Product[], number>({
             query: no => ({
                 url: "/product/get",
                 method: "GET"
-            })
+            }),
+            providesTags: ["products"]
         }),
         addProduct: builder.mutation<{}, any>({
             query: productInfo => ({
                 url: "/product/addProduct",
                 method: "POST",
                 body: productInfo
-            })
+            }),
+            providesTags: ["products"]
         }),
         deleteProduct: builder.mutation<{}, string>({
             query: id => ({
                 url: `/product/delete/${id}`,
                 method: "DELETE"
-            })
+            }),
+            invalidatesTags: ["products"]
         }),
         addOrder: builder.mutation<{}, Order>({
             query: orderInfo => ({
