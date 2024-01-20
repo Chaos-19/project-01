@@ -11,7 +11,9 @@ interface Product {
         discount?: number;
         discountPercent?: number;
     };
-    image: string;
+    image: {
+        imgUrl: string;
+    };
     tage: {
         isNew: boolean;
     };
@@ -52,13 +54,7 @@ export const apiSlice = createApi({
             },
             providesTags: ["products"]
         }),
-        getProductById: builder.query<Product[], string>({
-            query: id => ({
-                url: `/product/get/${id}`,
-                method: "GET"
-            }),
-            providesTags: ["products"]
-        }),
+
         addProduct: builder.mutation<{}, any>({
             query: productInfo => ({
                 url: "/product/addProduct",
@@ -66,6 +62,14 @@ export const apiSlice = createApi({
                 body: productInfo
             }),
             providesTags: ["products"]
+        }),
+        updateProduct: builder.mutation<{}, Object>({
+            query: product => ({
+                url: `/product/update/${product.id}`,
+                method: "PUT",
+                body: product
+            }),
+            invalidatesTags: ["products"]
         }),
         deleteProduct: builder.mutation<{}, string>({
             query: id => ({
@@ -105,7 +109,6 @@ export const productSelectors = productAddpter.getSelectors<RootState>(
 
 export const {
     useGetProductInfoQuery,
-    useGetProductByIdQuery,
     useAddOrderMutation,
     useDeleteProductMutation,
     useAddProductMutation,

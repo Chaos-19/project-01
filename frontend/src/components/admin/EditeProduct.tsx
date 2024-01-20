@@ -11,42 +11,34 @@ interface Props {
 
 const EditeProduct = () => {
     const { id } = useParams();
-    const [name, setName] = useState<string>("");
-    const [price, setPrice] = useState<number>();
-    const [file, setFile] = useState<{}>();
-    const [discount, setDiscount] = useState<number>();
+
+    const { produt } = useGetProductInfoQuery(0, {
+        selectFromResult: ({ data, isLoading }) => ({
+            produts: data?.entities[id]
+        })
+    });
+
+    const [name, setName] = useState<string>(produt.name);
+    const [price, setPrice] = useState<number>(produt.price.original);
+    const [file, setFile] = useState<{}>({ img: produt.image.imgUrl });
+    const [discount, setDiscount] = useState<number>(produt.price.discount);
 
     const [addProduct, { isLoading }] = useAddProductMutation();
 
-    const { produts, isLoading: isProductListLoading } = useGetProductInfoQuery(
-        "getProductInfo",
-        {
-            selectFromResult: ({ data, isLoading }) => ({
-                produts: data?.entities[id],
-                isLoading
-            })
-        }
-    );
+    console.log(produts);
 
-    console.log(produts
-    );
-    
     const handleSubmit = async (e: React.SyntheticEvent) => {
         e.preventDefault();
-        let formData = new FormData();
-        formData.append("file", file.file);
-        formData.append("name", name);
-        formData.append("price", price);
-        formData.append("discount", discount);
 
-        /*
-        for (const pair of formData.entries()) {
-            console.log(`${pair[0]}, ${pair[1]}`);
-        }
-        */
+        let formData = new FormData();
+        if (file?.file) formData.append("file", file?.file);
+        if (produt.name != name) formData.append("name", name);
+        if (produt.price.original != price) formData.append("price", price);
+        if (produt.price.discount != discount)
+            formData.append("discount", discount);
+
         try {
-            console.log(formData?.values);
-            await addProduct(formData).unwrap();
+           // await addProduct(formData).unwrap();
         } catch (e) {
             console.log(e);
         }
