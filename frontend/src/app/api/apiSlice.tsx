@@ -1,4 +1,7 @@
+import { createEntityAdapter } from "@reduxjs/toolkit";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
+import { RootState, store } from "../store";
 
 interface Product {
     Id: string;
@@ -25,6 +28,12 @@ interface Order {
     };
 }
 
+const productAddpter = createEntityAdapter<Product>({
+    selectId: product => product._id
+});
+
+const initialState = productAddpter.getInitialState();
+
 export const apiSlice = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3500" }),
     tagTypes: ["products"],
@@ -34,6 +43,13 @@ export const apiSlice = createApi({
                 url: "/product/get",
                 method: "GET"
             }),
+            transformResponse: (
+                response: { products: Product[] },
+                meta,
+                arg
+            ) => {
+                return productAddpter.setAll(initialState, response.products);
+            },
             providesTags: ["products"]
         }),
         getProductById: builder.query<Product[], string>({
@@ -83,12 +99,15 @@ export const apiSlice = createApi({
     })
 });
 
+export const productSelectors = productAddpter.getSelectors<RootState>(
+    state => state.products
+);
+
 export const {
     useGetProductInfoQuery,
     useGetProductByIdQuery,
     useAddOrderMutation,
     useDeleteProductMutation,
     useAddProductMutation,
-
     useSendMessageMutation
 } = apiSlice;

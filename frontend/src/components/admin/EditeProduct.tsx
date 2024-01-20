@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useGetProductByIdQuery } from "../../app/api/apiSlice";
+import { useParams, useNavigate } from "react-router-dom";
+import {
+    useGetProductByIdQuery,
+    useGetProductInfoQuery
+} from "../../app/api/apiSlice";
 
 interface Props {
     // Define your props here
 }
 
 const EditeProduct = () => {
-  
+    const { id } = useParams();
     const [name, setName] = useState<string>("");
     const [price, setPrice] = useState<number>();
     const [file, setFile] = useState<{}>();
@@ -14,6 +18,19 @@ const EditeProduct = () => {
 
     const [addProduct, { isLoading }] = useAddProductMutation();
 
+    const { produts, isLoading: isProductListLoading } = useGetProductInfoQuery(
+        "getProductInfo",
+        {
+            selectFromResult: ({ data, isLoading }) => ({
+                produts: data?.entities[id],
+                isLoading
+            })
+        }
+    );
+
+    console.log(produts
+    );
+    
     const handleSubmit = async (e: React.SyntheticEvent) => {
         e.preventDefault();
         let formData = new FormData();

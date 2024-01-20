@@ -21,22 +21,22 @@ const Product = () => {
     let content = "";
     if (isLoading) {
         content = (
-            <p className="w-full text-2xl text-red-600 text-center animate-pulse">
-                Loading1....
-            </p>
+            <tr>
+                <td className="w-full text-2xl text-red-600 text-center animate-pulse">
+                    Loading1....
+                </td>
+            </tr>
         );
     } else if (isError) {
-        content = <p>{JSON.stringify(error)}</p>;
+        content = (
+            <tr>
+                <td>{JSON.stringify(error)}</td>;
+            </tr>
+        );
     } else if (isSuccess) {
-        content = productList.products.map((product, index) => {
-            return (
-                <ProductCard
-                    name={product.name}
-                    price={product.price}
-                    image={product.image.imgUrl}
-                    tage={product.tage}
-                />
-            );
+        console.log(productList.ids);
+        content = productList.ids.map((product, index) => {
+            return <ProductCard id={product} />;
         });
     }
     return (

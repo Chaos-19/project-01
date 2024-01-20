@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useGetProductInfoQuery } from "../app/api/apiSlice";
 
 import ProductCardModal from "./ProductCardModal";
 
 import { ShoppingCart, Eye, Heart } from "../assets/index";
 
 interface Props {
-    name: string;
+    id: string;
+    /*name: string;
     price: {
         original: number;
         discount?: number;
@@ -14,12 +16,17 @@ interface Props {
     image: string;
     tage: {
         isNew: boolean;
-    };
+    };*/
 }
 
 const ProductCard = (props: Props) => {
-    const { name, price, image, tage } = props;
+    const { id: productId } = props;
 
+    const { product } = useGetProductInfoQuery(6, {
+        selectFromResult: ({ data }) => ({
+            product: data?.entities[productId]
+        })
+    });
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
     const handleModal = (): void => {
@@ -29,34 +36,34 @@ const ProductCard = (props: Props) => {
     return (
         <div className="group relative flex flex-col bg-white shadow-xl  rounded">
             <div className="inset-x-0 h-fit absolute pt-2.5 md:pt-0 md:bottom-2.5 left-2.5">
-                {price?.discountPercent && (
+                {product.price?.discount && (
                     <span className="text-xs px-1 py-0.5 bg-sky-500 text-white rounded">
-                        {price?.discountPercent}%
+                        {product.price?.discount}%
                     </span>
                 )}
-                {tage?.isNew && (
+                {product.tage?.isNew && (
                     <span className="text-xs text-white capitalize p-1 bg-red-700 rounded">
                         New
                     </span>
                 )}
             </div>
             <img
-                src={image}
-                alt={`${name} image`}
+                src={product.image.imgUrl}
+                alt={`${product.name} image`}
                 className="order-2 bg-cover"
             />
             <div className="p-2.5 pt-0 md:pt-1.5 order-3 md:inset-x-0 h-fit md:absolute md:top-2.5">
                 <h3 className="text-md font-mono uppercase text-gray-600 font-black">
-                    {name}
+                    {product.name}
                 </h3>
                 <div className="flex items-center gap-3">
-                    {price?.discount && (
+                    {product.price?.discount && (
                         <span className="text-xs text-gray-500 font-light line-through">
-                            ${price?.discount}
+                            ${product.price?.discount}
                         </span>
                     )}
                     <span className="text-xs text-gray-500 font-light">
-                        ${price?.original}
+                        ${product.price?.original}
                     </span>
                 </div>
                 <ProductCardModal
