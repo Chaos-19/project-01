@@ -3,7 +3,7 @@ import ProductItem from "./ProductItem";
 
 import {
     useGetProductInfoQuery,
-    useDeleteProductMutation
+    
 } from "../../app/api/apiSlice";
 
 const ProductList = (/*props: Props*/) => {

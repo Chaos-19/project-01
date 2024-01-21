@@ -21,11 +21,11 @@ const ProductItem = (props: Props) => {
     });
     console.log(product);
 
-    const [deleteProduct, { isLoading }] = useDeleteProductMutation();
+    const [deleteProduct] = useDeleteProductMutation();
 
-    const handleDelete = id => {
+    const handleDelete = async () => {
         try {
-            deleteProduct(id);
+            await deleteProduct({ id:product?._id }).unwrap();
         } catch (err) {
             console.log(err);
         }
