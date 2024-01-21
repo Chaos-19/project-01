@@ -56,11 +56,11 @@ const updateProduct = async (req, res) => {
         console.log(id);
         console.log(req?.file);
 
-        const existProdcut = await Product.findById(id);
+        const existProduct = await Product.findById(id);
 
-        console.log(existProdcut);
+        console.log(existProduct);
 
-        if (!existProdcut) {
+        if (!existProduct) {
             return res.status(400).json({
                 status: "error",
                 message: "product doesn't exist"
@@ -68,7 +68,7 @@ const updateProduct = async (req, res) => {
         }
         if (file) {
             console.log("in cloudinary");
-            await cloudinary.v2.uploader.destroy(existProdcut.image.imgId);
+            await cloudinary.v2.uploader.destroy(existProduct.image.imgId);
             console.log(`Image ${id} deleted successfully!`);
 
             const result = await cloudinary.v2.uploader.upload(file.path);
@@ -97,7 +97,7 @@ const updateProduct = async (req, res) => {
             message: "product updated successfully"
         });
     } catch (err) {
-      console.log(err)
+        console.log(err);
         res.status(500).json({
             status: "error",
             massage: "internal server Error"
