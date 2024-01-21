@@ -57,7 +57,7 @@ export const apiSlice = createApi({
 
         addProduct: builder.mutation<{}, any>({
             query: productInfo => ({
-                url: "/product/addProduct",
+                url: "/product/add",
                 method: "POST",
                 body: productInfo
             }),
@@ -65,7 +65,7 @@ export const apiSlice = createApi({
         }),
         updateProduct: builder.mutation<{}, Object>({
             query: product => ({
-                url: `/product/update/${product.id}`,
+                url: `/product/update/${product.get("id")}`,
                 method: "PUT",
                 body: product
             }),
@@ -109,8 +109,9 @@ export const productSelectors = productAddpter.getSelectors<RootState>(
 
 export const {
     useGetProductInfoQuery,
-    useAddOrderMutation,
-    useDeleteProductMutation,
     useAddProductMutation,
+    useUpdateProductMutation,
+    useDeleteProductMutation,
+    useAddOrderMutation,
     useSendMessageMutation
 } = apiSlice;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
-    useGetProductByIdQuery,
+    useUpdateProductMutation,
     useGetProductInfoQuery
 } from "../../app/api/apiSlice";
 
@@ -12,33 +12,65 @@ interface Props {
 const EditeProduct = () => {
     const { id } = useParams();
 
-    const { produt } = useGetProductInfoQuery(0, {
-        selectFromResult: ({ data, isLoading }) => ({
-            produts: data?.entities[id]
+    const navigate = useNavigate();
+
+    const {
+        product,
+        isLoading: isFullyLoad,
+        isSuccess
+    } = useGetProductInfoQuery(0, {
+        selectFromResult: ({ data, isLoading, isSuccess }) => ({
+            product: data?.entities[id],
+            isLoading,
+            isSuccess
         })
     });
+    const [name, setName] = useState<string>("");
+    const [price, setPrice] = useState<number>(0);
+    const [file, setFile] = useState<{}>({});
+    const [discount, setDiscount] = useState<number>(0);
 
-    const [name, setName] = useState<string>(produt.name);
-    const [price, setPrice] = useState<number>(produt.price.original);
-    const [file, setFile] = useState<{}>({ img: produt.image.imgUrl });
-    const [discount, setDiscount] = useState<number>(produt.price.discount);
+    useEffect(() => {
+        if (isSuccess) {
+            setName(product?.name);
+            setPrice(product?.price.original);
+            setDiscount(product?.price.discount);
+            setFile({ img: product?.image.imgUrl });
+        }
+    }, [
+        isSuccess,
+        product?.name,
+        product?.price.original,
+        product?.price.discount,
+        product?.image.imgUrl
+    ]);
 
-    const [addProduct, { isLoading }] = useAddProductMutation();
-
-    console.log(produts);
+    const [updateProduct, { isLoading }] = useUpdateProductMutation();
 
     const handleSubmit = async (e: React.SyntheticEvent) => {
         e.preventDefault();
 
         let formData = new FormData();
+        formData.append("id", id);
         if (file?.file) formData.append("file", file?.file);
-        if (produt.name != name) formData.append("name", name);
-        if (produt.price.original != price) formData.append("price", price);
-        if (produt.price.discount != discount)
+        if (product.name != name) formData.append("name", name);
+        if (product.price.original != price) formData.append("price", price);
+        if (product.price.discount != discount)
             formData.append("discount", discount);
 
+        console.log(formData.entries().length);
+
+        for (const pair of formData.entries()) {
+            console.log(`${pair[0]}, ${pair[1]}`);
+        }
+
         try {
-           // await addProduct(formData).unwrap();
+            await updateProduct(formData).unwrap();
+            setName("");
+            setPrice(0);
+            setDiscount(0);
+            setFile({});
+            navigate("/list");
         } catch (e) {
             console.log(e);
         }
@@ -88,7 +120,6 @@ const EditeProduct = () => {
                                         )
                                     })
                                 }
-                                required
                             />
                             <img
                                 src={file?.img}
