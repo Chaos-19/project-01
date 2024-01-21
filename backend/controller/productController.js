@@ -49,32 +49,36 @@ const addProducts = async (req, res) => {
     }
 };
 const updateProduct = async (req, res) => {
+    const id = req.params.id;
+    const file = req?.file;
+    const { price, discount, name } = req.body;
     try {
-        const { id } = req.params?.id;
-        const { price, discount, name } = req.body;
-
         console.log(id);
+        console.log(req?.file);
 
-        const existProdcut = await Product.findOne({ id });
+        const existProdcut = await Product.findById(id);
+
         console.log(existProdcut);
-        if (!existProdcut)
-            res.status(400).json({
+
+        if (!existProdcut) {
+            return res.status(400).json({
                 status: "error",
                 message: "product doesn't exist"
             });
-
-        if (req?.file) {
-          console.log(id)
+        }
+        if (file) {
+            console.log("in cloudinary");
             await cloudinary.v2.uploader.destroy(existProdcut.image.imgId);
-            const file = req?.file;
+            console.log(`Image ${id} deleted successfully!`);
 
             const result = await cloudinary.v2.uploader.upload(file.path);
 
             const imgUrl = result.secure_url;
             const imgId = result.public_id;
 
-            existProduct.image = { imgUrl, imgId };
+            existProduct.image = { ...imgUrl, ...imgId };
         }
+
         if (price) {
             existProduct.name = name;
         }
@@ -87,30 +91,38 @@ const updateProduct = async (req, res) => {
         const resul = await existProduct.save();
 
         console.log(resul);
+
         res.status(200).json({
             status: "success",
             message: "product updated successfully"
         });
     } catch (err) {
-        res.status(400).json({ err });
+      console.log(err)
+        res.status(500).json({
+            status: "error",
+            massage: "internal server Error"
+        });
     }
     //const update = await findOneAndUpdate({ _id: id }, {});
 };
 const deleteProducts = async (req, res) => {
     const pId = req.params.id;
-
     try {
-        const existProduct = await Product.findOneAndDelete({ _id: pId });
+        const existProduct = await Product.findById(id);
 
         console.log(existProduct);
 
         if (!existProduct)
-            res.status(400).json({
+            return res.status(400).json({
                 status: "error",
                 message: "product doesn't exist!"
             });
         await cloudinary.v2.uploader.destroy(existProduct.image.imgId);
+
+        await Product.findOneAndDelete({ _id: pId });
+
         console.log(`Image ${pId} deleted successfully!`);
+
         res.status(200).json({
             status: "success",
             message: `product ${pId} deleted successfully!`
