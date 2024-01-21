@@ -66,20 +66,8 @@ const updateProduct = async (req, res) => {
                 message: "product doesn't exist"
             });
         }
-        if (file) {
-            console.log("in cloudinary");
-            await cloudinary.v2.uploader.destroy(existProduct.image.imgId);
-            console.log(`Image ${id} deleted successfully!`);
 
-            const result = await cloudinary.v2.uploader.upload(file.path);
-
-            const imgUrl = result.secure_url;
-            const imgId = result.public_id;
-
-            existProduct.image = { ...imgUrl, imgId };
-        }
-
-        if (price) {
+        if (name) {
             existProduct.name = name;
         }
         if (price) {
@@ -88,6 +76,27 @@ const updateProduct = async (req, res) => {
         if (discount) {
             existProduct.price.discount = Number(discount);
         }
+        if (file) {
+            console.log("in cloudinary");
+
+            const result = await cloudinary.v2.uploader.upload(file.path);
+
+            const imgUrl = result.secure_url;
+            const imgId = result.public_id;
+
+            const prevImageId = existProduct.image.imgId;
+
+            console.log(prevImageId);
+
+            existProduct.image.imgUrl = imgUrl;
+            existProduct.image.imgId = imgId;
+
+            console.log({ imgUrl, imgId });
+
+            await cloudinary.v2.uploader.destroy(prevImageId);
+            console.log(`Image ${id} deleted successfully!`);
+        }
+
         const resul = await existProduct.save();
 
         console.log(resul);
@@ -110,7 +119,6 @@ const deleteProducts = async (req, res) => {
     try {
         const existProduct = await Product.findById(pId);
 
-        
         if (!existProduct) {
             console.log("existProduct....");
             res.status(400).json({
