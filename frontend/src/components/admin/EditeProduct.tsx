@@ -66,11 +66,11 @@ const EditeProduct = () => {
 
         try {
             await updateProduct(formData).unwrap();
-            setName("");
-            setPrice(0);
+            /*    setName("");
+             setPrice(0);
             setDiscount(0);
             setFile({});
-            navigate("/list");
+            //navigate("/list");*/
         } catch (e) {
             console.log(e);
         }
