@@ -12,25 +12,10 @@ const getProducts = async (req, res) => {
     const productList = await Product.find();
     res.json({ products: productList });
 };
-const getProductById = async (req, res) => {
-    try {
-        const id = req.params.id;
-        const product = await Product.findOne({ _id: id });
-        res.status(200).json({ product: product });
-    } catch (e) {
-        console.log(e);
-        res.status(500).json({
-            status: "error",
-            massage: "internal server Error"
-        });
-    }
-};
 
 const addProducts = async (req, res) => {
     const { name, price, discount } = req.body;
     const file = req?.file;
-    console.log(req.body);
-    console.log(Number(price));
 
     try {
         //Upload to Cloudinary
@@ -63,18 +48,53 @@ const addProducts = async (req, res) => {
         });
     }
 };
-const updateProducts = async (req, res) => {
-    const { id } = req.body;
+const updateProduct = async (req, res) => {
+    try {
+        const { id } = req.params?.id;
+        const { price, discount, name } = req.body;
 
-    const existProdcut = await Product.findOne({ _id: id });
+        console.log(id);
 
-    if (!existProdcut)
-        res.status(404).json({
-            status: "error",
-            message: "product doesn't exist"
+        const existProdcut = await Product.findOne({ id });
+        console.log(existProdcut);
+        if (!existProdcut)
+            res.status(400).json({
+                status: "error",
+                message: "product doesn't exist"
+            });
+
+        if (req?.file) {
+          console.log(id)
+            await cloudinary.v2.uploader.destroy(existProdcut.image.imgId);
+            const file = req?.file;
+
+            const result = await cloudinary.v2.uploader.upload(file.path);
+
+            const imgUrl = result.secure_url;
+            const imgId = result.public_id;
+
+            existProduct.image = { imgUrl, imgId };
+        }
+        if (price) {
+            existProduct.name = name;
+        }
+        if (price) {
+            existProduct.price.original = Number(price);
+        }
+        if (discount) {
+            existProduct.price.discount = Number(discount);
+        }
+        const resul = await existProduct.save();
+
+        console.log(resul);
+        res.status(200).json({
+            status: "success",
+            message: "product updated successfully"
         });
-
-    const update = await findOneAndUpdate({ _id: id }, {});
+    } catch (err) {
+        res.status(400).json({ err });
+    }
+    //const update = await findOneAndUpdate({ _id: id }, {});
 };
 const deleteProducts = async (req, res) => {
     const pId = req.params.id;
@@ -100,4 +120,4 @@ const deleteProducts = async (req, res) => {
     }
 };
 
-module.exports = { getProducts, addProducts, deleteProducts,getProductById };
+module.exports = { getProducts, addProducts, deleteProducts, updateProduct };
