@@ -36,7 +36,7 @@ const Product = () => {
     } else if (isSuccess) {
         console.log(productList.ids);
         content = productList.ids.map((product, index) => {
-            return <ProductCard id={product} />;
+            return <ProductCard key={product} id={product} />;
         });
     }
     return (

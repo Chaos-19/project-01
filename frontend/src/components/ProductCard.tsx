@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useGetProductInfoQuery } from "../app/api/apiSlice";
 
 import ProductCardModal from "./ProductCardModal";
@@ -79,11 +80,13 @@ const ProductCard = (props: Props) => {
                     <Eye onClick={handleModal} />
                 </div>
                 <div className="absolute inset-x-0 bottom-0 h-24">
-                    <div className="w-full h-full relative">
-                        <div className="triangle-bottom h-full absolute inset-x-0 bottom-0 bg-yellow-500">
-                            <ShoppingCart className="absolute bottom-4 right-4" />
+                    <Link to={`/product/order/${productId}`}>
+                        <div className="w-full h-full relative">
+                            <div className="triangle-bottom h-full absolute inset-x-0 bottom-0 bg-yellow-500">
+                                <ShoppingCart className="absolute bottom-4 right-4" />
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>

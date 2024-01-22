@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
 
 import { useAddOrderMutation } from "../app/api/apiSlice";
 interface Props {
@@ -6,6 +7,8 @@ interface Props {
 }
 
 const Order = () => {
+    const { productId } = useParams();
+
     const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [phone, setPhone] = useState<string>("");
@@ -20,7 +23,7 @@ const Order = () => {
         if (name & phone & kifleKetem & location & city) {
             try {
                 await addOrder({
-                    productId: "",
+                    productId,
                     userInfo: {
                         userName: name,
                         email,

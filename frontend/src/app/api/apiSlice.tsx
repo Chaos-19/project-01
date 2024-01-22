@@ -79,9 +79,15 @@ export const apiSlice = createApi({
             }),
             invalidatesTags: ["products"]
         }),
+        getOrder: builder.query<Order[], null>({
+            query: () => ({
+                url: "/order/placeOrder",
+                method: "GET"
+            })
+        }),
         addOrder: builder.mutation<{}, Order>({
             query: orderInfo => ({
-                url: "/placeOrder",
+                url: "/order/placeOrder",
                 method: "POST",
                 body: { ...orderInfo }
             })

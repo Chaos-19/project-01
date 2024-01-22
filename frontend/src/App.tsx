@@ -30,9 +30,10 @@ const App = () => {
                         />
 
                         <Route
-                            path="/product/order:productId"
+                            path="/product/order/:productId"
                             element={<Order />}
                         />
+
                         {/*private route*/}
                         <Route
                             path="/product/list"
