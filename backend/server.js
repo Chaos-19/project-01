@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 
 const productRoute = require("./routes/productRoute");
+const orderRoute = require("./routes/orderRoute");
 const connectDB = require("./config/dbConnection");
 
 const app = express();
@@ -26,6 +27,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use("/product", productRoute);
+app.use("/order", orderRoute);
 
 mongoose.connection.once("open", () => {
     console.log("CONNETED TO MONGODB...");
