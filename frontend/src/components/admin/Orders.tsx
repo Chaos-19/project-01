@@ -21,11 +21,12 @@ const Orders = (/*props: Props*/) => {
         content = <p>Loading...</p>;
     } else if (isSuccess) {
         content = order.orderList.map((order, index) => {
-            console.log(order.productId);
+            console.log(order);
             return (
                 <OrderListItem
-                    key={order._id }
+                    key={order._id}
                     productId={order.productId}
+                    userInfo={order.userInfo}
                 />
             );
         });

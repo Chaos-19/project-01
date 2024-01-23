@@ -4,6 +4,7 @@ import {
     X as Close,
     ChevronRight,
     ChevronDown,
+    ChevronUp,
     ShoppingCart,
     Eye,
     Heart,
@@ -63,7 +64,7 @@ export {
     Menu,
     Close,
     ChevronRight,
-    ChevronDown,
+    ChevronDown,ChevronUp,
     image1,
     image2,
     image3,
@@ -108,5 +109,6 @@ export {
     FaTelegramPlane,
     FaFacebook,
     phoneold,
-    AlarmClock,Home
+    AlarmClock,
+    Home
 };
