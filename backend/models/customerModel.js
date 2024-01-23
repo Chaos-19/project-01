@@ -11,7 +11,7 @@ const CustomerSchema = Schema({
     },
     subject: {
         type: String,
-        required: true
+      
     },
     message: {
         type: String
