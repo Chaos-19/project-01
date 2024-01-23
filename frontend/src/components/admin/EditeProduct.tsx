@@ -58,19 +58,13 @@ const EditeProduct = () => {
         if (product.price.discount != discount)
             formData.append("discount", discount);
 
-        console.log(formData.entries().length);
-
-        for (const pair of formData.entries()) {
-            console.log(`${pair[0]}, ${pair[1]}`);
-        }
-
         try {
             await updateProduct(formData).unwrap();
-            /*    setName("");
-             setPrice(0);
+            setName("");
+            setPrice(0);
             setDiscount(0);
             setFile({});
-            //navigate("/list");*/
+            navigate("/list");
         } catch (e) {
             console.log(e);
         }

@@ -81,7 +81,7 @@ export const apiSlice = createApi({
         }),
         getOrder: builder.query<Order[], null>({
             query: () => ({
-                url: "/order/placeOrder",
+                url: "/order/get",
                 method: "GET"
             })
         }),
@@ -119,6 +119,7 @@ export const {
     useAddProductMutation,
     useUpdateProductMutation,
     useDeleteProductMutation,
+    useGetOrderQuery,
     useAddOrderMutation,
     useSendMessageMutation
 } = apiSlice;

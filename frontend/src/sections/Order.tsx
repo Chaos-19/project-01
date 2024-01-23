@@ -1,18 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { useAddOrderMutation } from "../app/api/apiSlice";
-interface Props {
-    // Define your props here
-}
 
 const Order = () => {
     const { productId } = useParams();
+    const navigate = useNavigate();
 
     const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [phone, setPhone] = useState<string>("");
-    const [kifleKetem, setKifleKetem] = useState<string>("");
+    const [kifleKetema, setKifleKetema] = useState<string>("");
     const [location, setLocation] = useState<string>("");
     const [city, setCity] = useState<string>("");
 
@@ -20,7 +18,8 @@ const Order = () => {
 
     const handleSubmit = async (e: React.SyntheticEvent) => {
         e.preventDefault();
-        if (name & phone & kifleKetem & location & city) {
+        
+        if (name & phone & kifleKetema & location & city) {
             try {
                 await addOrder({
                     productId,
@@ -28,11 +27,20 @@ const Order = () => {
                         userName: name,
                         email,
                         phone,
-                        kifleKetem,
+                        kifleKetema,
                         location,
                         city
                     }
                 }).unwrap();
+
+                setName("");
+                setPhone("");
+                setEmail("");
+                setKifleKetema("");
+                setLocation("");
+                setCity("");
+
+                navigate("/");
             } catch (err) {
                 console.log(err);
             }
@@ -43,7 +51,7 @@ const Order = () => {
         <div className="w-full px-3 md:px-0">
             <div className="w-full mx-auto max-w-screen-md bg-gray-700 my-20 py-8 rounded shadow">
                 <form
-                    onSumbit={handleSubmit}
+                    onSubmit={handleSubmit}
                     className="w-full flex flex-col justify-center  gap-3 px-3  text-gray-500"
                 >
                     <div className="flex flex-col gap-1 w-full">
@@ -106,8 +114,8 @@ const Order = () => {
                         <input
                             type="text"
                             name="k/ketema"
-                            value={kifleKetem}
-                            onChange={e => setKifleKetem(e.target.value)}
+                            value={kifleKetema}
+                            onChange={e => setKifleKetema(e.target.value)}
                             required
                             placeholder="kifle ketema"
                             className="py-3 px-2  capitalizetext-sm rounded placeholder-gray-500 w-full"
@@ -151,7 +159,7 @@ const Order = () => {
                         type="submit"
                         className="my-10 text-white py-2 px-2.5 rounded border max-w-30"
                     >
-                        send
+                        {isLoading ? "placing order.." : "place order"}
                     </button>
                 </form>
             </div>

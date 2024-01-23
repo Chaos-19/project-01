@@ -6,12 +6,10 @@ import {
     AddProductForm,
     Notification,
     ProductList,
-    EditeProduct
+    EditeProduct,
+    Orders
 } from "./components/admin/index";
 
-interface Props {
-    // Define your props here
-}
 
 const App = () => {
     return (
@@ -46,6 +44,10 @@ const App = () => {
                         <Route
                             path="/product/edite/:id"
                             element={<EditeProduct />}
+                        />
+                        <Route
+                            path="/order/list"
+                            element={<Orders />}
                         />
                     </Route>
                 </Route>

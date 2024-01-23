@@ -1,36 +1,31 @@
 import React from "react";
+import { useGetProductInfoQuery } from "../../app/api/apiSlice";
 
 interface Props {
-    // Define your props here
+    productId: string;
 }
 
-const OrderListItem = (/*props: Props*/) => {
+const OrderListItem = (props: Props) => {
+    const { productId } = props;
+
+    const { product } = useGetProductInfoQuery(6, {
+        selectFromResult: ({ data }) => ({
+            product: data?.entities[productId]
+        })
+    });
+
     return (
-        <div className="py-8 overflow-x-scroll">
-            <div>
-                <table className="border-collapse border border-slate-400 w-full overflow-x-scroll">
-                    <thead>
-                        <tr>
-                            <th className="border border-slate-400 p-2">Id</th>
-                            <th className="border border-slate-400 p-2">
-                                status
-                            </th>
-                            <th className="border border-slate-400 p-2">
-                                Product
-                            </th>
-                            <th className="border border-slate-400 p-2 whitespace-nowrap">
-                                Discount percent
-                            </th>
-                            <th className="border border-slate-400 p-2">
-                                price
-                            </th>
-                            <th className="border border-slate-400 p-2">
-                                Date
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody className="overflow-x-scroll">{content}</tbody>
-                </table>
+        <div className="w-full border border-2 shadow-2xl rounded bg-white px-2 md:px-4">
+            <div className="flex items-center gap-4 h-44 overflow-y-hidden">
+                <img
+                    src={product?.image.imgUrl}
+                    alt="product image"
+                    className="w-44  object-cover"
+                />
+                <div className="">23,000 EBR</div>
+                <div>
+                    <input type="checkbox" />
+                </div>
             </div>
         </div>
     );
