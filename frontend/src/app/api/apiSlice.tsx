@@ -102,7 +102,7 @@ export const apiSlice = createApi({
             }
         >({
             query: userInfo => ({
-                url: "/product",
+                url: "/contact",
                 method: "POST",
                 body: { ...userInfo }
             })

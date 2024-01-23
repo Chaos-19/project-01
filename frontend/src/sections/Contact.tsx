@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { contacts } from "../constants";
 import { useSendMessageMutation } from "../app/api/apiSlice";
 
@@ -46,6 +47,8 @@ const Icons = () => {
 };
 
 const Contact = () => {
+    const navigate = useNavigate();
+
     const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [subject, setSubject] = useState<string>("");
@@ -64,7 +67,13 @@ const Contact = () => {
                     subject,
                     message
                 }).unwrap();
-                
+
+                setName("");
+                setSubject("");
+                setMessage("");
+                setEmail("");
+
+                navigate("/");
             } catch (err) {
                 console.log(err);
             }
