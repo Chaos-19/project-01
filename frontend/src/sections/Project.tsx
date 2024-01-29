@@ -14,11 +14,7 @@ const ProjectCard = (props: {
     const { img, title, body, date } = props;
     return (
         <div className="relative group">
-            <img
-                src={img}
-                alt="Project image"
-                className="w-full bg-cover"
-            />
+            <img src={img} alt="Project image" className="w-full bg-cover" />
             <div className="absolute top-0 left-0 inset-0 bg-black/40">
                 <div className="flex flex-col gap-1.5 p-4 text-white">
                     <p className="text-xs">{date}</p>
@@ -27,7 +23,7 @@ const ProjectCard = (props: {
                         {body}
                     </p>
                 </div>
-                <button className="absolute opacity-0 group-hover:opacity-100 m-auto right-0 left-0 -bottom-8 md:group-hover:-bottom-2 transition-all bg-yellow-500 text-white p-2 px-2.5">
+                <button className="absolute opacity-0 group-hover:opacity-100 m-auto right-0 left-0 -bottom-8 group-hover:bottom-0 transition-all bg-yellow-500 text-white p-2 px-2.5">
                     Read more
                 </button>
             </div>
