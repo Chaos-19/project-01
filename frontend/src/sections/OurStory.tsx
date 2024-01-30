@@ -8,7 +8,7 @@ interface Props {
 const OurStory = (/*props: Props*/) => {
     return (
         <div
-            className="w-full h-[50vh] md:h-[28vh] bg-cover bg-fixed bg-center "
+            className="w-full h-[50vh] md:h-[48vh] bg-cover bg-fixed bg-center "
             style={{ backgroundImage: `url(${image4})` }}
         >
             <div className="w-full h-full flex justify-center">

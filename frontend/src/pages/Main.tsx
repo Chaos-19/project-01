@@ -16,7 +16,7 @@ interface Props {
 
 const Main = () => {
     return (
-        <div>
+        <div className="">
             <Hero />
             <Product />
             <Features />
