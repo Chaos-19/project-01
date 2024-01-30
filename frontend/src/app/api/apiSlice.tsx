@@ -117,7 +117,7 @@ export const apiSlice = createApi({
     
     >({
         query: () => ({
-            url: "/contacts",
+            url: "/contact",
             method: "GET",
         })
     })
