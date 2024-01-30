@@ -1,4 +1,5 @@
-import React from "react";
+
+
 
 import {
     Hero,
@@ -7,7 +8,7 @@ import {
     Project,
     OurStory,
     Blog,
-    Footer
+
 } from "../sections/index";
 
 interface Props {
@@ -16,7 +17,7 @@ interface Props {
 
 const Main = () => {
     return (
-        <div className="">
+        <div>
             <Hero />
             <Product />
             <Features />

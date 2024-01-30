@@ -38,29 +38,21 @@ export const navLinks: {}[] = [
         link: "/"
     },
     {
-        title: "pages",
-        link: "/pages",
-        submenu: true
+        title: "products",
+        link: "/product",
+       
     },
     {
-        title: "shop",
-        link: "/shop",
-        submenu: true
+        title: "contact",
+        link: "/contact",
+       
     },
     {
-        title: "icons",
-        link: "/icons",
-        submenu: true
+        title: "about",
+        link: "/contact",
+        
     },
-    {
-        title: "megamenu",
-        link: "/megamenu",
-        submenu: true
-    },
-    {
-        title: "shortcodes",
-        link: "/shortcodes"
-    }
+   
 ];
 
 export const headerSlide: Object[] = [

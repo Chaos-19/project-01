@@ -102,11 +102,25 @@ export const apiSlice = createApi({
             }
         >({
             query: userInfo => ({
-                url: "/contact",
+                url: "/contact/add",
                 method: "POST",
                 body: { ...userInfo }
             })
+        }),
+        getMessage: builder.query<{
+            name: string;
+            email?: string;
+            subject: string;
+            message: string;
+        }[],
+        {}
+    
+    >({
+        query: () => ({
+            url: "/contacts",
+            method: "GET",
         })
+    })
     })
 });
 
@@ -121,5 +135,6 @@ export const {
     useDeleteProductMutation,
     useGetOrderQuery,
     useAddOrderMutation,
-    useSendMessageMutation
+    useSendMessageMutation,
+    useGetMessageQuery
 } = apiSlice;

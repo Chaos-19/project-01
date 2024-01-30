@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 
 const productRoute = require("./routes/productRoute");
 const orderRoute = require("./routes/orderRoute");
+const customerRoute = require("./routes/customerRoute")
 const connectDB = require("./config/dbConnection");
 
 const app = express();
@@ -28,6 +29,7 @@ app.use(cookieParser());
 
 app.use("/product", productRoute);
 app.use("/order", orderRoute);
+app.use("/contact", customerRoute);
 
 mongoose.connection.once("open", () => {
     console.log("CONNETED TO MONGODB...");

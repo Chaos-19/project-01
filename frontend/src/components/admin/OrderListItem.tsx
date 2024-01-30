@@ -22,16 +22,19 @@ const OrderListItem = (props: Props) => {
     return (
         <div className="flex w-full">
             <div className="w-full border border-2 shadow-2xl rounded bg-white px-2 md:px-4">
-                <div className="flex items-center gap-4 overflow-y-hidden">
+                <div className="flex items-center gap-4 md:gap-16 overflow-y-hidden">
                     <img
                         src={product?.image.imgUrl}
                         alt="product image"
                         className="w-44  h-36 object-cover"
                     />
+                    
                     <div className="">23,000 EBR</div>
+                    <div className="">pending</div>
                     <div>
                         <input type="checkbox" />
                     </div>
+                    <div className=""><button className="py-0.5 p-2.5 border rounded-lg bg-red-500">Delete</button></div>
                 </div>
                 <div>
                     <div

@@ -1,15 +1,16 @@
 const Customer = require("../models/customerModel");
 
-const getCustomerMessages = (req, rea) => {
+const getCustomerMessages = async(req, res) => {
     try {
-        const messages = Customer.find();
-
+        const messages =await Customer.find();
+        console.log(messages)
         res.status(200).json({ messages });
+
     } catch (err) {
         res.status(500).json({ err });
     }
-};p
-const addCustomerMessqge = async (req, res) => {
+};
+const addCustomerMessage = async (req, res) => {
     const { name, email, subject, message } = req.body;
     try {
         if (!name && !email && !subject && !message) {
@@ -18,6 +19,7 @@ const addCustomerMessqge = async (req, res) => {
                 message: "feilds are empty"
             });
         }
+        console.log(req.body)
         const result = await Customer.create({ ...req.body });
         res.status(200).json({
             status: "success",
@@ -27,3 +29,5 @@ const addCustomerMessqge = async (req, res) => {
         res.status(500).json({ err });
     }
 };
+
+module.exports = { getCustomerMessages, addCustomerMessage }

@@ -3,9 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { contacts } from "../constants";
 import { useSendMessageMutation } from "../app/api/apiSlice";
 
-interface Props {
-    // Define your props here
-}
+
 const Icons = () => {
     return (
         <div className="flex flex-col md:flex-row justify-center md:justify-around gap-2.5 mt-14 bg-white py-10">
@@ -56,10 +54,10 @@ const Contact = () => {
 
     const [sendMessage, { isLoading }] = useSendMessageMutation();
 
-    const handleSubmitt = async (e: React.SyntheticEvent) => {
+    const handleSubmit = async (e: React.SyntheticEvent) => {
         e.preventDefault();
 
-        if (name & subject & message) {
+        if (name && subject && message) {
             try {
                 await sendMessage({
                     name,
@@ -100,7 +98,7 @@ const Contact = () => {
                         </button>
                     </div>
                     <div className="w-full mx-auto max-w-screen-md">
-                        <form className="w-full flex flex-col justify-center items-center gap-3 px-8 text-gray-500">
+                        <form onSubmit={handleSubmit} className="w-full flex flex-col justify-center items-center gap-3 px-8 text-gray-500">
                             <input
                                 type="text"
                                 placeholder="You name"
@@ -123,8 +121,7 @@ const Contact = () => {
                                 className="py-3 px-2 capitalize  rounded placeholder-gray-500 w-full"
                             />
                             <textarea
-                                name=""
-                                id=""
+                                name="message"
                                 cols="30"
                                 rows="10"
                                 value={message}

@@ -1,4 +1,3 @@
-import React from "react";
 import { image4 } from "../assets/index";
 
 interface Props {

@@ -4,6 +4,7 @@ import ProductList from "./ProductList";
 import EditeProduct from "./EditeProduct";
 import OrderListItem from "./OrderListItem";
 import Orders from "./Orders";
+import Message from "./Message";
 
 export {
     AddProductForm,
@@ -11,5 +12,6 @@ export {
     ProductList,
     EditeProduct,
     Orders,
-    OrderListItem
+    OrderListItem, 
+    Message
 };
