@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
+import toast from "react-hot-toast";
 import { useAddProductMutation } from "../../app/api/apiSlice";
+import {  useNavigate } from "react-router-dom";
 
-interface Props {
-    // Define your props here
-}
+const AddProductForm = () => {
 
-const AddProductForm = (/*props: Props*/) => {
-    const [name, setName] = useState<string>("");
+const navigate = useNavigate();
+
+const [name, setName] = useState<string>("");
     const [price, setPrice] = useState<number>();
     const [file, setFile] = useState<{}>();
     const [discount, setDiscount] = useState<number>();
@@ -21,16 +22,20 @@ const AddProductForm = (/*props: Props*/) => {
         formData.append("price", price);
         formData.append("discount", discount);
 
-        /*
-        for (const pair of formData.entries()) {
-            console.log(`${pair[0]}, ${pair[1]}`);
-        }
-        */
         try {
-            console.log(formData?.values);
-            await addProduct(formData).unwrap();
+            if (price && name && discount && file?.file) {
+                console.log(formData?.values);
+                await addProduct(formData).unwrap();
+                toast.success("Product added Successfully");
+                setName("");
+                setPrice(0);
+                setDiscount(0);
+                setFile({});
+                navigate("/list");
+            }
         } catch (e) {
             console.log(e);
+            toast.error("Something went wrong. please try again !");
         }
     };
 
@@ -44,15 +49,15 @@ const AddProductForm = (/*props: Props*/) => {
                     <div className="flex flex-col gap-1.5  ">
                         <div className="flex flex-col gap-1.5 ">
                             <label
-                                for="name"
+                                htmlFor="name"
                                 className="capitalize text-white"
                             >
                                 Product name
                             </label>
                             <input
                                 type="text"
-                                name="name"
                                 value={name}
+                                name="name"
                                 onChange={e => setName(e.target.value)}
                                 required
                                 className="py-3 px-2  capitalizetext-sm rounded placeholder-gray-500 w-full"
@@ -61,13 +66,12 @@ const AddProductForm = (/*props: Props*/) => {
                         <div className="flex flex-col gap-1.5 ">
                             <label
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                for="large_size"
+                                htmlFor="large_size"
                             >
                                 product image
                             </label>
                             <input
                                 class="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                id="large_size"
                                 type="file"
                                 name="file"
                                 onChange={e =>
@@ -88,7 +92,7 @@ const AddProductForm = (/*props: Props*/) => {
                         </div>
                         <div className="flex flex-col gap-1.5 ">
                             <label
-                                for="name"
+                                htmlFor="name"
                                 className="capitalize text-white"
                             >
                                 Price
@@ -104,7 +108,7 @@ const AddProductForm = (/*props: Props*/) => {
                         </div>
                         <div className="flex flex-col gap-1.5 ">
                             <label
-                                for="name"
+                                htmlFor="name"
                                 className="capitalize text-white"
                             >
                                 discount %

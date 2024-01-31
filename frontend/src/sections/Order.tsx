@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import { useAddOrderMutation } from "../app/api/apiSlice";
+import toast from "react-hot-toast";
 
 const Order = () => {
     const { productId } = useParams();
@@ -19,7 +20,7 @@ const Order = () => {
     const handleSubmit = async (e: React.SyntheticEvent) => {
         e.preventDefault();
         
-        if (name & phone & kifleKetema & location & city) {
+        if (name && phone && kifleKetema && location && city) {
             try {
                 await addOrder({
                     productId,
@@ -33,6 +34,7 @@ const Order = () => {
                     }
                 }).unwrap();
 
+                toast.success("the order placed Successfully , Thank you.");
                 setName("");
                 setPhone("");
                 setEmail("");
@@ -40,9 +42,14 @@ const Order = () => {
                 setLocation("");
                 setCity("");
 
-                navigate("/");
+                setTimeout(() => {     
+                    navigate("/");
+                }, 3000);
+
             } catch (err) {
                 console.log(err);
+                toast.error("Oops.. Something went wrong. please try again!");
+
             }
         }
     };

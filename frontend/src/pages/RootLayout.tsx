@@ -1,13 +1,10 @@
 import { Outlet } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import SectionWrapper from "../hoc/SectionWrapper";
 import { Footer } from "../sections/index";
 import { Navbar } from "../components/index";
 import { navLinks } from "../constants";
-
-interface Props {
-    // Define your props here
-}
 
 const RootLayout = () => {
     return (
@@ -19,6 +16,7 @@ const RootLayout = () => {
                 </div>
                 <Footer />
             </main>
+            <Toaster />
         </SectionWrapper>
     );
 };

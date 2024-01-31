@@ -39,13 +39,16 @@ const Orders = () => {
         content = <p>{"somthing went wrong....."}</p>;
     }
 
-    let messagess:any = ""
+    let messagess: any = ""
     if (isMessage) {
-     messagess = <p>Message Loading ....</p>
-    }else if (isMessageSuccess) {
-        console.log(message)
+        messagess = <p>Message Loading ....</p>
+    } else if (isMessageSuccess) {
+        messagess = message.messages.map((data) => {
+            return <Message data={data} />
+
+        })
     } else if (isError) {
-       console.log(messageError)
+        console.log(messageError)
     }
 
 
@@ -62,7 +65,7 @@ const Orders = () => {
                 {content}
             </div>
             <div className="col-span-12 md:col-span-5 py-16">
-                <Message />
+              {messagess}
             </div>
         </div>
     );

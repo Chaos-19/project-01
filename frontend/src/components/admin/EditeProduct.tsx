@@ -5,9 +5,7 @@ import {
     useGetProductInfoQuery
 } from "../../app/api/apiSlice";
 
-interface Props {
-    // Define your props here
-}
+import toast from "react-hot-toast";
 
 const EditeProduct = () => {
     const { id } = useParams();
@@ -60,13 +58,17 @@ const EditeProduct = () => {
 
         try {
             await updateProduct(formData).unwrap();
+            toast.success("product updated Successfully .");
             setName("");
             setPrice(0);
             setDiscount(0);
             setFile({});
             navigate("/list");
+           
         } catch (e) {
             console.log(e);
+            toast.error("Something went wrong. please try again !");
+
         }
     };
 

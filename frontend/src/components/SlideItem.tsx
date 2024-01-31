@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-
 import { staggerContainer, fadeIn } from "../utils/motion";
 
 interface SlideItemProps {
@@ -39,7 +38,7 @@ const SlideItem = (props: SlideItemProps) => {
                 <motion.button
                     variants={fadeIn("up", "spring", 0.85, 1.5)}
                     className={`${`bg-${btn?.color}-400`} p-2 px-4 border border-2`}
-                >
+                 >
                     {btn.text}
                 </motion.button>
             </motion.div>
