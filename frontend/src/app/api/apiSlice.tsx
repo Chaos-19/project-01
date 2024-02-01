@@ -92,6 +92,20 @@ export const apiSlice = createApi({
                 body: { ...orderInfo }
             })
         }),
+        updateOrder: builder.mutation<{}, { id; string }>({
+            query: ({ id }) => ({
+                url: `/order/update/:${id}`,
+                method: "POST",
+                body: { ...id }
+            })
+        }),
+        deleteOrder: builder.mutation<{}, { id; string }>({
+            query: ({ id }) => ({
+                url: `/order/:${id}`,
+                method: "DELETE",
+                body: { ...id }
+            })
+        }),
         sendMessage: builder.mutation<
             {},
             {
@@ -107,20 +121,20 @@ export const apiSlice = createApi({
                 body: { ...userInfo }
             })
         }),
-        getMessage: builder.query<{
-            name: string;
-            email?: string;
-            subject: string;
-            message: string;
-        }[],
-        {}
-    
-    >({
-        query: () => ({
-            url: "/contact",
-            method: "GET",
+        getMessage: builder.query<
+            {
+                name: string;
+                email?: string;
+                subject: string;
+                message: string;
+            }[],
+            {}
+        >({
+            query: () => ({
+                url: "/contact",
+                method: "GET"
+            })
         })
-    })
     })
 });
 
