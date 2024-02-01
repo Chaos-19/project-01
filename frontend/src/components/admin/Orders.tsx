@@ -28,8 +28,10 @@ const Orders = () => {
             return (
                 <OrderListItem
                     key={order._id}
+                    id={order._id}
                     productId={order.productId}
                     userInfo={order.userInfo}
+
                 />
             );
         });
@@ -37,7 +39,6 @@ const Orders = () => {
         content = <p>{"somthing went wrong....."}</p>;
     }
 
-<<<<<<< HEAD
     let messagess: any = ""
     if (isMessage) {
         messagess = <p>Message Loading ....</p>
@@ -48,18 +49,6 @@ const Orders = () => {
         })
     } else if (isError) {
         console.log(messageError)
-=======
-    let messagess: any = "";
-    if (isMessage) {
-        messagess = <p>Message Loading ....</p>;
-    } else if (isMessageSuccess) {
-        console.log(message);
-        messagess = message.messages.map((message, index) => {
-            return <Message key={message._id} data={message} />;
-        });
-    } else if (isError) {
-        console.log(messageError);
->>>>>>> 7c4e318430b09660ed4b167bc780d5e06fb7af51
     }
 
     return (
@@ -74,13 +63,9 @@ const Orders = () => {
                 </div>
                 {content}
             </div>
-<<<<<<< HEAD
             <div className="col-span-12 md:col-span-5 py-16">
               {messagess}
             </div>
-=======
-            <div className="col-span-12 md:col-span-5 py-16">{messagess}</div>
->>>>>>> 7c4e318430b09660ed4b167bc780d5e06fb7af51
         </div>
     );
 };

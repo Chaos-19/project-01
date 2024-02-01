@@ -1,21 +1,27 @@
 import React, { useState } from "react";
-import { useGetProductInfoQuery } from "../../app/api/apiSlice";
+import { useGetProductInfoQuery, useDeleteOrderMutation,
+    useUpdateOrderMutation, } from "../../app/api/apiSlice";
 
 import { ChevronUp, ChevronDown } from "../../assets/index";
 
 interface Props {
+    id:string;
     productId: string;
     userInfo: {};
 }
 
 const OrderListItem = (props: Props) => {
-    const { productId, userInfo } = props;
+    const {id, productId, userInfo } = props;
 
     const { product } = useGetProductInfoQuery(6, {
         selectFromResult: ({ data }) => ({
             product: data?.entities[productId]
         })
     });
+
+    console.log(props)
+
+    const [deleteOrder]= useDeleteOrderMutation()
 
     const [isDetailOpen, setIsDetailOpen] = useState<boolean>(false);
 
@@ -34,7 +40,7 @@ const OrderListItem = (props: Props) => {
                     <div>
                         <input type="checkbox" />
                     </div>
-                    <div className=""><button className="py-0.5 p-2.5 border rounded-lg bg-red-500">Delete</button></div>
+                    <div className=""><button className="py-0.5 p-2.5 border rounded-lg bg-red-500" onClick={()=> deleteOrder({id})}>Delete</button></div>
                 </div>
                 <div>
                     <div

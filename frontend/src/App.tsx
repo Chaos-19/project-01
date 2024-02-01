@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import { RootLayout, Layouts, Main } from "./pages/index";
-import { Contact, Order } from "./sections/index";
+import { Contact, Order ,Product} from "./sections/index";
 
 import {
     AddProductForm,
-    Notification,
+
     ProductList,
     EditeProduct,
     Orders
@@ -30,6 +30,10 @@ const App = () => {
                         <Route
                             path="/product/order/:productId"
                             element={<Order />}
+                        />
+                         <Route
+                            path="/products"
+                            element={<Product />}
                         />
 
                         {/*private route*/}

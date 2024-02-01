@@ -11,10 +11,6 @@ import {
 
 } from "../sections/index";
 
-interface Props {
-    // Define your props here
-}
-
 const Main = () => {
     return (
         <div>

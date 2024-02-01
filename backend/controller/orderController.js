@@ -48,7 +48,7 @@ const getOrder = async (req, res) => {
     }
 };
 const updateOrder = async (req, res) => {
-    const { id } = req.params;
+    const { orderId:id } = req.params;
 
     if (!id) {
         res.status(400).json({ status: "error", message: "id required" });
@@ -63,10 +63,10 @@ const updateOrder = async (req, res) => {
     }
 };
 const deleteOrder = async (req, res) => {
-    const { id } = req.params;
-
+    const { orderId:id } = req.params;
+    
     if (!id) {
-        res.status(400).json({ status: "error", message: "id required" });
+        return res.status(400).json({ status: "error", message: "id required" });
     }
     try {
         const result = await Order.findOneAndDelete({ _id: id });
@@ -74,7 +74,7 @@ const deleteOrder = async (req, res) => {
             status: "success",
             message: `order with ${id} deleted successfully`
         });
-        
+
     } catch (err) {
         res.status(500).json({ err });
     }
