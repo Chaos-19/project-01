@@ -55,6 +55,9 @@ const updateOrder = async (req, res) => {
     }
     try {
         const result = await Order.findById(id);
+        result.status = "done";
+        await result.save();
+        console.log(result);
     } catch (err) {
         res.status(500).json({ err });
     }
@@ -71,6 +74,7 @@ const deleteOrder = async (req, res) => {
             status: "success",
             message: `order with ${id} deleted successfully`
         });
+        
     } catch (err) {
         res.status(500).json({ err });
     }
