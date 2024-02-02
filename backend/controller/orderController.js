@@ -48,23 +48,28 @@ const getOrder = async (req, res) => {
     }
 };
 const updateOrder = async (req, res) => {
-    const { orderId:id } = req.params;
+    const { orderId: id } = req.params;
+    console.log("in update ... ")
+    console.log(req.body)
 
     if (!id) {
         res.status(400).json({ status: "error", message: "id required" });
     }
     try {
         const result = await Order.findById(id);
-        result.status = "done";
+        console.log(req.status)
+        result.status = req.body.status;
         await result.save();
-        console.log(result);
+      
+        res.status(200).json({status: "success",
+        message: `order with ${id} updated successfully`})
     } catch (err) {
         res.status(500).json({ err });
     }
 };
 const deleteOrder = async (req, res) => {
-    const { orderId:id } = req.params;
-    
+    const { orderId: id } = req.params;
+
     if (!id) {
         return res.status(400).json({ status: "error", message: "id required" });
     }

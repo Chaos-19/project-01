@@ -7,9 +7,9 @@ const OrderSchema = Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: "Product"
         },
-        status: { 
-          type: String,
-        default: "pending" },
+        status: {
+            type: String         
+        },
         userInfo: {
             name: {
                 type: String,
