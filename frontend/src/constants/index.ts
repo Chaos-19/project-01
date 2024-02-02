@@ -39,7 +39,7 @@ export const navLinks: {}[] = [
     },
     {
         title: "products",
-        link: "/product",
+        link: "/products",
        
     },
     {

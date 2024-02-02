@@ -68,7 +68,7 @@ const ProductCardModal = (props: Props) => {
                     .slice(0, 3)
                     .map((value, index) => {
                         return (
-                            <div className="grid grid-cols-2">
+                            <div key={value[0]} className="grid grid-cols-2">
                                 <h5 className="text-lg text-gray-600 font-semibold capitalize">
                                     {value[0]}
                                 </h5>
@@ -84,9 +84,8 @@ const ProductCardModal = (props: Props) => {
 
     return (
         <div
-            className={`${
-                isModalOpen ? "" : "hidden"
-            } overflow-y-auto overflow-x-hidden fixed inset-0 z-50 justify-center items-center backdrop-blur-sm bg-black/60`}
+            className={`${isModalOpen ? "" : "hidden"
+                } overflow-y-auto overflow-x-hidden fixed inset-0 z-50 justify-center items-center backdrop-blur-sm bg-black/60`}
         >
             <div className="relative w-full h-full flex items-center justify-center">
                 <div className="relative w-[400px] md:w-[600px]">
@@ -144,13 +143,13 @@ const ProductCardModal = (props: Props) => {
                         <ModalBody />
                         <ProductInfo title={"avilible Color"}>
                             {data[0].avilibleColor.map((item, index) => {
-                                return <div className={`h-6 w-6 ${item}`} />;
+                                return <div key={item} className={`h-6 w-6 ${item}`} />;
                             })}
                         </ProductInfo>
                         <ProductInfo title={"choose size"}>
                             {data[0].size.map((item, index) => {
                                 return (
-                                    <div className="h-7 w-7 bg-yellow-200/70 hover:border hover:border-2 hover:border-yellow-700 flex justify-center items-center uppercase">
+                                    <div key={item} className="h-7 w-7 bg-yellow-200/70 hover:border hover:border-2 hover:border-yellow-700 flex justify-center items-center uppercase">
                                         {item}
                                     </div>
                                 );

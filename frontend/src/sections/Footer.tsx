@@ -1,4 +1,4 @@
-import React from "react";
+import {Link} from "react-router-dom";
 import {
     Instagram,
     fImage1,
@@ -16,27 +16,23 @@ import { links } from "../constants";
 
 const images: string[] = [fImage1, fImage2, fImage3, fImage4, fImage5, fImage6];
 
-interface Props {
-    // Define your props here
-}
-
 const Links = () => {
     return (
         <div className="w-full flex flex-col md:flex-row  md:justify-around md:items-center border-t border-gray-700 pt-5 my-8">
             {links.map((link, index) => {
                 return (
-                    <div className="flex-1 flex flex-col justify-center items-center">
+                    <div key={link?.title} className="flex-1 flex flex-col justify-center items-center">
                         <h3 className="text-md text-yellow-600 font-medium uppercase my-2">
                             {link.title}
                         </h3>
                         {link.links.map((value, index) => {
                             return (
-                                <a
+                                <Link
                                     className="text-sm text-neutral-500 capitalize text-center"
-                                    href="/"
-                                >
+                                    to="/"
+                                key={value}>
                                     {value}
-                                </a>
+                                </Link>
                             );
                         })}
                     </div>
@@ -88,7 +84,7 @@ const Footer = (/*props: Props*/) => {
             <div className="w-full flex items-center">
                 {images.map((src, index) => {
                     return (
-                        <div className="flex-1">
+                        <div key={src} className="flex-1">
                             <img
                                 src={src}
                                 alt="interior image"

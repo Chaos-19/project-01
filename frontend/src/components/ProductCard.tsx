@@ -8,16 +8,6 @@ import { ShoppingCart, Eye, Heart } from "../assets/index";
 
 interface Props {
     id: string;
-    /*name: string;
-    price: {
-        original: number;
-        discount?: number;
-        discountPercent?: number;
-    };
-    image: string;
-    tage: {
-        isNew: boolean;
-    };*/
 }
 
 const ProductCard = (props: Props) => {

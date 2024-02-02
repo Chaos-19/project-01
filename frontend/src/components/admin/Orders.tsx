@@ -29,6 +29,7 @@ const Orders = () => {
                 <OrderListItem
                     key={order._id}
                     id={order._id}
+                    status={order.status}
                     productId={order.productId}
                     userInfo={order.userInfo}
 
@@ -64,7 +65,7 @@ const Orders = () => {
                 {content}
             </div>
             <div className="col-span-12 md:col-span-5 py-16">
-              {messagess}
+                {messagess}
             </div>
         </div>
     );

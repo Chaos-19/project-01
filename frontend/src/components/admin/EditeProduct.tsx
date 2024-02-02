@@ -63,10 +63,12 @@ const EditeProduct = () => {
             setPrice(0);
             setDiscount(0);
             setFile({});
-            navigate("/list");
+            setTimeout(() => {
+                
+                navigate(-1);
+            }, 1000);
            
         } catch (e) {
-            console.log(e);
             toast.error("Something went wrong. please try again !");
 
         }

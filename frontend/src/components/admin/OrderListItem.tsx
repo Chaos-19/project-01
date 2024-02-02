@@ -1,17 +1,21 @@
-import React, { useState } from "react";
-import { useGetProductInfoQuery, useDeleteOrderMutation,
-    useUpdateOrderMutation, } from "../../app/api/apiSlice";
+import { useState, useEffect } from "react";
+import {
+    useGetProductInfoQuery, useDeleteOrderMutation,
+    useUpdateOrderMutation
+} from "../../app/api/apiSlice";
 
 import { ChevronUp, ChevronDown } from "../../assets/index";
+import toast from "react-hot-toast";
 
 interface Props {
-    id:string;
+    id: string;
+    status: string;
     productId: string;
     userInfo: {};
 }
 
 const OrderListItem = (props: Props) => {
-    const {id, productId, userInfo } = props;
+    const { id, status, productId, userInfo } = props;
 
     const { product } = useGetProductInfoQuery(6, {
         selectFromResult: ({ data }) => ({
@@ -19,11 +23,41 @@ const OrderListItem = (props: Props) => {
         })
     });
 
-    console.log(props)
+    const [isStatusChecked, setIsStatusChecked] = useState<boolean>()
 
-    const [deleteOrder]= useDeleteOrderMutation()
+    const [deleteOrder] = useDeleteOrderMutation()
+    const [updateOrder] = useUpdateOrderMutation()
 
     const [isDetailOpen, setIsDetailOpen] = useState<boolean>(false);
+
+    const handleDelete = () => {
+        try {
+            deleteOrder({ id })
+            toast.success("order deleted Successfully");
+        } catch (error) {
+            toast.error("Something went wrong. please try again !");
+        }
+    }
+
+    const handleUpdate = () => {
+        try {
+          
+            updateOrder({ id, status: status=="pending" ? "done" : "pending" })
+            toast.success("order Updated Successfully");
+
+        } catch (error) {
+            toast.error("Something went wrong. please try again !");
+        }
+    }
+
+    useEffect(() => {
+        setIsStatusChecked(status == "done" ? true : false)
+    }, [status,isStatusChecked])
+
+
+
+
+
 
     return (
         <div className="flex w-full">
@@ -34,13 +68,13 @@ const OrderListItem = (props: Props) => {
                         alt="product image"
                         className="w-44  h-36 object-cover"
                     />
-                    
+
                     <div className="">23,000 EBR</div>
-                    <div className="">pending</div>
+                    <div className="">{status?status:"pending"}</div>
                     <div>
-                        <input type="checkbox" />
+                        <input type="checkbox" checked={isStatusChecked} onChange={handleUpdate} />
                     </div>
-                    <div className=""><button className="py-0.5 p-2.5 border rounded-lg bg-red-500" onClick={()=> deleteOrder({id})}>Delete</button></div>
+                    <div className=""><button className="py-0.5 p-2.5 border rounded-lg bg-red-500" onClick={handleDelete}>Delete</button></div>
                 </div>
                 <div>
                     <div

@@ -1,9 +1,6 @@
 import React from "react";
 import { projectsIdea } from "../constants";
 
-interface Props {
-    // Define your props here
-}
 
 const ProjectCard = (props: {
     title: string;
@@ -49,6 +46,7 @@ const Project = () => {
                     {projectsIdea.map((project, index) => {
                         return (
                             <ProjectCard
+                                key={project.title}
                                 title={project.title}
                                 body={project.body}
                                 img={project.img}

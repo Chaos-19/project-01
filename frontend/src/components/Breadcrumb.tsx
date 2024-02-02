@@ -12,7 +12,7 @@ const Breadcrumb = () => {
         >
             <div className="h-full w-full flex items-end text-white px-3">
                 <Home className="w-8 h-8 py-1" />
-                <sapn className="text-xl inline-flex items-end">/{path}</sapn>
+                <span className="text-xl inline-flex items-end">/{path}</span>
             </div>
         </div>
     );

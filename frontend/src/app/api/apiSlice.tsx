@@ -20,6 +20,7 @@ interface Product {
 }
 interface Order {
     productId: string;
+    status?: string;
     userInfo: {
         userName: string;
         email?: string;
@@ -38,7 +39,7 @@ const initialState = productAddpter.getInitialState();
 
 export const apiSlice = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3500" }),
-    tagTypes: ["products","orders"],
+    tagTypes: ["products", "orders"],
     endpoints: builder => ({
         getProductInfo: builder.query<Product[], number>({
             query: no => ({
@@ -84,30 +85,30 @@ export const apiSlice = createApi({
                 url: "/order/get",
                 method: "GET"
             }),
-            providesTags:["orders"]
+            providesTags: ["orders"]
         }),
         addOrder: builder.mutation<{}, Order>({
             query: orderInfo => ({
                 url: "/order/placeOrder",
                 method: "POST",
                 body: { ...orderInfo }
-            }),providesTags:["orders"]
+            }), providesTags: ["orders"]
         }),
-        updateOrder: builder.mutation<{}, { id; string }>({
-            query: ({ id }) => ({
-                url: `/order/update/:${id}`,
-                method: "POST",
-                body: { ...id }
+        updateOrder: builder.mutation<{}, { id: string; status: string }>({
+            query: ({ id, status }) => ({
+                url: `/order/update/${id}`,
+                method: "PUT",
+                body: { id, status }
             }),
-            invalidatesTags:["orders"]
+            invalidatesTags: ["orders"]
         }),
-        deleteOrder: builder.mutation<{}, { id:string }>({
+        deleteOrder: builder.mutation<{}, { id: string }>({
             query: ({ id }) => ({
                 url: `/order/delete/${id}`,
                 method: "DELETE",
                 body: { id }
             }),
-            invalidatesTags:["orders"]
+            invalidatesTags: ["orders"]
         }),
         sendMessage: builder.mutation<
             {},

@@ -11,6 +11,7 @@ const Icons = () => {
                 if (index !== 1)
                     return (
                         <div
+                        key= {value.title}
                             className={`order-${index} flex flex-col justify-center items-center`}
                         >
                             <value.Icon className="w-16 h-16 text-yellow-400" />

@@ -1,11 +1,8 @@
 import { ProductCard } from "../components/index";
-
 import { useGetProductInfoQuery } from "../app/api/apiSlice";
+import { table } from "../assets";
 //import { productList } from "../constants";
 
-interface Props {
-    // Define your props here
-}
 
 const Product = () => {
     const {
@@ -21,20 +18,27 @@ const Product = () => {
     let content = "";
     if (isLoading) {
         content = (
-            <tr>
-                <td className="w-full text-2xl text-red-600 text-center animate-pulse">
-                    Loading1....
-                </td>
-            </tr>
+            <table>
+                <tbody>
+                    <tr>
+                        <td className="w-full text-2xl text-red-600 text-center animate-pulse">
+                            Loading1....
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         );
     } else if (isError) {
         content = (
-            <tr>
-                <td>{JSON.stringify(error)}</td>;
-            </tr>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>{JSON.stringify(error)}</td>;
+                    </tr>
+                </tbody>
+            </table>
         );
     } else if (isSuccess) {
-        console.log(productList.ids);
         content = productList.ids.map((product, index) => {
             return <ProductCard key={product} id={product} />;
         });

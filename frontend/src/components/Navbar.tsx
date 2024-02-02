@@ -4,9 +4,6 @@ import { motion } from "framer-motion";
 import { staggerContainer, navMenu, navVariants } from "../utils/motion";
 import { logo, Menu, Close, ChevronRight, ChevronDown } from "../assets/index";
 
-interface Props {
-    // Define your props here
-}
 type listItemProps = {
     children: React.PropsWithChildren;
     link: string;
@@ -14,7 +11,7 @@ type listItemProps = {
 const ListItem = (props: listItemProps) => {
     const { children, link } = props;
     return (
-        <li className="">
+        <li>
             <a
                 href={link}
                 className="flex items-center gap-1"
@@ -55,7 +52,7 @@ const Navbar = (props: { navLinks: {}[] }) => {
                         <ul className="flex items-center gap-3.5 text-white text-xl font-black capitalize">
                             {navLinks.map((nav, index) => {
                                 return (
-                                    <ListItem link={nav.link}>
+                                    <ListItem link={nav.link} key={nav.title}>
                                         {nav.title}
                                         {nav?.submenu ? <ChevronDown /> : ""}
                                     </ListItem>
