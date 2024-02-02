@@ -3,7 +3,7 @@ import ProductItem from "./ProductItem";
 
 import {
     useGetProductInfoQuery,
-    
+
 } from "../../app/api/apiSlice";
 
 const ProductList = (/*props: Props*/) => {
@@ -25,7 +25,7 @@ const ProductList = (/*props: Props*/) => {
             return <ProductItem id={product} />;
         });
     } else if (isError) {
-        content = <p>{error}</p>;
+        content = <tbody><tr><td>{error}</td></tr></tbody>
     }
     return (
         <div className="py-8 overflow-x-scroll">

@@ -4,12 +4,18 @@ import { Toaster } from "react-hot-toast";
 import SectionWrapper from "../hoc/SectionWrapper";
 import { Footer } from "../sections/index";
 import { Navbar } from "../components/index";
-import { navLinks } from "../constants";
+import { navLinks ,navLinksAdmin} from "../constants";
+
+import { useAppSelector } from "../app/hook";
+import { selectCurrentToken } from "../features/auth/authSlice";
 
 const RootLayout = () => {
+
+    const token = useAppSelector(selectCurrentToken);
+
     return (
         <SectionWrapper>
-            <Navbar navLinks={navLinks} />
+            <Navbar navLinks={token?navLinksAdmin:navLinks} />
             <main>
                 <div>
                     <Outlet />

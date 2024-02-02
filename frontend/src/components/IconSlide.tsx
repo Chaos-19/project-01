@@ -1,4 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Link } from "react-router-dom";
 
 import { iconSlider } from "../constants";
 
@@ -12,8 +13,8 @@ const SlidIconItem = (props: slideIconProps) => {
     const { icon, title } = props;
 
     return (
-        <a
-            href="/"
+        <Link
+            to="/"
             className="text-white capitalize"
         >
             <figure className="flex flex-col justify-center items-center">
@@ -24,7 +25,7 @@ const SlidIconItem = (props: slideIconProps) => {
                 />
                 <figcaption>{title}</figcaption>
             </figure>
-        </a>
+        </Link>
     );
 };
 
@@ -47,9 +48,10 @@ const IconSlide = () => {
         >
             {iconSlider.map((slide, index) => {
                 return (
-                    <SwiperSlide className="w-full h-full">
+                    <SwiperSlide
+                        key={slide.title}
+                        className="w-full h-full">
                         <SlidIconItem
-                            key={slide.title + index}
                             icon={slide.icon}
                             title={slide.title}
                         />

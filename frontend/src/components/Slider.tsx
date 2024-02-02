@@ -37,9 +37,11 @@ const Slider = (props: Props) => {
             >
                 {headerSlide.map((slide, index) => {
                     return (
-                        <SwiperSlide className="w-full h-full">
+                        <SwiperSlide
+                            key={slide.title}
+                            className="w-full h-full">
                             <SlideItem
-                                key={slide.title + index}
+
                                 bgImage={slide.bgImage}
                                 title={slide.title}
                                 body={slide.body}

@@ -56,6 +56,7 @@ const Features = () => {
                 {features.map(({ title, icon, prevText, bgImage }, index) => {
                     return (
                         <FeatureCard
+                            key={title}
                             title={title}
                             icon={icon}
                             prevText={prevText}

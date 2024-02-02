@@ -1,14 +1,16 @@
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import { RootLayout, Layouts, Main } from "./pages/index";
-import { Contact, Order ,Product} from "./sections/index";
+import { Contact, Order, Product } from "./sections/index";
+import Login from "./features/auth/Login";
 
 import {
     AddProductForm,
-
     ProductList,
     EditeProduct,
     Orders
 } from "./components/admin/index";
+
+import RequireAuth from "./features/auth/RequireAuth";
 
 
 const App = () => {
@@ -17,6 +19,10 @@ const App = () => {
             <Routes>
                 <Route element={<RootLayout />}>
                     {/*public Route*/}
+                    <Route
+                        path="/login"
+                        element={<Login />}
+                    />
                     <Route
                         index
                         element={<Main />}
@@ -31,28 +37,31 @@ const App = () => {
                             path="/product/order/:productId"
                             element={<Order />}
                         />
-                         <Route
+                        <Route
                             path="/products"
-                            element={<Product />}
+                            element={<Product perPage={40} />}
                         />
 
                         {/*private route*/}
-                        <Route
-                            path="/product/list"
-                            element={<ProductList />}
-                        />
-                        <Route
-                            path="/product/add"
-                            element={<AddProductForm />}
-                        />
-                        <Route
-                            path="/product/edite/:id"
-                            element={<EditeProduct />}
-                        />
-                        <Route
-                            path="/order/list"
-                            element={<Orders />}
-                        />
+
+                        <Route element={<RequireAuth />}>
+                            <Route
+                                path="/product/list"
+                                element={<ProductList />}
+                            />
+                            <Route
+                                path="/product/add"
+                                element={<AddProductForm />}
+                            />
+                            <Route
+                                path="/product/edite/:id"
+                                element={<EditeProduct />}
+                            />
+                            <Route
+                                path="/order/list"
+                                element={<Orders />}
+                            />
+                        </Route>
                     </Route>
                 </Route>
             </Routes>

@@ -1,4 +1,3 @@
-import React from "react";
 import { projectsIdea } from "../constants";
 
 
@@ -9,6 +8,7 @@ const ProjectCard = (props: {
     date: string;
 }) => {
     const { img, title, body, date } = props;
+
     return (
         <div className="relative group">
             <img src={img} alt="Project image" className="w-full bg-cover" />

@@ -2,7 +2,6 @@ import React from "react";
 import { blogPost } from "../constants";
 
 interface Props {
-    // Define your props here
     title: string;
     date: string;
     img: string;
@@ -22,7 +21,7 @@ const BlogCard = (props: Props) => {
                 <div className="flex flex-col justify-center border-r-2 border-red-300 px-2.5 text-center">
                     {date.split(" ").map((value, index) => {
                         return (
-                            <span className="uppercase text-xs">{value}</span>
+                            <span key={value} className="uppercase text-xs">{value}</span>
                         );
                     })}
                 </div>
@@ -59,6 +58,7 @@ const Blog = (/*props: Props*/) => {
                     {blogPost.map((blog, index) => {
                         return (
                             <BlogCard
+                                key={`${blog.title}-${index}`}
                                 title={blog.title}
                                 img={blog.img}
                                 date={blog.date}

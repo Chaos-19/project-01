@@ -1,10 +1,16 @@
+import {Link  } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { ProductCard } from "../components/index";
 import { useGetProductInfoQuery } from "../app/api/apiSlice";
-import { table } from "../assets";
-//import { productList } from "../constants";
+
+
 
 
 const Product = () => {
+    const location = useLocation()
+
+    const path: string = location.pathname.replace("/", "");
+
     const {
         data: productList,
         isLoading,
@@ -12,10 +18,10 @@ const Product = () => {
         isError,
         error
     } = useGetProductInfoQuery(6);
-    // console.log(data.products);
-    //const productList = product.products;
+
 
     let content = "";
+
     if (isLoading) {
         content = (
             <table>
@@ -39,9 +45,15 @@ const Product = () => {
             </table>
         );
     } else if (isSuccess) {
-        content = productList.ids.map((product, index) => {
-            return <ProductCard key={product} id={product} />;
-        });
+        if (path == "products") {
+            content = productList.ids.map((product, index) => {
+                return <ProductCard key={product} id={product} />;
+            })
+        } else {
+            content = productList.ids.map((product, index) => {
+                return <ProductCard key={product} id={product} />;
+            }).splice(0, 6)
+        }
     }
     return (
         <div className="relative bg-[rgb(238,238,238)] text-black pt-8 w-full border-b">
@@ -56,9 +68,11 @@ const Product = () => {
                     {content}
                 </div>
                 <div className="mt-14 flex items-center justify-center">
+                  <Link to="/products">
                     <button className="capitalize bg-yellow-500 text-white px-2.5 py-1.5 rounded">
                         View store
                     </button>
+                  </Link>
                 </div>
             </div>
         </div>

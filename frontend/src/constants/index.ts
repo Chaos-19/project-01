@@ -55,6 +55,35 @@ export const navLinks: {}[] = [
    
 ];
 
+export const navLinksAdmin: {}[] = [
+    {
+        title: "home",
+        link: "/"
+    },
+    {
+        title: "products",
+        link: "/products",
+       
+    },
+    {
+        title: "product List",
+        link: "/product/list",
+       
+    },
+    {
+        title: "Add product",
+        link: "/product/add",
+        
+    },
+        {
+            title: "Orders",
+            link: "/order/list",
+           
+        },
+   
+];
+
+
 export const headerSlide: Object[] = [
     {
         title: "modern furniture theme",
