@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import { staggerContainer, navMenu, navVariants } from "../utils/motion";
 import { logo, Menu, Close, ChevronRight, ChevronDown } from "../assets/index";
@@ -7,17 +8,18 @@ import { logo, Menu, Close, ChevronRight, ChevronDown } from "../assets/index";
 type listItemProps = {
     children: React.PropsWithChildren;
     link: string;
+    style?: string
 };
 const ListItem = (props: listItemProps) => {
-    const { children, link } = props;
+    const { children, link, style } = props;
     return (
         <li>
-            <a
-                href={link}
-                className="flex items-center gap-1"
+            <Link
+                to={link}
+                className={`flex items-center gap ${style && style}`}
             >
                 {children}
-            </a>
+            </Link>
         </li>
     );
 };
@@ -32,12 +34,12 @@ const Navbar = (props: { navLinks: {}[] }) => {
         <nav>
             <motion.div className="relative w-full">
                 <div className="flex items-center justify-between py-2 px-3 lg:px-4 bg-black">
-                    <a href="/">
+                    <Link to="/">
                         <img
                             src={logo}
                             alt="brand logo"
                         />
-                    </a>
+                    </Link>
 
                     {/*mobile menu */}
                     <button
@@ -52,7 +54,7 @@ const Navbar = (props: { navLinks: {}[] }) => {
                         <ul className="flex items-center gap-3.5 text-white text-xl font-black capitalize">
                             {navLinks.map((nav, index) => {
                                 return (
-                                    <ListItem link={nav.link} key={nav.title}>
+                                    <ListItem link={nav.link} key={nav.title} style={nav?.style}>
                                         {nav.title}
                                         {nav?.submenu ? <ChevronDown /> : ""}
                                     </ListItem>
@@ -67,9 +69,8 @@ const Navbar = (props: { navLinks: {}[] }) => {
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: false, amount: 0.25 }}
-                    className={`w-full ${
-                        isOpen ? "flex" : "hidden"
-                    } flex-col absolute inset-x-0 top-0 bg-black z-50 pt-3 pr-3 pl-2 divide-y `}
+                    className={`w-full ${isOpen ? "flex" : "hidden"
+                        } flex-col absolute inset-x-0 top-0 bg-black z-50 pt-3 pr-3 pl-2 divide-y `}
                 >
                     <motion.button
                         variants={navVariants}
@@ -90,13 +91,13 @@ const Navbar = (props: { navLinks: {}[] }) => {
                                     )}
                                     key={nav.title}
                                 >
-                                    <a
-                                        href={nav.link}
+                                    <Link
+                                        to={nav.link}
                                         className="flex justify-center justify-between py-3 font-black uppercase text-lg"
                                     >
                                         {nav.title}
                                         {nav?.submenu ? <ChevronRight /> : ""}
-                                    </a>
+                                    </Link>
                                 </motion.li>
                             );
                         })}

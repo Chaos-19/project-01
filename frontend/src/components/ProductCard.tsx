@@ -27,7 +27,7 @@ const ProductCard = (props: Props) => {
     return (
         <div className="group relative flex flex-col bg-white shadow-xl  rounded">
             <div className="inset-x-0 h-fit absolute pt-2.5 md:pt-0 md:bottom-2.5 left-2.5">
-                {!product.price?.discount && (
+                {product.price?.discount && (
                     <span className="text-xs px-1 py-0.5 bg-sky-500 text-white rounded">
                         {product.price?.discount}%
                     </span>
@@ -54,7 +54,7 @@ const ProductCard = (props: Props) => {
                         </span>
                     )}
                     <span className="text-xs text-gray-500 font-light">
-                        ${(product.price?.original)-(product.price?.discount/100)*product.price?.original}
+                        ${(product.price?.original) - (product.price?.discount / 100) * product.price?.original}
                     </span>
                 </div>
                 <ProductCardModal
