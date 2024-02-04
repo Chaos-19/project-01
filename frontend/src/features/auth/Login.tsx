@@ -99,7 +99,7 @@ const Login = () => {
                                 onChange={e => setCheck(!check)}
                                 className="p-5"
                             />
-                            <label htmlFor="remember">Here's a checkbox</label>
+                            <label htmlFor="remember">Remember Me</label>
                         </div>
 
                         <a
@@ -111,10 +111,6 @@ const Login = () => {
                     </div>
                     <button className="w-full p-3 flex items-center justify-center text-white bg-blue-500 rounded-xl">
                         Sign in
-                    </button>
-                    <button className="w-full p-3 flex items-center justify-center gap-10 rounded-xl border hover:shadow-2xl hover:border-1 hover:border-red-600 transition-all ease-in-out">
-                        <FcGoogle className="w-8 h-8" />
-                        SignUp with Google
                     </button>
                 </form>
           

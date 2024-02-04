@@ -44,17 +44,17 @@ const ProductCard = (props: Props) => {
                 className="order-2 bg-cover"
             />
             <div className="p-2.5 pt-0 md:pt-1.5 order-3 md:inset-x-0 h-fit md:absolute md:top-2.5">
-                <h3 className="text-md font-mono uppercase text-gray-600 font-black">
+                <h3 className="text-md font-mono uppercase text-black-600 font-black">
                     {product.name}
                 </h3>
                 <div className="flex items-center gap-3">
                     {!!product.price?.discount && (
-                        <span className="text-xs text-gray-500 font-light line-through">
-                            ${product.price?.original}
+                        <span className="text-xs text-black-500 font-light line-through">
+                            {product.price?.original} ETB
                         </span>
                     )}
-                    <span className="text-xs text-gray-500 font-light">
-                        ${(product.price?.original)-(product.price?.discount/100)*product.price?.original}
+                    <span className="text-xs font-mono text-black-500 font-light">
+                        {(product.price?.original)-(product.price?.discount/100)*product.price?.original} ETB
                     </span>
                 </div>
                 <ProductCardModal

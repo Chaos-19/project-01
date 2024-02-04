@@ -88,7 +88,7 @@ const Contact = () => {
                             Send an email
                         </h2>
                         <p className="text-xs text-center px-3">
-                            Thanks for your interest in Mobel Theme. We believe
+                            Thanks for your interest in Elfegne Furniture. We believe
                             in creativity as one of the major forces of
                             progress. Please use this form if you have any
                             questions about our products and we'll get back with

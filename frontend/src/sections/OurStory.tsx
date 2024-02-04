@@ -17,7 +17,7 @@ const OurStory = (/*props: Props*/) => {
                     </h5>
                     <p className="text-sm md:text-md text-white text-center font-normal md:px-10">
                         We believe in creativity as one of the major forces of
-                        progress. With this idea, we traveled throughout Italy
+                        progress. With this idea, we traveled throughout World
                         to find exceptional artisans and bring their unique
                         handcrafted objects to connoisseurs everywhere.
                     </p>

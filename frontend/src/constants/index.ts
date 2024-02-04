@@ -86,22 +86,22 @@ export const navLinksAdmin: {}[] = [
 
 export const headerSlide: Object[] = [
     {
-        title: "modern furniture theme",
-        body: `modern  & powerfull template .
-        clean design & responsive layout .google font integration `,
-        btn: { text: "but the template", color: "yellow" },
+        title: "Elfegne Furniture",
+        body: `Elevate Your Living Space with Timeless Elegance`,
+        btn: { text: "Home", color: "yellow", link: "/" },
         bgImage: image1
+        
     },
     {
-        title: "very animate.css friend",
-        body: "combine with animate.css. Or just use your own!!. banch of typography effect ",
-        btn: { text: "but the template", color: "" },
+        title: "Unparalleled Craftsmanship",
+        body: "Discover Unmatched Comfort and Style in Every Detail",
+        btn: { text: "product", color: "yellow", link: "https://maps.app.goo.gl/PQBcymAGskJEwAx56" },
         bgImage: image2
     },
     {
-        title: "mobile ready!",
-        body: "unlimited choices. unbiteable price free shipping. furniture catagory icon fonts",
-        btn: { text: "get inspired", color: "" },
+        title: "Luxurious Comfort!",
+        body: "unlimited choices. unbiteable price free shipping.",
+        btn: { text: "Contact us", color: "black", link: "/products" },
         bgImage: image3
     }
 ];
@@ -243,19 +243,19 @@ export const projectsIdea: {}[] = [
         img: design1,
         title: "Creating the Perfect Gallery Wall",
         body: "You’ve finally reached this point in your life- you’ve bought your first home, moved into your very own apartment, moved out of the dorm room or you’re finally downsizing after all of your kids have left the nest.",
-        date: "25 mart 2017"
+        date: "25 mart 2021"
     },
     {
         img: design2,
         title: "Making the Most Out of Your Kids Old Bedroom",
-        body: "You’ve finally reached this point in your life- you’ve bought your first home, moved into your very own apartment, moved out of the dorm room or you’re finally downsizing after all of your kids have left the nest.",
-        date: "25 mart 2017"
+        body: "Immerse yourself in the artistry of our furniture. Meticulously crafted with precision, our pieces showcase the highest level of craftsmanship, ensuring durability and timeless appeal",
+        date: "25 mart 2021"
     },
     {
         img: design3,
         title: "Have a look at our new projects!",
-        body: "You’ve finally reached this point in your life- you’ve bought your first home, moved into your very own apartment, moved out of the dorm room or you’re finally downsizing after all of your kids have left the nest.",
-        date: "25 mart 2017"
+        body: "Quality is the cornerstone of our furniture. We source only the finest materials to create pieces that not only look exquisite but also withstand the test of time. Invest in furniture that lasts for generations.",
+        date: "25 mart 2021"
     }
 ];
 
@@ -263,17 +263,17 @@ export const blogPost: {}[] = [
     {
         title: "The 3 Tricks that Quickly Became Rules",
         img: blog1,
-        date: "mar 8 2017"
+        date: "mar 8 2021"
     },
     {
         title: "Decorating When You're Starting Out or Starting Over",
         img: blog2,
-        date: "mar 8 2017"
+        date: "mar 8 2021"
     },
     {
         title: "What does your favorite dining chair say about you?",
         img: blog3,
-        date: "mar 8 2017"
+        date: "mar 8 2021"
     }
 ];
 
@@ -295,7 +295,7 @@ export const contacts: {}[] = [
     {
         Icon: MapPin,
         title: "Where are we?",
-        text: "200 12th Ave, New York. NY 10001, USA"
+        text: "Kirkose Condiminium Ground floor,Addis Abeba,ETHIOPIA"
     },
     {
         Icon: phoneold,

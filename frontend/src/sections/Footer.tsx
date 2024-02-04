@@ -101,16 +101,19 @@ const Footer = (/*props: Props*/) => {
                             VISIT OUR SHOWROOM
                         </h2>
                         <p className="text-gray-600 text-sm">
-                            200 12th Ave, New York, NY 10001, USA
+                        Kirkose Condiminium Ground floor,Addis Abeba,ETHIOPIA
                         </p>
                         <p className="text-gray-600 text-sm">
                             Mon - Sat: 10 am - 6 pm | Sun: 12pm - 2 pm
                         </p>
                     </div>
                     <div className="flex flex-col justify-center items-center gap-4">
+                       
+                       <Link to="https://maps.app.goo.gl/PQBcymAGskJEwAx56">
                         <button className="flex items-center gap-1.5 py-2 px-2.5 text-md text-white capitalize border rounded">
                             <MapPin className="w-5 h-5" /> Get directions
                         </button>
+                        </Link>
                         <p className="text-md text-yellow-600 flex flex-col justify-center">
                             <span className="flex items-center gap-2">
                                 <Phone className="w-5 h-5" /> +251 902066660
