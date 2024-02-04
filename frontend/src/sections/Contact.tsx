@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { contacts } from "../constants";
 import { useSendMessageMutation } from "../app/api/apiSlice";
 
+import toast from "react-hot-toast";
+
 
 const Icons = () => {
     return (
@@ -11,7 +13,7 @@ const Icons = () => {
                 if (index !== 1)
                     return (
                         <div
-                        key= {value.title}
+                            key={value.title}
                             className={`order-${index} flex flex-col justify-center items-center`}
                         >
                             <value.Icon className="w-16 h-16 text-yellow-400" />
@@ -67,6 +69,8 @@ const Contact = () => {
                     message
                 }).unwrap();
 
+                toast.success("Thank for you idea ");
+
                 setName("");
                 setSubject("");
                 setMessage("");
@@ -75,6 +79,7 @@ const Contact = () => {
                 navigate("/");
             } catch (err) {
                 console.log(err);
+                toast.error("Something went wrong. please try again !");
             }
         }
     };
