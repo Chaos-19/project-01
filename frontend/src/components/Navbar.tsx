@@ -6,7 +6,7 @@ import { staggerContainer, navMenu, navVariants } from "../utils/motion";
 import { logo, Menu, Close, ChevronRight, ChevronDown } from "../assets/index";
 
 type listItemProps = {
-    children: React.PropsWithChildren;
+    children: React.ReactNode;
     link: string;
     style?: string
 };
@@ -52,7 +52,7 @@ const Navbar = (props: { navLinks: {}[] }) => {
                     {/*desktop navigation Link*/}
                     <div className="hidden lg:block">
                         <ul className="flex items-center gap-3.5 text-white text-xl font-black capitalize">
-                            {navLinks.map((nav, index) => {
+                            {navLinks.map((nav: any) => {
                                 return (
                                     <ListItem link={nav.link} key={nav.title} style={nav?.style}>
                                         {nav.title}
@@ -80,7 +80,7 @@ const Navbar = (props: { navLinks: {}[] }) => {
                         <Close color="white" />
                     </motion.button>
                     <ul className="w-full text-white divide-y font-serif pb-2">
-                        {navLinks.map((nav, index) => {
+                        {navLinks.map((nav:any, index: number) => {
                             return (
                                 <motion.li
                                     variants={navMenu(

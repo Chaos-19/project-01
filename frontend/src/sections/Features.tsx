@@ -2,10 +2,6 @@ import React, { useState, useEffect } from "react";
 import { features } from "../constants";
 import { Plus } from "../assets/index";
 
-interface Props {
-    // Define your props here props: Props
-}
-
 interface CardProps {
     title: string;
     icon: string;
@@ -53,14 +49,14 @@ const Features = () => {
     return (
         <div className="w-full">
             <div className="flex flex-col lg:flex-row">
-                {features.map(({ title, icon, prevText, bgImage }, index) => {
+                {features.map((feature: any) => {
                     return (
                         <FeatureCard
-                            key={title}
-                            title={title}
-                            icon={icon}
-                            prevText={prevText}
-                            bgImage={bgImage}
+                            key={feature.title}
+                            title={feature.title}
+                            icon={feature.icon}
+                            prevText={feature.prevText}
+                            bgImage={feature.bgImage}
                         />
                     );
                 })}

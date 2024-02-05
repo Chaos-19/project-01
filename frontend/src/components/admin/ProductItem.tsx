@@ -16,17 +16,17 @@ const ProductItem = (props: Props) => {
     const { id: productId } = props;
 
     const { product } = useGetProductInfoQuery(6, {
-        selectFromResult: ({ data }) => ({
+        selectFromResult: ({ data: any }) => ({
             product: data?.entities[productId]
         })
     });
-    
+
 
     const [deleteProduct] = useDeleteProductMutation();
 
     const handleDelete = async () => {
         try {
-            await deleteProduct({ id:product?._id }).unwrap();
+            await deleteProduct({ id: product?._id }).unwrap();
             toast.success("product deleted Successfully.");
         } catch (err) {
             console.log(err);
@@ -54,7 +54,7 @@ const ProductItem = (props: Props) => {
                     </button>
                 </Link>
                 <button
-                    onClick={() => handleDelete(productId) }
+                    onClick={() => handleDelete(productId)}
                     className="border py-1 md:py-2 px-3 rounded hover group hover:bg-red-500"
                 >
                     <Trash2 className="w-4 h-4 md:w-5 md:h-5 group-hover:text-white group-hover:scale-125" />

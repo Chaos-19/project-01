@@ -1,8 +1,6 @@
 import { image4 } from "../assets/index";
 
-interface Props {
-    // Define your props here
-}
+
 
 const OurStory = (/*props: Props*/) => {
     return (

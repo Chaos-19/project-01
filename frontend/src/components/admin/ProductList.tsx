@@ -1,9 +1,7 @@
-import React from "react";
 import ProductItem from "./ProductItem";
 
 import {
     useGetProductInfoQuery,
-
 } from "../../app/api/apiSlice";
 
 const ProductList = (/*props: Props*/) => {
@@ -15,12 +13,12 @@ const ProductList = (/*props: Props*/) => {
         error
     } = useGetProductInfoQuery(6);
 
-    let content = "";
+    let content: any = "";
 
     if (isLoading) {
     } else if (isSuccess) {
         const list = productList.ids;
-        content = productList.ids.map((product, index) => {
+        content = productList.ids.map((product: any, index: number) => {
             console.log(product);
             return <ProductItem id={product} />;
         });

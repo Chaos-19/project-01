@@ -19,13 +19,13 @@ const images: string[] = [fImage1, fImage2, fImage3, fImage4, fImage5, fImage6];
 const Links = () => {
     return (
         <div className="w-full flex flex-col md:flex-row  md:justify-around md:items-center border-t border-gray-700 pt-5 my-8">
-            {links.map((link, index) => {
+            {links.map((link: any) => {
                 return (
                     <div key={link?.title} className="flex-1 flex flex-col justify-center items-center">
                         <h3 className="text-md text-yellow-600 font-medium uppercase my-2">
                             {link.title}
                         </h3>
-                        {link.links.map((value, index) => {
+                        {link.links.map((value: any) => {
                             return (
                                 <Link
                                     className="text-sm text-neutral-500 capitalize text-center"

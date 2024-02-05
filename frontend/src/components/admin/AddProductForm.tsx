@@ -1,13 +1,13 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useAddProductMutation } from "../../app/api/apiSlice";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AddProductForm = () => {
 
-const navigate = useNavigate();
+    const navigate = useNavigate();
 
-const [name, setName] = useState<string>("");
+    const [name, setName] = useState<string>("");
     const [price, setPrice] = useState<number>();
     const [file, setFile] = useState<{}>();
     const [discount, setDiscount] = useState<number>();
@@ -17,7 +17,7 @@ const [name, setName] = useState<string>("");
     const handleSubmit = async (e: React.SyntheticEvent) => {
         e.preventDefault();
         let formData = new FormData();
-        formData.append("file", file.file);
+        formData.append("file", file?.file);
         formData.append("name", name);
         formData.append("price", price);
         formData.append("discount", discount);
@@ -31,7 +31,7 @@ const [name, setName] = useState<string>("");
                 setPrice(0);
                 setDiscount(0);
                 setFile({});
-                navigate("/list");
+                navigate("/product/list");
             }
         } catch (e) {
             console.log(e);
@@ -65,13 +65,13 @@ const [name, setName] = useState<string>("");
                         </div>
                         <div className="flex flex-col gap-1.5 ">
                             <label
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                 htmlFor="large_size"
                             >
                                 product image
                             </label>
                             <input
-                                class="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                className="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                                 type="file"
                                 name="file"
                                 onChange={e =>

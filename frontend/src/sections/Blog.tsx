@@ -1,4 +1,3 @@
-import React from "react";
 import { blogPost } from "../constants";
 
 interface Props {
@@ -19,7 +18,7 @@ const BlogCard = (props: Props) => {
             />
             <div className="w-full flex items-center gap-2 px-3 py-3">
                 <div className="flex flex-col justify-center border-r-2 border-red-300 px-2.5 text-center">
-                    {date.split(" ").map((value, index) => {
+                    {date.split(" ").map((value: any) => {
                         return (
                             <span key={value} className="uppercase text-xs">{value}</span>
                         );
@@ -41,7 +40,7 @@ const BlogCard = (props: Props) => {
     );
 };
 
-const Blog = (/*props: Props*/) => {
+const Blog = () => {
     return (
         <div className="w-full h-full bg-gray-200">
             <div className="py-6 flex flex-col justify-center items-center gap-3">
@@ -55,7 +54,7 @@ const Blog = (/*props: Props*/) => {
                 </div>
 
                 <div className="py-5 flex flex-col md:flex-row items-center md:items-stretch gap-2.5 md:w-screen-sm px-3">
-                    {blogPost.map((blog, index) => {
+                    {blogPost.map((blog: any, index) => {
                         return (
                             <BlogCard
                                 key={`${blog.title}-${index}`}

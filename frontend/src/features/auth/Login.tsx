@@ -18,7 +18,7 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const [login, { isLoading }] = useLoginMutation();
+    const [login] = useLoginMutation();
     const dispatch = useAppDispatch();
 
     useEffect(() => {

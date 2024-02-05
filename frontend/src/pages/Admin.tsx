@@ -1,13 +1,10 @@
-import React from "react";
 import {
-    AddProductForm,
-    Notification,
     ProductList
 } from "../components/admin/index";
 
-interface Props {}
+interface Props { }
 
-const Admin = (/*props: Props*/) => {
+const Admin = () => {
     return (
         <div>
             <ProductList />

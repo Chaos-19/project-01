@@ -55,7 +55,7 @@ const IconSlide = () => {
 
             className="absolute bottom-10 m-auto left-0 right-0 m-0 h-auto w-9/12"
         >
-            {iconSlider.map((slide, index) => {
+            {iconSlider.map((slide:any, index) => {
                 return (
                     <SwiperSlide
                         key={slide?.title}

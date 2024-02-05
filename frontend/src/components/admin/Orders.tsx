@@ -18,12 +18,12 @@ const Orders = () => {
         error: messageError
     } = useGetMessageQuery();
 
-    let content = "";
+    let content: any = "";
 
     if (isLoading) {
         content = <p>Loading...</p>;
     } else if (isSuccess) {
-        content = order.orderList.map((order, index) => {
+        content = order.orderList.map((order: any) => {
             console.log(order);
             return (
                 <OrderListItem
@@ -44,7 +44,7 @@ const Orders = () => {
     if (isMessage) {
         messagess = <p>Message Loading ....</p>
     } else if (isMessageSuccess) {
-        messagess = message.messages.map((data) => {
+        messagess = message.messages.map((data: any) => {
             return <Message data={data} />
 
         })

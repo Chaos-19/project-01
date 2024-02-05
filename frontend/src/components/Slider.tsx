@@ -10,12 +10,8 @@ import "swiper/css/navigation";
 import { IconSlide, SlideItem } from "./index";
 import { headerSlide } from "../constants";
 
-interface Props {
-    navHeight: number;
-}
 
-const Slider = (props: Props) => {
-    const { navHeight } = props;
+const Slider = () => {
 
     return (
         <div className="relative">
@@ -38,7 +34,7 @@ const Slider = (props: Props) => {
                 modules={[EffectFade, Pagination, Navigation, Autoplay]}
                 className={`mySwiper h-[calc(100dvh_-_60px)] w-full`}
             >
-                {headerSlide.map((slide, index) => {
+                {headerSlide.map((slide: any) => {
                     return (
                         <SwiperSlide
                             key={slide.title}

@@ -1,10 +1,11 @@
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { image3, Home } from "../assets/index";
 
 const Breadcrumb = () => {
     const location = useLocation();
     const path: string = location.pathname.replace("/", "");
+    
     return (
         <div
             className="w-full h-[10vh] bg-cover bg-center"

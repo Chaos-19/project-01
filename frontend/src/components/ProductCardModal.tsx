@@ -48,7 +48,7 @@ const ProductCardModal = (props: Props) => {
     const ProductInfo = (props: {
         title: string;
         style?: string;
-        children?: React.PropsWithChildren;
+        children?: React.ReactNode;
     }) => {
         const { title, children } = props;
         return (
@@ -66,7 +66,7 @@ const ProductCardModal = (props: Props) => {
             <div className="flex flex-col gap-2 w-full">
                 {Object.entries(data[0])
                     .slice(0, 3)
-                    .map((value, index) => {
+                    .map((value: any) => {
                         return (
                             <div key={value[0]} className="grid grid-cols-2">
                                 <h5 className="text-lg text-gray-600 font-semibold capitalize">
@@ -122,7 +122,7 @@ const ProductCardModal = (props: Props) => {
                             modules={[Pagination, Navigation]}
                             className={` h-fu w-full`}
                         >
-                            {productList.map((product, index) => {
+                            {productList.map((product: any, index) => {
                                 return (
                                     <SwiperSlide
                                         key={index}
@@ -142,12 +142,12 @@ const ProductCardModal = (props: Props) => {
                     <div className="w-full bg-white p-3 pl-5">
                         <ModalBody />
                         <ProductInfo title={"avilible Color"}>
-                            {data[0].avilibleColor.map((item, index) => {
+                            {data[0].avilibleColor.map((item: any) => {
                                 return <div key={item} className={`h-6 w-6 ${item}`} />;
                             })}
                         </ProductInfo>
                         <ProductInfo title={"choose size"}>
-                            {data[0].size.map((item, index) => {
+                            {data[0].size.map((item: any) => {
                                 return (
                                     <div key={item} className="h-7 w-7 bg-yellow-200/70 hover:border hover:border-2 hover:border-yellow-700 flex justify-center items-center uppercase">
                                         {item}
@@ -160,10 +160,10 @@ const ProductCardModal = (props: Props) => {
                     <div className="w-full flex items-center justify-between bg-gray-100">
                         <div className="py-5 px-4">
                             <h3 className="text-2xl font-medium uppercase text-gray-900">
-                                ${data[0].price.discount}
+                                ${data[0].price?.discount}
                             </h3>
                             <p className="text-md text-gray-800 line-through">
-                                ${data[0].price.original}
+                                ${data[0].price?.original}
                             </p>
                         </div>
                         <div className="flex items-center gap-5 px-3">

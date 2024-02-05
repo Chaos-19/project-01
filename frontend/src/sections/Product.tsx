@@ -1,4 +1,4 @@
-import {Link  } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { ProductCard } from "../components/index";
 import { useGetProductInfoQuery } from "../app/api/apiSlice";
@@ -20,7 +20,7 @@ const Product = () => {
     } = useGetProductInfoQuery(6);
 
 
-    let content = "";
+    let content: any = "";
 
     if (isLoading) {
         content = (
@@ -46,11 +46,11 @@ const Product = () => {
         );
     } else if (isSuccess) {
         if (path == "products") {
-            content = productList.ids.map((product, index) => {
+            content = productList.ids.map((product: any) => {
                 return <ProductCard key={product} id={product} />;
             })
         } else {
-            content = productList.ids.map((product, index) => {
+            content = productList.ids.map((product: any) => {
                 return <ProductCard key={product} id={product} />;
             }).splice(0, 6)
         }
@@ -68,11 +68,11 @@ const Product = () => {
                     {content}
                 </div>
                 <div className="mt-14 flex items-center justify-center">
-                  <Link to="/products">
-                    <button className="capitalize bg-yellow-500 text-white px-2.5 py-1.5 rounded">
-                        View store
-                    </button>
-                  </Link>
+                    <Link to="/products">
+                        <button className="capitalize bg-yellow-500 text-white px-2.5 py-1.5 rounded">
+                            View store
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>

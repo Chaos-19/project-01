@@ -1,7 +1,7 @@
 import { createEntityAdapter } from "@reduxjs/toolkit";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-import { RootState, store } from "../store";
+import { RootState } from "../store";
 
 interface Product {
     Id: string;

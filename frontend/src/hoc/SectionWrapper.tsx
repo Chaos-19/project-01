@@ -1,7 +1,7 @@
 import React from "react";
 
 interface Props {
-    children: React.PropsWithChildren;
+    children: React.ReactNode;
 }
 
 const SectionWrapper = (props: Props) => {

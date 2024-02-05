@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { contacts } from "../constants";
 import { useSendMessageMutation } from "../app/api/apiSlice";
@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 const Icons = () => {
     return (
         <div className="flex flex-col md:flex-row justify-center md:justify-around gap-2.5 mt-14 bg-white py-10">
-            {contacts.map((value, index) => {
+            {contacts.map((value: any, index: number | string) => {
                 if (index !== 1)
                     return (
                         <div
