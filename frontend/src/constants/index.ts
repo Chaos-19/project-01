@@ -52,6 +52,12 @@ export const navLinks: {}[] = [
         link: "/contact",
         
     },
+    {
+        title: "Login",
+        link: "/login",
+        style:"px-5 py-1.5 border rounded"
+
+    },
    
 ];
 

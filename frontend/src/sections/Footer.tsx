@@ -66,7 +66,7 @@ const Links = () => {
     );
 };
 
-const Footer = (/*props: Props*/) => {
+const Footer = () => {
     return (
         <div className="w-full flex flex-col justify-center">
             <div className="flex justify-center items-center bg-white">

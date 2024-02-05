@@ -1,8 +1,8 @@
 const Customer = require("../models/customerModel");
 
-const getCustomerMessages = async(req, res) => {
+const getCustomerMessages = async (req, res) => {
     try {
-        const messages =await Customer.find();
+        const messages = await Customer.find();
         console.log(messages)
         res.status(200).json({ messages });
 

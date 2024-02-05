@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 
 const User = require("../../models/userModel");
 
@@ -19,7 +19,7 @@ const handleLogin = async (req, res) => {
 
         // evaluate password
         const match = await bcrypt.compare(password, foundUser.password);
-
+        console.log(match)
         if (match) {
             const accessToken = jwt.sign(
                 {
@@ -81,14 +81,14 @@ const handleLogin = async (req, res) => {
                 sameSite: "None",
                 maxAge: 24 * 60 * 60 * 1000
             });
-
+            console.log("token : ", accessToken)
             // Send authorization roles and access token to user
             res.json({ token: accessToken });
         } else {
             res.sendStatus(401);
         }
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        res.status(500).json({ message: err });
     }
 };
 
