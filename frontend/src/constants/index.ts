@@ -94,7 +94,7 @@ export const headerSlide: Object[] = [
     },
     {
         title: "Unparalleled Craftsmanship",
-        body: "Discover Unmatched Comfort and Style in Every Detail",
+        body: "Discover Unmatched Comfort and Style in Every Details",
         btn: { text: "product", color: "yellow", link: "https://maps.app.goo.gl/PQBcymAGskJEwAx56" },
         bgImage: image2
     },
