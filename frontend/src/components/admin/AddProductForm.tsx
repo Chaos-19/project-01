@@ -9,7 +9,7 @@ const AddProductForm = () => {
 
     const [name, setName] = useState<string>("");
     const [price, setPrice] = useState<number>();
-    const [file, setFile] = useState<{}>();
+    const [file, setFile] = useState<{ file: any }>();
     const [discount, setDiscount] = useState<number>();
 
     const [addProduct, { isLoading }] = useAddProductMutation();

@@ -31,8 +31,8 @@ interface Order {
     };
 }
 
-const productAddpter = createEntityAdapter<Product>({
-    selectId: product => product._id
+const productAddpter = createEntityAdapter<Product | any>({
+
 });
 
 const initialState = productAddpter.getInitialState();

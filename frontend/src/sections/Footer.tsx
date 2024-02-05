@@ -82,7 +82,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="w-full flex items-center">
-                {images.map((src, index) => {
+                {images.map((src: string) => {
                     return (
                         <div key={src} className="flex-1 overflow-hidden">
                             <img

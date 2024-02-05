@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import { useAddOrderMutation } from "../app/api/apiSlice";
@@ -19,7 +19,7 @@ const Order = () => {
 
     const handleSubmit = async (e: React.SyntheticEvent) => {
         e.preventDefault();
-        
+
         if (name && phone && kifleKetema && location && city) {
             try {
                 await addOrder({
@@ -42,7 +42,7 @@ const Order = () => {
                 setLocation("");
                 setCity("");
 
-                setTimeout(() => {     
+                setTimeout(() => {
                     navigate("/");
                 }, 3000);
 
