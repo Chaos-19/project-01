@@ -33,7 +33,7 @@ const FeatureCard = (props: CardProps) => {
             </div>
 
             {/*Hover Effect*/}
-            <div className="bg-yellow-500/50 absolute inset-x-0 -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+            <div className="bg-yellow-500/50 absolute inset-x-0 -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
                 <div className="flex flex-col justify-center px-3 py-2">
                     <h3 className="text-md md:text-xl font-medium capitalize">
                         {prevText.split(".")[0]}
