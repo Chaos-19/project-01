@@ -1,5 +1,5 @@
 
-import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { image3, Home } from "../assets/index";
 
 const Breadcrumb = () => {
@@ -11,7 +11,9 @@ const Breadcrumb = () => {
             style={{ backgroundImage: `url(${image3})` }}
         >
             <div className="h-full w-full flex items-end text-white px-3">
-                <Home className="w-8 h-8 py-1" />
+                <Link to="/">
+                    <Home className="w-8 h-8 py-1" />
+                </Link>
                 <span className="text-xl inline-flex items-end">/{path}</span>
             </div>
         </div>

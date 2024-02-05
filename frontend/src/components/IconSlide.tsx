@@ -58,7 +58,7 @@ const IconSlide = () => {
             {iconSlider.map((slide, index) => {
                 return (
                     <SwiperSlide
-                        key={slide.title}
+                        key={slide?.title}
                         className="w-full h-full">
                         <SlidIconItem
                             icon={slide.icon}
