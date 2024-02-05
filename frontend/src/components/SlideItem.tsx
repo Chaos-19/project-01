@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
 import { staggerContainer, fadeIn } from "../utils/motion";
 
 interface SlideItemProps {
@@ -6,6 +8,7 @@ interface SlideItemProps {
     title: string;
     body: string;
     btn: Object;
+
 }
 
 const SlideItem = (props: SlideItemProps) => {
@@ -35,12 +38,14 @@ const SlideItem = (props: SlideItemProps) => {
                 >
                     {body}
                 </motion.p>
-                <motion.button
-                    variants={fadeIn("up", "spring", 0.85, 1.5)}
-                    className={`${`bg-${btn?.color}-400`} p-2 px-4 border border-2`}
-                 >
-                    {btn.text}
-                </motion.button>
+                <Link to={btn?.link} className="block">
+                    <motion.button
+                        variants={fadeIn("up", "spring", 0.85, 1.5)}
+                        className={`${`bg-${btn?.color}-400`} p-2 px-4 border border-2 rounded-lg`}
+                    >
+                        {btn.text}
+                    </motion.button>
+                </Link>
             </motion.div>
         </div>
     );

@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, Pagination, Navigation } from "swiper/modules";
+import { EffectFade, Pagination, Navigation, Autoplay } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
@@ -31,8 +31,11 @@ const Slider = (props: Props) => {
                     clickable: true
                 }}
                 navigation={true}
-                effect={""}
-                modules={[EffectFade, Pagination, Navigation]}
+                autoplay={{
+                    delay: 4500,
+                    disableOnInteraction: false,
+                }}
+                modules={[EffectFade, Pagination, Navigation, Autoplay]}
                 className={`mySwiper h-[calc(100dvh_-_60px)] w-full`}
             >
                 {headerSlide.map((slide, index) => {

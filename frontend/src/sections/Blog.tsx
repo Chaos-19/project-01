@@ -32,7 +32,7 @@ const BlogCard = (props: Props) => {
                 </div>
             </div>
             {/*Hover effect*/}
-            <div className="flex items-center justify-center pb-2 invisible group-hover:visible opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 transition-all duration-300">
+            <div className="flex items-center justify-center pb-2 invisible group-hover:visible opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 transition-all duration-300 pointer-events-none">
                 <button className="capitalize rounded bg-yellow-400 text-white py-1.5 px-2">
                     Read more
                 </button>

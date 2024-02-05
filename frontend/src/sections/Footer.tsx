@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
     Instagram,
     fImage1,
@@ -30,7 +30,7 @@ const Links = () => {
                                 <Link
                                     className="text-sm text-neutral-500 capitalize text-center"
                                     to="/"
-                                key={value}>
+                                    key={value}>
                                     {value}
                                 </Link>
                             );
@@ -84,11 +84,11 @@ const Footer = () => {
             <div className="w-full flex items-center">
                 {images.map((src, index) => {
                     return (
-                        <div key={src} className="flex-1">
+                        <div key={src} className="flex-1 overflow-hidden">
                             <img
                                 src={src}
                                 alt="interior image"
-                                className="w-full bg-cover"
+                                className="w-full bg-cover hover:scale-125 transition-all duration-500 cursor-pointer"
                             />
                         </div>
                     );
@@ -101,18 +101,18 @@ const Footer = () => {
                             VISIT OUR SHOWROOM
                         </h2>
                         <p className="text-gray-600 text-sm">
-                        Kirkose Condiminium Ground floor,Addis Abeba,ETHIOPIA
+                            Kirkose Condiminium Ground floor,Addis Abeba,ETHIOPIA
                         </p>
                         <p className="text-gray-600 text-sm">
                             Mon - Sat: 10 am - 6 pm | Sun: 12pm - 2 pm
                         </p>
                     </div>
                     <div className="flex flex-col justify-center items-center gap-4">
-                       
-                       <Link to="https://maps.app.goo.gl/PQBcymAGskJEwAx56">
-                        <button className="flex items-center gap-1.5 py-2 px-2.5 text-md text-white capitalize border rounded">
-                            <MapPin className="w-5 h-5" /> Get directions
-                        </button>
+
+                        <Link to="https://maps.app.goo.gl/PQBcymAGskJEwAx56">
+                            <button className="flex items-center gap-1.5 py-2 px-2.5 text-md text-white capitalize border rounded">
+                                <MapPin className="w-5 h-5" /> Get directions
+                            </button>
                         </Link>
                         <p className="text-md text-yellow-600 flex flex-col justify-center">
                             <span className="flex items-center gap-2">

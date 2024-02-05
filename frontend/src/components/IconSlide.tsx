@@ -1,6 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
 
+import { Autoplay } from 'swiper/modules';
+
 import { iconSlider } from "../constants";
 
 interface slideIconProps {
@@ -14,7 +16,7 @@ const SlidIconItem = (props: slideIconProps) => {
 
     return (
         <Link
-            to="/"
+            to="/products"
             className="text-white capitalize"
         >
             <figure className="flex flex-col justify-center items-center">
@@ -44,6 +46,13 @@ const IconSlide = () => {
                     slidesPerView: 5
                 }
             }}
+
+            autoplay={{
+                delay: 1300,
+                disableOnInteraction: true,
+            }}
+            modules={[Autoplay]}
+
             className="absolute bottom-10 m-auto left-0 right-0 m-0 h-auto w-9/12"
         >
             {iconSlider.map((slide, index) => {
