@@ -16,9 +16,12 @@ const ProductItem = (props: Props) => {
     const { id: productId } = props;
 
     const { product } = useGetProductInfoQuery(6, {
-        selectFromResult: ({ data: any }) => ({
-            product: data?.entities[productId]
-        })
+        selectFromResult: ({ data }) => {
+            if (!data || !data.entities || !data.entities[productId]) {
+                throw new Error('Invalid data or missing product entity');
+            }
+            return { product: data.entities[productId] };
+        }
     });
 
 

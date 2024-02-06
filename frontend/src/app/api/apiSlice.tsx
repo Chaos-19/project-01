@@ -32,7 +32,7 @@ interface Order {
 }
 
 const productAddpter = createEntityAdapter<Product | any>({
-
+    selectId: product => product._id
 });
 
 const initialState = productAddpter.getInitialState();
@@ -41,17 +41,17 @@ export const apiSlice = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3500" }),
     tagTypes: ["products", "orders"],
     endpoints: builder => ({
-        getProductInfo: builder.query<Product[], { no?: number }>({
-            query: (no) => ({
+        getProductInfo: builder.query<Product[], number>({
+            query: no => ({
                 url: "/product/get",
                 method: "GET"
             }),
             transformResponse: (
-                response: { products?: Product[] },
+                response: { products: Product[] },
                 meta,
                 arg
             ) => {
-                return productAddpter.setAll(initialState, response?.products);
+                return productAddpter.setAll(initialState, response.products);
             },
             providesTags: ["products"]
         }),
@@ -92,7 +92,8 @@ export const apiSlice = createApi({
                 url: "/order/placeOrder",
                 method: "POST",
                 body: { ...orderInfo }
-            }), providesTags: ["orders"]
+            }),
+            providesTags: ["orders"]
         }),
         updateOrder: builder.mutation<{}, { id: string; status: string }>({
             query: ({ id, status }) => ({
