@@ -19,8 +19,8 @@ const AddProductForm = () => {
         let formData = new FormData();
         formData.append("file", file?.file);
         formData.append("name", name);
-        formData.append("price", price);
-        formData.append("discount", discount);
+        formData.append("price", "" && price);
+        formData.append("discount", "" && discount);
 
         try {
             if (price && name && discount && file?.file) {

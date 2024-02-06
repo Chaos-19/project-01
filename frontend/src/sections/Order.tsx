@@ -5,7 +5,7 @@ import { useAddOrderMutation } from "../app/api/apiSlice";
 import toast from "react-hot-toast";
 
 const Order = () => {
-    const { productId } = useParams();
+    const { productId } = useParams() as (string | any);
     const navigate = useNavigate();
 
     const [name, setName] = useState<string>("");

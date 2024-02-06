@@ -128,8 +128,8 @@ const Contact = () => {
                             />
                             <textarea
                                 name="message"
-                                cols="30"
-                                rows="10"
+                                cols={30}
+                                rows={10}
                                 value={message}
                                 onChange={e => setMessage(e.target.value)}
                                 placeholder="message...."

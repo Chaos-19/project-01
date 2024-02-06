@@ -19,7 +19,7 @@ export const navVariants = {
     }
 };
 
-export const navMenu = (direction: string, type: string, delay: number | string, duration: number | string) => ({
+export const navMenu = (direction: string, type: string, delay: number | string, duration: number | string) =>  ({
     hidden: {
         x: direction === "left" ? "-10%" : direction === "right" ? "90%" : 0,
         scale: 0

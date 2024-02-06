@@ -41,17 +41,17 @@ export const apiSlice = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3500" }),
     tagTypes: ["products", "orders"],
     endpoints: builder => ({
-        getProductInfo: builder.query<Product[], number>({
-            query: no => ({
+        getProductInfo: builder.query<Product[], { no?: number }>({
+            query: (no) => ({
                 url: "/product/get",
                 method: "GET"
             }),
             transformResponse: (
-                response: { products: Product[] },
+                response: { products?: Product[] },
                 meta,
                 arg
             ) => {
-                return productAddpter.setAll(initialState, response.products);
+                return productAddpter.setAll(initialState, response?.products);
             },
             providesTags: ["products"]
         }),
