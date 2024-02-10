@@ -30,4 +30,21 @@ const addCustomerMessage = async (req, res) => {
     }
 };
 
-module.exports = { getCustomerMessages, addCustomerMessage }
+const deleteCustomerMessage = async (req, res) => {
+    const { _id } = req.params;
+    if (!_id) {
+        return res.status(400).json({ status: "error", message: "id required" });
+    }
+    try {
+        const result = await Customer.findOneAndDelete({ _id });
+        res.status(200).json({
+            status: "success",
+            message: `Message with ${_id} deleted successfully`
+        });
+
+    } catch (err) {
+        res.status(500).json({ err });
+    }
+};
+
+module.exports = { getCustomerMessages, addCustomerMessage, deleteCustomerMessage }

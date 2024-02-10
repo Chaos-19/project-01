@@ -19,7 +19,6 @@ const handleLogin = async (req, res) => {
 
         // evaluate password
         const match = await bcrypt.compare(password, foundUser.password);
-        console.log(match)
         if (match) {
             const accessToken = jwt.sign(
                 {
@@ -29,7 +28,7 @@ const handleLogin = async (req, res) => {
                     }
                 },
                 process.env.ACESS_TOKEN_SECRETE,
-                { expiresIn: "10s" }
+                { expiresIn: "1d" }
             );
 
             const newRefreshToken = jwt.sign(
@@ -40,48 +39,16 @@ const handleLogin = async (req, res) => {
                     }
                 },
                 process.env.REFRESH_TOKEN_SECRETE,
-                { expiresIn: "15s" }
+                { expiresIn: "15m" }
             );
 
-            let newRefreshTokenArray = !cookies?.jwt
-                ? foundUser.refreshTokens
-                : foundUser.refreshTokens.filter(rt => rt !== cookies.jwt);
-
-            if (cookies?.jwt) {
-                const refreshToken = cookies.jwt;
-                const foundToken = await User.findOne({
-                    refreshTokens: refreshToken
-                });
-
-                // Detected refresh token reuse!
-                if (!foundToken) {
-                    // clear out ALL previous refresh tokens
-                    newRefreshTokenArray = [];
-                }
-
-                res.clearCookie("jwt", {
-                    httpOnly: true,
-                    sameSite: "None",
-                    secure: true
-                });
-            }
-
-            // Saving refreshToken with current user
-            foundUser.refreshTokens = [
-                ...newRefreshTokenArray,
-                newRefreshToken
-            ];
-            const result = await foundUser.save();
-
-            console.log(result);
-            // Creates Secure Cookie with refresh token
             res.cookie("jwt", newRefreshToken, {
                 httpOnly: true,
                 secure: true,
                 sameSite: "None",
                 maxAge: 24 * 60 * 60 * 1000
             });
-            console.log("token : ", accessToken)
+
             // Send authorization roles and access token to user
             res.json({ token: accessToken });
         } else {

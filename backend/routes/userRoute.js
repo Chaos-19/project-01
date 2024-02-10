@@ -8,4 +8,3 @@ route
     .get("/refresh", userController.handleRefreshToken);
 
 module.exports = route;
-  

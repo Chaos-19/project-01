@@ -14,6 +14,7 @@ const addOrder = async (req, res) => {
             }
         } = req.body;
         console.log(req.body);
+
         console.log(name, email, phone, kifleKetema, location, city);
 
         const result = await Order.create({
@@ -41,9 +42,14 @@ const addOrder = async (req, res) => {
 };
 const getOrder = async (req, res) => {
     try {
+        console.log(req.cookies)
         const orderList = await Order.find();
-        res.status(200).json({ orderList });
+
+        console.log(orderList)
+        res.status(200).json({ orderList: orderList });
+
     } catch (err) {
+        console.log("error")
         res.status(500).json({ err });
     }
 };
@@ -60,10 +66,13 @@ const updateOrder = async (req, res) => {
         console.log(req.status)
         result.status = req.body.status;
         await result.save();
-      
-        res.status(200).json({status: "success",
-        message: `order with ${id} updated successfully`})
+
+        res.status(200).json({
+            status: "success",
+            message: `order with ${id} updated successfully`
+        })
     } catch (err) {
+        console.log("error")
         res.status(500).json({ err });
     }
 };
