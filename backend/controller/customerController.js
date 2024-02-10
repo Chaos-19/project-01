@@ -3,7 +3,6 @@ const Customer = require("../models/customerModel");
 const getCustomerMessages = async (req, res) => {
     try {
         const messages = await Customer.find();
-        console.log(messages)
         res.status(200).json({ messages });
 
     } catch (err) {
@@ -32,6 +31,7 @@ const addCustomerMessage = async (req, res) => {
 
 const deleteCustomerMessage = async (req, res) => {
     const { _id } = req.params;
+
     if (!_id) {
         return res.status(400).json({ status: "error", message: "id required" });
     }
