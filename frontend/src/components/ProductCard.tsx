@@ -60,14 +60,16 @@ const ProductCard = (props: Props) => {
                 <ProductCardModal
                     handleModal={handleModal}
                     isModalOpen={isModalOpen}
+                    image={product.image.imgUrl}
+                    name={product.name}
                 />
             </div>
 
             {/*Hover effect*/}
             <div className="hidden group-hover:block absolute right-0 w-20 inset-y-0">
-                <div className="flex flex-col items-center gap-3 md:gap-5 pt-6 md:pt-20 h-full">
+                <div className="flex flex-col items-center gap-3 md:gap-5 pt-6 md:pt-20 h-full z-50 border border-red-600">
                     <Heart color="red" />
-                    <Eye onClick={handleModal} />
+                    <Eye onClick={handleModal} className={isModalOpen ? "z-auto" : "z-50"} />
                 </div>
                 <div className="absolute inset-x-0 bottom-0 h-24">
                     <Link to={`/product/order/${productId}`}>
