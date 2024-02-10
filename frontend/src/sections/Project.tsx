@@ -42,7 +42,7 @@ const Project = () => {
                         </p>
                     </div>
                 </div>
-                <div className="flex flex-col md:flex-row px-4 gap-3.5 md:gap-4 md:justify-center mb-5 md:px-28">
+                <div className="flex flex-col lg:flex-row px-4 gap-3.5 md:gap-4 md:justify-center mb-5 md:px-28">
                     {projectsIdea.map((project: any) => {
                         return (
                             <ProjectCard
