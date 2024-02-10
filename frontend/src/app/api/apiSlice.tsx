@@ -52,7 +52,7 @@ export const apiSlice = createApi({
         }
     })
     ,
-    tagTypes: ["products", "orders"],
+    tagTypes: ["products", "orders", "message"],
     endpoints: builder => ({
         getProductInfo: builder.query<Product[], number>({
             query: no => ({
@@ -138,6 +138,7 @@ export const apiSlice = createApi({
                 method: "POST",
                 body: { ...userInfo }
             })
+            , invalidatesTags: ["message"]
         }),
         getMessage: builder.query<
             {
@@ -151,7 +152,8 @@ export const apiSlice = createApi({
             query: () => ({
                 url: "/contact",
                 method: "GET"
-            })
+            }),
+            providesTags: ["message"]
         }),
         deleteMessage: builder.mutation<
             {
@@ -161,7 +163,7 @@ export const apiSlice = createApi({
             query: ({ _id }) => ({
                 url: `/contact/delete/${_id}`,
                 method: "DELETE"
-            })
+            }), invalidatesTags: ["message"]
         }),
     })
 });
