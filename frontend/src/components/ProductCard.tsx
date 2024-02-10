@@ -67,7 +67,7 @@ const ProductCard = (props: Props) => {
 
             {/*Hover effect*/}
             <div className="hidden group-hover:block absolute right-0 w-20 inset-y-0">
-                <div className="flex flex-col items-center gap-3 md:gap-5 pt-6 md:pt-20 h-full z-50 border border-red-600">
+                <div className="flex flex-col items-center gap-3 md:gap-5 pt-6 md:pt-20 h-full">
                     <Heart color="red" />
                     <Eye onClick={handleModal} className={isModalOpen ? "z-auto" : "z-50"} />
                 </div>
