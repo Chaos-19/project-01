@@ -38,7 +38,20 @@ const productAddpter = createEntityAdapter<Product | any>({
 const initialState = productAddpter.getInitialState();
 
 export const apiSlice = createApi({
-    baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3500" }),
+    baseQuery: fetchBaseQuery({
+        baseUrl: "http://localhost:3500",
+        credentials: "include",
+        prepareHeaders: (headers, { getState }) => {
+            const token = (getState() as RootState).auth.token;
+
+            if (token) {
+                headers.set("authorization", `Bearer ${token}`);
+            }
+            console.log(headers, token)
+            return headers;
+        }
+    })
+    ,
     tagTypes: ["products", "orders"],
     endpoints: builder => ({
         getProductInfo: builder.query<Product[], number>({
@@ -80,7 +93,7 @@ export const apiSlice = createApi({
             }),
             invalidatesTags: ["products"]
         }),
-        getOrder: builder.query<Order[], null>({
+        getOrder: builder.query<Order[], {}>({
             query: () => ({
                 url: "/order/get",
                 method: "GET"
@@ -139,7 +152,17 @@ export const apiSlice = createApi({
                 url: "/contact",
                 method: "GET"
             })
-        })
+        }),
+        deleteMessage: builder.mutation<
+            {
+            },
+            { _id: string }
+        >({
+            query: ({ _id }) => ({
+                url: `/contact/delete/${_id}`,
+                method: "DELETE"
+            })
+        }),
     })
 });
 
@@ -157,5 +180,6 @@ export const {
     useDeleteOrderMutation,
     useUpdateOrderMutation,
     useSendMessageMutation,
-    useGetMessageQuery
+    useGetMessageQuery,
+    useDeleteMessageMutation
 } = apiSlice;

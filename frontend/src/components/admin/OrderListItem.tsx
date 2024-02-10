@@ -74,7 +74,9 @@ const OrderListItem = (props: Props) => {
                     <div>
                         <input type="checkbox" checked={isStatusChecked} onChange={handleUpdate} />
                     </div>
-                    <div className=""><button className="py-0.5 p-2.5 border rounded-lg bg-red-500" onClick={handleDelete}>Delete</button></div>
+                    <div className="">
+                        <button className="py-0.5 p-2.5 border rounded-lg bg-red-500" onClick={handleDelete}>Delete</button>
+                        </div>
                 </div>
                 <div>
                     <div

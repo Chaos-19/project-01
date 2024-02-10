@@ -71,7 +71,7 @@ const EditeProduct = () => {
 
         } catch (e) {
             toast.error("Something went wrong. please try again !");
-
+            navigate("/not-found");
         }
     };
 

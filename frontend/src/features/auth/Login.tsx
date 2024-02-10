@@ -37,7 +37,7 @@ const Login = () => {
                 const userDate = await login({ email, password }).unwrap();
 
                 /*const userDate: {} = { token: "this is my token" };*/
-                dispatch(setCredentials({ ...userDate, user: email }));
+                dispatch(setCredentials({ ...userDate, email }));
                 setEmail("");
                 setPassword("");
                 navigate("/product/list");
@@ -49,7 +49,7 @@ const Login = () => {
     };
 
     return (
-        <section className="w-screen h-screen flex justify-center items-center">
+        <section className="w-screen h-screen flex justify-center items-center mb-10">
             <div className="w-full max-w-lg md:p-8 p-12">
                 <h2 className="text-4xl text-black font-medium">
                     Welcome back
@@ -113,7 +113,7 @@ const Login = () => {
                         Sign in
                     </button>
                 </form>
-          
+
             </div>
         </section>
     );

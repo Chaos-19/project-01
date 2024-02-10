@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { ChevronUp, ChevronDown } from "../../assets/index";
 
+import { useDeleteMessageMutation } from "../../app/api/apiSlice";
+
 type Props = {
     data: {};
 };
 
 const Message = (props: Props) => {
     const { data } = props;
-    console.log(data);
     const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    const [deleteMessage] = useDeleteMessageMutation()
 
     return (
         <div>
@@ -33,6 +36,9 @@ const Message = (props: Props) => {
                         {data?.name && <li>{`Name :  ${data?.name}`}</li>}
                         {data?.email && <li>{`Email: ${data?.email}`}</li>}
                     </ul>
+                    <div className="flex justify-end item-center w-full py-1.5">
+                        <button className="py-0.5 p-2.5 border rounded-lg border-red-500" onClick={() => deleteMessage({ _id: data?._id })}>Delete</button>
+                    </div>
                 </div>
             </div>
         </div>
