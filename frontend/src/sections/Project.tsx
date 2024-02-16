@@ -20,7 +20,7 @@ const ProjectCard = (props: {
                         {body}
                     </p>
                 </div>
-                <button className="absolute opacity-0 group-hover:opacity-100 m-auto right-0 left-0 -bottom-8 group-hover:bottom-0 transition-all bg-yellow-500 text-white p-2 px-2.5">
+                <button className="pointer-events-none absolute opacity-0 group-hover:opacity-100 m-auto right-0 left-0 -bottom-8 group-hover:bottom-0 transition-all bg-yellow-500 text-white p-2 px-2.5">
                     Read more
                 </button>
             </div>

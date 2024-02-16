@@ -41,8 +41,8 @@ const OrderListItem = (props: Props) => {
 
     const handleUpdate = () => {
         try {
-          
-            updateOrder({ id, status: status=="pending" ? "done" : "pending" })
+
+            updateOrder({ id, status: status == "pending" ? "done" : "pending" })
             toast.success("order Updated Successfully");
 
         } catch (error) {
@@ -52,7 +52,7 @@ const OrderListItem = (props: Props) => {
 
     useEffect(() => {
         setIsStatusChecked(status == "done" ? true : false)
-    }, [status,isStatusChecked])
+    }, [status, isStatusChecked])
 
 
 
@@ -69,14 +69,14 @@ const OrderListItem = (props: Props) => {
                         className="w-44  h-36 object-cover"
                     />
 
-                    <div className="">23,000 EBR</div>
-                    <div className="">{status?status:"pending"}</div>
+                    <div className="">{product.price.discount}</div>
+                    <div className="">{status ? status : "pending"}</div>
                     <div>
                         <input type="checkbox" checked={isStatusChecked} onChange={handleUpdate} />
                     </div>
                     <div className="">
                         <button className="py-0.5 p-2.5 border rounded-lg bg-red-500" onClick={handleDelete}>Delete</button>
-                        </div>
+                    </div>
                 </div>
                 <div>
                     <div
