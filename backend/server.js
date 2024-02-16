@@ -15,7 +15,6 @@ const corsOptions = require("./config/corsOptions")
 const connectDB = require("./config/dbConnection");
 
 const { logger } = require("./middleware/logEvents")
-const verifyJWT = require("./middleware/verifyJWT")
 
 
 const app = express();
@@ -38,7 +37,7 @@ app.use(cookieParser());
 
 app.use("/product", productRoute);
 app.use("/order", orderRoute);
-app.use("/contact", verifyJWT, customerRoute);
+app.use("/contact", customerRoute);
 app.use("/auth", adminRoute);
 
 app.use(require("./middleware/errorHandler"))
