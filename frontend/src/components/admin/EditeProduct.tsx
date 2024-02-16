@@ -172,7 +172,7 @@ const EditeProduct = () => {
                         type="submit"
                         className="my-10 text-white py-2 px-2.5 rounded border max-w-30 capitalize"
                     >
-                        {isLoading ? "pudating..." : "Update Product"}
+                        {isLoading ? "updating..." : "Update Product"}
                     </button>
                 </form>
             </div>

@@ -1,7 +1,10 @@
 import { OrderListItem, Message } from "./index";
 import { useGetOrderQuery, useGetMessageQuery } from "../../app/api/apiSlice";
+import { useNavigate } from "react-router-dom";
 
 const Orders = () => {
+    const navigate = useNavigate()
+
     const {
         data: order,
         isLoading,
@@ -38,6 +41,7 @@ const Orders = () => {
         });
     } else if (isError) {
         content = <p>{"somthing went wrong....."}</p>;
+        navigate("/not-found");
     }
 
     let messagess: any = ""

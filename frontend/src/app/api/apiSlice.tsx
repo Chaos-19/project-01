@@ -75,7 +75,7 @@ export const apiSlice = createApi({
                 method: "POST",
                 body: productInfo
             }),
-            providesTags: ["products"]
+            invalidatesTags: ["products"]
         }),
         updateProduct: builder.mutation<{}, Object>({
             query: product => ({

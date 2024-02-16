@@ -61,7 +61,7 @@ const OrderListItem = (props: Props) => {
 
     return (
         <div className="flex w-full">
-            <div className="w-full border border-2 shadow-2xl rounded bg-white px-2 md:px-4">
+            <div className="w-full border-2 shadow-2xl rounded bg-white px-2 md:px-4">
                 <div className="flex items-center gap-4 md:gap-16 overflow-y-hidden">
                     <img
                         src={product?.image.imgUrl}

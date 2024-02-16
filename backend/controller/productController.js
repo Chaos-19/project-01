@@ -23,13 +23,15 @@ const addProducts = async (req, res) => {
 
         const imageUrl = result.secure_url;
         const imageId = result.public_id;
+
+        
         console.log(result);
 
         const newProduct = await Product.create({
             name,
             price: {
                 original: Number(price),
-                discount: Number(discount) || 0
+                discount: Number(discount)
             },
             image: {
                 imgUrl: imageUrl,

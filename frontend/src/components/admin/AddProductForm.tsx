@@ -8,9 +8,9 @@ const AddProductForm = () => {
     const navigate = useNavigate();
 
     const [name, setName] = useState<string>("");
-    const [price, setPrice] = useState<number>();
+    const [price, setPrice] = useState<number>(0);
     const [file, setFile] = useState<{ file: any }>();
-    const [discount, setDiscount] = useState<number>();
+    const [discount, setDiscount] = useState<number>(0);
 
     const [addProduct, { isLoading }] = useAddProductMutation();
 
@@ -19,8 +19,8 @@ const AddProductForm = () => {
         let formData = new FormData();
         formData.append("file", file?.file);
         formData.append("name", name);
-        formData.append("price", "" && price);
-        formData.append("discount", "" && discount);
+        formData.append("price", price);
+        formData.append("discount", discount);
 
         try {
             if (price && name && discount && file?.file) {
@@ -36,6 +36,7 @@ const AddProductForm = () => {
         } catch (e) {
             console.log(e);
             toast.error("Something went wrong. please try again !");
+           
         }
     };
 
