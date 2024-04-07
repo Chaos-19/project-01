@@ -13,6 +13,7 @@ import {
     FaFacebook
 } from "../assets/index";
 import { links } from "../constants";
+import { FaTiktok } from "react-icons/fa";
 
 const images: string[] = [fImage1, fImage2, fImage3, fImage4, fImage5, fImage6];
 
@@ -104,7 +105,7 @@ const Footer = () => {
                             Kirkose Condiminium Ground floor,Addis Abeba,ETHIOPIA
                         </p>
                         <p className="text-gray-600 text-sm">
-                            Mon - Sat: 10 am - 6 pm | Sun: 12pm - 2 pm
+                            Mon - Sat : 9 am - 7 pm 
                         </p>
                     </div>
                     <div className="flex flex-col justify-center items-center gap-4">
@@ -122,16 +123,22 @@ const Footer = () => {
                                 <Phone className="w-5 h-5" /> +251 954839444
                             </span>
                         </p>
+                        <div className="flex items-center gap-2">
+                        <Link to = "https://vm.tiktok.com/ZM6EUMGu9/">
+                            <FaTiktok className="w-8 h-8 text-white" />
+                        </Link>
+                    </div>
                     </div>
                 </div>
                 <Links />
-                <div className="flex justify-center md:justify-end items-center px-10">
-                    <div className="flex items-center gap-2">
-                        <FaFacebook className="w-8 h-8 text-white" />
-                        <FaTelegramPlane className="w-8 h-8 text-white" />
-                        <Instagram className="w-8 h-8 text-white" />
-                    </div>
-                </div>
+                
+                <div className="flex flex-col justify-center items-center text-center gap-2">
+                    <Link to = "https://t.me/nazrawi76">
+                        <h4 className="text-xl font-semibold text-gray-600">
+                            Elfegnefurnishing 2024 © All right reserved
+                        </h4>
+                    </Link>
+                        </div>
             </div>
         </div>
     );

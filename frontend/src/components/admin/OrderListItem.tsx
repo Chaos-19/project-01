@@ -69,7 +69,7 @@ const OrderListItem = (props: Props) => {
                         className="w-44  h-36 object-cover"
                     />
 
-                    <div className="">{(product.price?.original) - (product.price?.discount / 100) * product.price?.original}</div>
+                    <div className="">{product && ((product.price?.original) - (product.price?.discount / 100) * product.price?.original)}</div>
                     <div className="">{status ? status : "pending"}</div>
                     <div>
                         <input type="checkbox" checked={isStatusChecked} onChange={handleUpdate} />

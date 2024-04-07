@@ -90,25 +90,7 @@ const Login = () => {
                         onChange={e => setPassword(e.target.value)}
                         className="p-3 border border-gray-300 rounded"
                     />
-                    <div className="flex gap-3 items-center justify-between py-3 text-black">
-                        <div className="flex gap-3 items-center text-black">
-                            <input
-                                type="checkbox"
-                                name="remember"
-                                checked={check}
-                                onChange={e => setCheck(!check)}
-                                className="p-5"
-                            />
-                            <label htmlFor="remember">Remember Me</label>
-                        </div>
-
-                        <a
-                            href=""
-                            className="font-medium text-blue-700"
-                        >
-                            Forgot password
-                        </a>
-                    </div>
+                    
                     <button className="w-full p-3 flex items-center justify-center text-white bg-blue-500 rounded-xl">
                         Sign in
                     </button>

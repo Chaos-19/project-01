@@ -49,11 +49,11 @@ const ProductCard = (props: Props) => {
                 </h3>
                 <div className="flex items-center gap-3">
                     {product.price?.discount && (
-                        <span className="text-xs text-black-500 font-light line-through">
+                        <span className="text-base font-normal text-black-900 dark:text-black line-through">
                             {product.price?.original} ETB
                         </span>
                     )}
-                    <span className="text-xs font-mono text-black-500 font-light">
+                    <span className="text-base font-semibold text-black-900 dark:text-black">
                         {(product.price?.original) - (product.price?.discount / 100) * product.price?.original} ETB
                     </span>
                 </div>

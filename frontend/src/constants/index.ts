@@ -101,13 +101,13 @@ export const headerSlide: Object[] = [
     {
         title: "Unparalleled Craftsmanship",
         body: "Discover Unmatched Comfort and Style in Every Details",
-        btn: { text: "product", color: "yellow", link: "https://maps.app.goo.gl/PQBcymAGskJEwAx56" },
+        btn: { text: "product", color: "yellow", link: "/products" },
         bgImage: image2
     },
     {
         title: "Luxurious Comfort!",
         body: "unlimited choices. unbiteable price free shipping.",
-        btn: { text: "Contact us", color: "black", link: "/products" },
+        btn: { text: "Contact us", color: "yellow", link: "/contact" },
         bgImage: image3
     }
 ];
