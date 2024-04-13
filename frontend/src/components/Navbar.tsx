@@ -38,6 +38,7 @@ const Navbar = (props: { navLinks: {}[] }) => {
                         <img
                             src={logo}
                             alt="brand logo"
+                            className="w-5 h-5"
                         />
                     </Link>
 
