@@ -78,7 +78,7 @@ const Footer = () => {
                         <span>Instagram</span>
                     </h2>
                     <p className="text-center text-sm text-neutral-500">
-                        @elfegnefurnishing
+                        @stackmaster
                     </p>
                 </div>
             </div>
@@ -102,7 +102,7 @@ const Footer = () => {
                             VISIT OUR SHOWROOM
                         </h2>
                         <p className="text-gray-600 text-sm">
-                            Kirkose Condiminium Ground floor,Addis Abeba,ETHIOPIA
+                          Addis Abeba,ETHIOPIA
                         </p>
                         <p className="text-gray-600 text-sm">
                             Mon - Sat : 9 am - 7 pm 
@@ -110,17 +110,17 @@ const Footer = () => {
                     </div>
                     <div className="flex flex-col justify-center items-center gap-4">
 
-                        <Link to="https://maps.app.goo.gl/PQBcymAGskJEwAx56">
+                        <Link to="https://maps.app.goo.gl/">
                             <button className="flex items-center gap-1.5 py-2 px-2.5 text-md text-white capitalize border rounded">
                                 <MapPin className="w-5 h-5" /> Get directions
                             </button>
                         </Link>
                         <p className="text-md text-yellow-600 flex flex-col justify-center">
                             <span className="flex items-center gap-2">
-                                <Phone className="w-5 h-5" /> +251 902066660
+                                <Phone className="w-5 h-5" /> +251 988741783
                             </span>
                             <span className="flex items-center gap-2">
-                                <Phone className="w-5 h-5" /> +251 954839444
+                                <Phone className="w-5 h-5" /> +251 988741783
                             </span>
                         </p>
                         <div className="flex items-center gap-2">
