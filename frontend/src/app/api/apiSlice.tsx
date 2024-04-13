@@ -39,7 +39,7 @@ const initialState = productAddpter.getInitialState();
 
 export const apiSlice = createApi({
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://localhost:3500",
+        baseUrl: "https://project-01-1.onrender.com",
         credentials: "include",
         prepareHeaders: (headers, { getState }) => {
             const token = (getState() as RootState).auth.token;
