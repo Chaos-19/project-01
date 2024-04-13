@@ -135,7 +135,7 @@ const Footer = () => {
                 <div className="flex flex-col justify-center items-center text-center gap-2">
                     <Link to = "https://t.me/nazrawi76">
                         <h4 className="text-xl font-semibold text-gray-600">
-                            Elfegnefurnishing 2024 © All right reserved
+                           Developed By StackMaster 2024 © All right reserved
                         </h4>
                     </Link>
                         </div>

@@ -1,4 +1,4 @@
-import logo from "./07_logo.png";
+import logo from "./07_logo.jpg";
 import {
     AlignJustify as Menu,
     X as Close,
